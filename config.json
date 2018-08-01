@@ -1,0 +1,7 @@
+{
+	"baseUrl": "/ciapp",
+	"resourceDir": "asset/",
+	"dbHost": "localhost",
+	"dbUser": "root",
+	"dbPass": ""
+}
