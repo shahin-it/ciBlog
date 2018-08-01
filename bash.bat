@@ -1,0 +1,1 @@
+"D:\ShahinKhaled\Software\PortableGit\git-bash.exe" "--cd=D:\ShahinKhaled\Software\xampp\htdocs\ciBlog"
