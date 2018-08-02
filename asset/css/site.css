@@ -1,9 +1,10 @@
-header {
-	min-height: 100px;
-}
 header.banner {
-	background-image: url(../image/banner.jpeg);
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-origin: content-box;
+    background-image: url(../image/banner.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-origin: content-box;
+}
+footer {
+    background-color: #062b18;
+    background-origin: content-box;
 }

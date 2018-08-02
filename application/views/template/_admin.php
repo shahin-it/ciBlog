@@ -58,12 +58,12 @@
     </article>
   </section>
   <footer class="">
-    <div class="row">
-      <div class="col-sm-8">
+    <div class="row py-1">
+      <div class="col-sm-6">
         <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    
       </div>
-      <div class="col-sm-4">
-        <p>© 2013 Company Name. All rights reserved</p>
+      <div class="col-sm-6 text-sm-right">
+        <span>© 2013 Company Name. All rights reserved</span>
       </div>
     </div>
   </footer>
