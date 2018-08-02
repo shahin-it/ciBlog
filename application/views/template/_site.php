@@ -8,13 +8,15 @@
   <meta name="googlebot" content="all, index, follow"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo base_url(); ?>asset/vendor/angular-1.7.2.min.js"></script>
+  <!-- <script src="<?php echo base_url(); ?>asset/vendor/angular-1.7.2.min.js"></script> -->
   <script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
   <script src="<?php echo base_url(); ?>asset/js/app.js"></script>
+  <script src="<?php echo base_url(); ?>asset/js/site.js"></script>
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap-reboot.min.css"/>
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/font-awesome.min.css"/>
   <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/style.css"/>
+  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/site.css"/>
 
   <?php
   /** -- Copy from here -- */
@@ -49,7 +51,7 @@
   </head>
   <body>
     <div class="container">
-      <header class="container banner">
+      <header class="banner container">
         <div id="global-info"></div>
       </header>
       <section id="body" class="row">
@@ -84,10 +86,10 @@
       </section>
       <footer class="container">
         <div class="row">
-          <div class="col-sm-8">
+          <div class="col-sm-6">
             <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <p>© 2013 Company Name. All rights reserved</p>
           </div>
         </div>

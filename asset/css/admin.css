@@ -1,0 +1,13 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+header, footer {
+	background-color: #563d7c;
+	color: #ffff;
+}
+header a:hover, footer a:hover {
+	text-decoration: none;
+	color: inherit;
+    cursor:pointer;	
+}

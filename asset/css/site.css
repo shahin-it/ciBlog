@@ -1,0 +1,9 @@
+header {
+	min-height: 100px;
+}
+header.banner {
+	background-image: url(../image/banner.jpeg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-origin: content-box;
+}
