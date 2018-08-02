@@ -37,6 +37,3 @@ section#body {
         display: block !important;
     }
 }
-.list-group-item-action::before {
-    content: "◈ ";
-}
