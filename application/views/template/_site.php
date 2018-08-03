@@ -48,10 +48,10 @@
 
     </head>
     <body>
-        <header class="banner container">
+        <header class="banner">
             <div id="global-info"></div>
         </header>
-        <section id="body" class="container">
+        <section id="body" class="container-fluid">
             <div class="row">
                 <div class="sidebar col-md-3">
                     <form class="bd-search d-flex align-items-center">
@@ -83,7 +83,7 @@
                 </article>
             </div>
         </section>
-        <footer class="container">
+        <footer class="">
             <div class="row py-1">
                 <div class="col-sm-6">
                     <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    
