@@ -57,7 +57,31 @@
 </head>
 <body>
 <header class="banner">
-	<div id="global-info">Header</div>
+	<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><i class="fas fa-book pr-1"></i>Batayon</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="#">Category</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Post</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Comment</a></li>
+				<li class="nav-item"><a class="nav-link disabled" href="#">Social</a></li>
+			</ul>
+			<ul class="navbar-nav flex-row">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+						<a class="dropdown-item fa fa-eye" href="<?php echo base_url()?>" target="_blank"> View Site</a>
+						<a class="dropdown-item fa fa-cog" href="#"> Preferences</a>
+						<a class="dropdown-item fa fa-sign-out-alt" href="#"> Log Out</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="global-info"></div>
 </header>
 <section id="body" class="container-fluid">
 	<article>

@@ -19,13 +19,13 @@ $config['index_page'] = '';
 $config['csrf_protection'] = FALSE;
 
 if(ENVIRONMENT == "development") {
-	$config['base_url'] = '/ciblog';
+	$config['base_url'] = '/ciblog/';
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
 	$db['default']['password'] = '';
 	$db['default']['database'] = 'ciblog';
 } else {
-	$config['base_url'] = '/ciblog';
+	$config['base_url'] = '/ciblog/';
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'id6645557_root';
 	$db['default']['password'] = '01920489953';

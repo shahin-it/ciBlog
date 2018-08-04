@@ -11,9 +11,6 @@ header a:hover, footer a:hover {
     color: inherit;
     cursor:pointer;	
 }
-header, footer {
-    min-height: 30px;
-}
 footer {
     color: #fff;
     background-clip: content-box;
