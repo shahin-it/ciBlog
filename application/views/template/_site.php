@@ -63,7 +63,7 @@
                                 <span class="btn input-group-text"><i class="fa fa-search"></i></span>
                             </div>
                         </div>
-                        <button class="btn btn-link d-md-none p-0 ml-3" onclick="$('.navigation').toggle()" type="button">
+                        <button class="btn btn-link d-md-none p-0 ml-3" onclick="$('.navigation').slideToggle()" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
                             <title>Menu</title>
                             <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
@@ -86,7 +86,7 @@
             </div>
         </section>
         <footer class="">
-            <div class="row py-1">
+            <div class="row py-1 mx-0">
                 <div class="col-sm-6">
                     <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    
                 </div>

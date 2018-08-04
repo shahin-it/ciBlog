@@ -65,7 +65,7 @@
 	</article>
 </section>
 <footer class="">
-	<div class="row py-1">
+	<div class="row py-1 mx-0">
 		<div class="col-sm-6">
 			<a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>
 		</div>
