@@ -7,10 +7,19 @@
         <meta name="robots" content="all, index, follow"/>
         <meta name="googlebot" content="all, index, follow"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script type="text/javascript">
+            var app = {
+                baseUrl: '<?php base_url() ?>',
+            };
+        </script>
+        
+        <link rel="icon" href="<?php echo base_url(); ?>asset/image/sys/favicon.png">
         <script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
         <!-- <script src="<?php echo base_url(); ?>asset/vendor/angular-1.7.2.min.js"></script> -->
         <script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>asset/js/app.js"></script>
+        <script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
+        <script src="<?php echo base_url(); ?>asset/js/skui.js"></script>
         <script src="<?php echo base_url(); ?>asset/js/site.js"></script>
         <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap-reboot.min.css"/>
@@ -48,10 +57,10 @@
 
     </head>
     <body>
-        <header class="banner container">
+        <header class="banner">
             <div id="global-info"></div>
         </header>
-        <section id="body" class="container">
+        <section id="body" class="container-fluid">
             <div class="row">
                 <div class="sidebar col-md-3">
                     <form class="bd-search d-flex align-items-center">
@@ -61,7 +70,7 @@
                                 <span class="btn input-group-text"><i class="fa fa-search"></i></span>
                             </div>
                         </div>
-                        <button class="btn btn-link d-md-none p-0 ml-3" onclick="$('.navigation').toggle()" type="button">
+                        <button class="btn btn-link d-md-none p-0 ml-3" onclick="$('.navigation').slideToggle()" type="button">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
                             <title>Menu</title>
                             <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
@@ -83,8 +92,8 @@
                 </article>
             </div>
         </section>
-        <footer class="container">
-            <div class="row py-1">
+        <footer class="">
+            <div class="row py-1 mx-0">
                 <div class="col-sm-6">
                     <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    
                 </div>

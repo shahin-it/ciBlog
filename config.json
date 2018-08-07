@@ -1,7 +1,8 @@
 {
-	"baseUrl": "/ciapp",
-	"resourceDir": "asset/",
-	"dbHost": "localhost",
-	"dbUser": "root",
-	"dbPass": ""
+  "dev": true,
+  "baseUrl": "/ciblog",
+  "resourceDir": "asset/",
+  "dbHost": "localhost",
+  "dbUser": "root",
+  "dbPass": ""
 }

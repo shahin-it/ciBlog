@@ -1,5 +1,12 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+header, footer {
+	min-height: 30px;
+}
 header.banner {
-    background-image: url(../image/banner.jpeg);
+    background-image: url(../image/sys/banner.jpeg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-origin: content-box;

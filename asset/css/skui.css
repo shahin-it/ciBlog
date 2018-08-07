@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    font-size: 0.8rem;
+}
+button {
+    font-weight: bold !important;window.jQuery
+}
+header a:hover, footer a:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;	
+}
+footer {
+    background-clip: content-box;
+}
+section#body {
+    margin: 10px auto;
+}
+.sidebar {
+    padding-bottom: 15px;
+}
+.navigation {
+    margin: 10px auto;
+}
+.pagination {
+    margin: 0;
+}
+.card .card-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0;
+}
+.skui-table th, .skui-table td {
+    text-align: center;
+}
+.skui-table th {
+    font-size: .85em;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+    .skui-table {
+        border: 0;
+    }
+    .skui-table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+    .skui-table tr {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+    .skui-table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+    .skui-table td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .skui-table td:last-child {
+        border-bottom: 0;
+    }
+}

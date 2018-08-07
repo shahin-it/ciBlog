@@ -1,3 +1,6 @@
-RewriteEngine on    
-RewriteCond $1 !^(index\.php|images|asset|robots\.txt)    
-RewriteRule ^(.*)$ /ciblog/index.php/$1 [L]
+RewriteEngine on
+RewriteBase /ciblog/
+RewriteCond $1 !^(index.php|asset|images|robots.txt)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]

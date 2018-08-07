@@ -1,4 +1,4 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<h1>Control Panel</h1>
+<h3>Control Panel</h3>

@@ -1,71 +1,109 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title><?php echo $title; ?></title>
-  <meta charset="utf-8"/>
-  <meta name="resource-type" content="document"/>
-  <meta name="robots" content="all, index, follow"/>
-  <meta name="googlebot" content="all, index, follow"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
-  <script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
-  <script src="<?php echo base_url(); ?>asset/js/app.js"></script>
-  <script src="<?php echo base_url(); ?>asset/js/admin.js"></script>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap-reboot.min.css"/>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/font-awesome.min.css"/>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/style.css"/>
-  <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/admin.css"/>
+	<title><?php echo $title; ?></title>
+	<meta charset="utf-8"/>
+	<meta name="resource-type" content="document"/>
+	<meta name="robots" content="all, index, follow"/>
+	<meta name="googlebot" content="all, index, follow"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <?php
-  /** -- Copy from here -- */
-  if(!empty($meta))
-    foreach($meta as $name=>$content) {
-      echo "\n\t\t";
-      ?><meta name="<?php echo $name; ?>" content="<?php echo $content; ?>" /><?php
-    }
-    echo "\n";
+        <script type="text/javascript">
+            var app = {
+                baseUrl: '<?php base_url()?>/admin/',
+            };
+        </script>
+        
+	<link rel="icon" href="<?php echo base_url(); ?>asset/image/sys/favicon.ico" type="image/x-icon" sizes="16x16">
+	<script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/js/skui.js"></script>
+	<script src="<?php echo base_url(); ?>asset/js/admin.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap-reboot.min.css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/font-awesome.min.css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/style.css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/admin.css"/>
 
-    if(!empty($canonical))
-    {
-      echo "\n\t\t";
-      ?><link rel="canonical" href="<?php echo $canonical?>" /><?php
+	<?php
+	/** -- Copy from here -- */
+	if (!empty($meta))
+		foreach ($meta as $name => $content) {
+			echo "\n\t\t";
+			?>
+			<meta name="<?php echo $name; ?>" content="<?php echo $content; ?>" /><?php
+		}
+	echo "\n";
 
-    }
-    echo "\n\t";
+	if (!empty($canonical)) {
+		echo "\n\t\t";
+		?>
+		<link rel="canonical" href="<?php echo $canonical ?>" /><?php
 
-    foreach($css as $file) {
-      echo "\n\t\t";
-      ?><link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
-    } echo "\n\t";
+	}
+	echo "\n\t";
 
-    foreach($js as $file) {
-      echo "\n\t\t";
-      ?><script src="<?php echo $file; ?>"></script><?php
-    } echo "\n\t";
+	foreach ($css as $file) {
+		echo "\n\t\t";
+		?>
+		<link rel="stylesheet" href="<?php echo $file; ?>" type="text/css" /><?php
+	}
+	echo "\n\t";
 
-    /** -- to here -- */
-    ?>
+	foreach ($js as $file) {
+		echo "\n\t\t";
+		?>
+		<script src="<?php echo $file; ?>"></script><?php
+	}
+	echo "\n\t";
+
+	/** -- to here -- */
+	?>
 
 </head>
 <body>
-  <header class="banner">
-    <div id="global-info">Header</div>
-  </header>
-  <section id="body" class="container-fluid">
-    <article>
-      <?php echo $output;?>
-    </article>
-  </section>
-  <footer class="">
-    <div class="row py-1">
-      <div class="col-sm-6">
-        <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    
-      </div>
-      <div class="col-sm-6 text-sm-right">
-        <span>© 2013 Company Name. All rights reserved</span>
-      </div>
-    </div>
-  </footer>
+<header class="banner">
+	<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><i class="fas fa-book pr-1"></i>Batayon</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/category');?>">Category</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/post'); ?>">Post</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/comment'); ?>">Comment</a></li>
+				<li class="nav-item"><a class="nav-link disabled" href="#">Social</a></li>
+			</ul>
+			<ul class="navbar-nav flex-row">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+						<a class="dropdown-item fa fa-eye" href="<?php echo base_url()?>" target="_blank"> View Site</a>
+						<a class="dropdown-item fa fa-cog" href="#"> Preferences</a>
+						<a class="dropdown-item fa fa-sign-out-alt" href="#"> Log Out</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div id="global-info"></div>
+</header>
+<section id="body" class="container-fluid">
+	<article>
+		<?php echo $output; ?>
+	</article>
+</section>
+<footer class="">
+	<div class="row py-1 mx-0">
+		<div class="col-sm-6">
+			<a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>
+		</div>
+		<div class="col-sm-6 text-sm-right">
+			<span>© 2013 Company Name. All rights reserved</span>
+		</div>
+	</div>
+</footer>
 </body>
 </html>
