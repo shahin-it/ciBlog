@@ -8,10 +8,17 @@
 	<meta name="googlebot" content="all, index, follow"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <script type="text/javascript">
+            var app = {
+                baseUrl: '<?php base_url()?>/admin/',
+            };
+        </script>
+        
 	<link rel="icon" href="<?php echo base_url(); ?>asset/image/sys/favicon.ico" type="image/x-icon" sizes="16x16">
 	<script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
-	<script src="<?php echo base_url(); ?>asset/js/app.js"></script>
+        <script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/js/skui.js"></script>
 	<script src="<?php echo base_url(); ?>asset/js/admin.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap-reboot.min.css"/>
@@ -64,9 +71,9 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="#">Category</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Post</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Comment</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/category');?>">Category</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/post'); ?>">Post</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/comment'); ?>">Comment</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#">Social</a></li>
 			</ul>
 			<ul class="navbar-nav flex-row">
