@@ -16,6 +16,11 @@ class BlogAdmin extends CI_Controller {
     public function category() {
         $this->load->view('admin/blog/category');
     }
+
+	public function editCategory() {
+		$this->output->unset_template();
+		$this->load->view('admin/blog/editCategory');
+	}
     
     public function post() {
         $this->load->view('admin/blog/post');

@@ -16,6 +16,7 @@
         
         <link rel="icon" href="<?php echo base_url(); ?>asset/image/sys/favicon.png">
         <script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
+		<script src="<?php echo base_url(); ?>asset/vendor/jquery.form.min.js"></script>
         <!-- <script src="<?php echo base_url(); ?>asset/vendor/angular-1.7.2.min.js"></script> -->
         <script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>

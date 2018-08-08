@@ -10,12 +10,13 @@
 
         <script type="text/javascript">
             var app = {
-                baseUrl: '<?php base_url()?>/admin/',
+                baseUrl: '<?php echo base_url()?>',
             };
         </script>
         
 	<link rel="icon" href="<?php echo base_url(); ?>asset/image/sys/favicon.ico" type="image/x-icon" sizes="16x16">
 	<script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/vendor/jquery.form.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/js/skui.js"></script>
