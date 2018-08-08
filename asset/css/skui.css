@@ -107,3 +107,10 @@ section#body {
         border-bottom: 0;
     }
 }
+.skui-create-edit-panel .close, .skui-edit-popup .close, .modal .close {
+	position: absolute;
+	right: 0;
+	top: -3px;
+	font-size: 35px;
+	color: red;
+}

@@ -125,7 +125,7 @@ if(window.jQuery) {
 				container.trigger("onActionClick", [action, data]);
 				container.trigger("onAction:" + action, [data]);
 			});
-			container.on("onActionClick", function(action, data) {
+			container.on("onActionClick", function(evt, action, data) {
 				switch (action) {
 					case 'edit':
 						createEditItem(data);
@@ -325,7 +325,7 @@ if(window.jQuery) {
             <div class="modal-dialog modal-content ' + config.size + '" role="document">\
                    <div class="modal-header">\
                    		<h5 class="modal-title popup-title">' + config.title + '</h5>\
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>\
+                        <span class="close fas fa-window-close" data-dismiss="modal"></button>\
                     </div>\
                     <div class="modal-body popup-body"></div>\
                     <div class="modal-footer popup-footer">\
@@ -417,10 +417,10 @@ if(window.jQuery) {
 		},
 		confirm: function(message, yes, no) {
 			var popup = $('<div class="modal fade" tabindex="-1" role="document" aria-hidden="true">\
-            <div class="modal-dialog modal-content modal-sm" role="document">\
+            <div class="modal-dialog modal-content modal-md" role="document">\
                    <div class="modal-header">\
                         <h5 class="modal-title popup-title">Confirm!</h5>\
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>\
+                        <span class="close fas fa-window-close" data-dismiss="modal"></button>\
                     </div>\
                     <div class="modal-body"><p>' + message + '</p></div>\
                     <div class="modal-footer">\
