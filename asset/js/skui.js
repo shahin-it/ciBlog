@@ -322,7 +322,8 @@ if(window.jQuery) {
 				content = url;
 			}
 			var popup = $('<div class="modal fade skui-edit-popup ' + config.class + '" tabindex="-1" role="document" aria-hidden="true">\
-            <div class="modal-dialog modal-content ' + config.size + '" role="document">\
+            <div class="modal-dialog ' + config.size + '" role="document">\
+            	<div class="modal-content">\
                    <div class="modal-header">\
                    		<h5 class="modal-title popup-title">' + config.title + '</h5>\
                         <span class="close fas fa-window-close" data-dismiss="modal"></button>\
@@ -330,6 +331,7 @@ if(window.jQuery) {
                     <div class="modal-body popup-body"></div>\
                     <div class="modal-footer popup-footer">\
                         <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>\
+                    </div>\
                     </div>\
                 </div>\
             </div>');
@@ -417,7 +419,8 @@ if(window.jQuery) {
 		},
 		confirm: function(message, yes, no) {
 			var popup = $('<div class="modal fade" tabindex="-1" role="document" aria-hidden="true">\
-            <div class="modal-dialog modal-content modal-md" role="document">\
+            <div class="modal-dialog modal-md" role="document">\
+            	<div class="modal-content">\
                    <div class="modal-header">\
                         <h5 class="modal-title popup-title">Confirm!</h5>\
                         <span class="close fas fa-window-close" data-dismiss="modal"></button>\
@@ -426,6 +429,7 @@ if(window.jQuery) {
                     <div class="modal-footer">\
                     	<button type="button" class="btn btn-primary yes" data-dismiss="modal">Yes</button>\
                         <button type="button" class="btn btn-warning no" data-dismiss="modal">No</button>\
+                    </div>\
                     </div>\
                 </div>\
             </div>');
