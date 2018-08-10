@@ -72,12 +72,18 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/category');?>">Category</a></li>
-                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/post'); ?>">Post</a></li>
-                            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/comment'); ?>">Comment</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Social</a></li>
+				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/category');?>">Category</a></li>
+				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/post'); ?>">Post</a></li>
+				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('/blogAdmin/comment'); ?>">Comment</a></li>
+				<li class="d-sm-none">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" href="<?php echo base_url()?>" target="_blank"> View Site</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> Preferences</a></li>
+					</ul>
+				</li>
 			</ul>
-			<ul class="navbar-nav flex-row">
+
+			<ul class="navbar-nav flex-row d-none d-sm-block">
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
