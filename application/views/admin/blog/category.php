@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <div class="card-body skui-table">
-		<?php echo $category; ?>
+		<?php echo json_encode($category); ?>
         <table class="table table-bordred table-striped">
             <thead>
             <th>First Name</th>

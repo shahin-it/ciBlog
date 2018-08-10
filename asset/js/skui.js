@@ -158,8 +158,7 @@ if(window.jQuery) {
 			});
 
 			container.reload = function(reloadData) {
-				var before = config.beforeLoad.apply(this, [data]);
-				if (before == false) {
+				if (config.beforeLoad.apply(this, [data]) == false) {
 					return;
 				}
 				var reqData = $.extend(data, reloadData);
@@ -229,10 +228,10 @@ if(window.jQuery) {
 			delete settings.response;
 			delete settings.success;
 			delete settings.error;
-			$.extend(settings.data, {
+			$.extend(config.data, {
 				ajax: true
 			})
-			settings = $.extend({
+			var _settings = $.extend({
 				dataType: "json",
 				success: function(resp) {
 					response && response.call(this);
@@ -247,10 +246,10 @@ if(window.jQuery) {
 					}
 				}
 			}, settings);
-			return $.ajax(settings);
+			return $.ajax(_settings);
 		},
 		ajaxForm: function(form, settings) {
-			if (!settings) {
+			if (!form.length || !settings) {
 				return;
 			}
 			var response = settings.response;
@@ -261,7 +260,7 @@ if(window.jQuery) {
 			delete settings.beforeSubmit;
 			delete settings.success;
 			delete settings.error;
-			settings = $.extend({
+			var _settings = $.extend({
 				type: "POST",
 				dataType: "json",
 				beforeSubmit: function(arr, $form, options) {
@@ -269,14 +268,11 @@ if(window.jQuery) {
 						name: "ajax",
 						value: true
 					})
-					if (form.triggerHandler("preSubmit") == false) {
+					if (form.triggerHandler("beforeSubmit") == false) {
 						return false;
 					}
-					if (beforeSubmit) {
-						beforeSubmit = beforeSubmit.apply(this, arguments);
-						if (beforeSubmit == false) {
-							return false
-						}
+					if (beforeSubmit && beforeSubmit.apply(this, arguments) == false) {
+						return false
 					}
 				},
 				success: function(resp, type) {
@@ -291,9 +287,9 @@ if(window.jQuery) {
 						error && error.apply(this, arguments);
 					}
 				}
-			}, settings)
+			}, settings);
 
-			return form.ajaxForm(settings);
+			return form.ajaxForm(_settings);
 		},
 		notify: function(message, type) {
 			type = type || "info"

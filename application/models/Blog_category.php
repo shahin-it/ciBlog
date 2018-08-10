@@ -12,6 +12,7 @@ class Blog_category extends CI_Model
 	public $id;
 	public $name;
 	public $parent;
+	public $sort_order;
 
 	function __construct() {
 		parent::__construct();
