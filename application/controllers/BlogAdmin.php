@@ -15,8 +15,8 @@ class BlogAdmin extends CI_Controller {
 
     public function category() {
     	$data = array();
-    	$this->load->model("blog_category");
-    	$data["category"] = $this->blog_category->get(1);
+    	$this->load->model("blogCategory");
+    	$data["category"] = $this->blogCategory->get(1);
         $this->load->view('admin/blog/category', $data);
     }
 

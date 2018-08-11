@@ -7,19 +7,22 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Blog_category extends CI_Model
+class BlogCategory extends CI_Model
 {
 	public $id;
 	public $name;
 	public $parent;
 	public $sort_order;
 
+	private $query;
+
 	function __construct() {
+		$this->query = $this->db->get("blog_category");
 		parent::__construct();
 	}
 
 	function get($id) {
-		$query = $this->db->get_where('blog_category', array('id' => $id));
-		return $query->result();
+		$this->db->where('id', $id);
+		return $this->query->row();
 	}
 }
