@@ -136,8 +136,8 @@ if (window.jQuery) {
                         delete data.url
                         skui.confirm("Are you confirm to remove?", function () {
                             container.loader();
-                            sui.ajax({
-                                url: url,
+                            skui.ajax({
+                                url: app.baseUrl + url,
                                 dataType: "json",
                                 data: data,
                                 response: function () {
@@ -163,9 +163,9 @@ if (window.jQuery) {
                 }
                 var reqData = $.extend(data, reloadData);
                 container.loader();
-                sui.ajax({
+                skui.ajax({
                     method: "post",
-                    url: config.url,
+                    url: app.baseUrl + config.url,
                     data: reqData,
                     dataType: "html",
                     response: function (resp) {
@@ -294,10 +294,11 @@ if (window.jQuery) {
         notify: function (message, type) {
             type = type || "info"
             type = type == "error" ? "danger" : type;
-            var alert = $('<div class="alert alert-warning alert-dismissible fade show" role="alert">\
-			  <strong>' + type + '</strong> You should check in on some of those fields below.\
+            var alert = $('<div class="alert alert-'+type+' alert-dismissible fade show" role="alert">\
+			  <strong>' + type + '</strong> ' + message + '.\
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>\
 			</div>');
+            $("body").prepend(alert);
             return alert.alert();
         },
         editPopup: function (url, data, config) {
@@ -466,7 +467,6 @@ if (window.jQuery) {
                 }
                 reader.readAsDataURL(files[0])
             })
-            var imgData = fileInput
         },
         toggle: function (container) {
             var inputs = container.find("[data-toggle-target]");
@@ -497,7 +497,7 @@ if (window.jQuery) {
                 resp = $()
             }
             if (resp.is(".silent-login-popup")) {
-                sui.editPopup(resp)
+                skui.editPopup(resp)
                 return false
             }
             return true

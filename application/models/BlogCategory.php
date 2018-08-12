@@ -14,6 +14,7 @@ class BlogCategory extends CI_Model {
     public $name;
     public $parent;
     public $description;
+    public $created;
     public $sort_order;
     private $query;
 

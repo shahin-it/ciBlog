@@ -31,7 +31,7 @@ class BlogAdmin extends CI_Controller {
         $this->blogCategory->save($params);
         $this->output
                 ->set_content_type('application/json')
-                ->set_output(json_encode(array('foo' => 'bar')));
+                ->set_output(json_encode(array('status' => 'success', "message" => "Successfully Saved")));
     }
 
     public function post() {
