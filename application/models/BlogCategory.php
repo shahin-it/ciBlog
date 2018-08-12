@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by IntelliJ IDEA.
  * User: mbstu
@@ -7,22 +8,38 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BlogCategory extends CI_Model
-{
-	public $id;
-	public $name;
-	public $parent;
-	public $sort_order;
+class BlogCategory extends CI_Model {
 
-	private $query;
+    public $id;
+    public $name;
+    public $parent;
+    public $description;
+    public $sort_order;
+    private $query;
 
-	function __construct() {
-		$this->query = $this->db->get("blog_category");
-		parent::__construct();
-	}
+    function __construct() {
+        $this->query = $this->db->get("blog_category");
+        parent::__construct();
+    }
 
-	function get($id) {
-		$this->db->where('id', $id);
-		return $this->query->row();
-	}
+    function get($id) {
+        $this->db->where('id', $id);
+        return $this->query->row();
+    }
+
+    function getAll($param = array()) {
+        return $this->query->result();
+    }
+    
+    function save($params) {
+        $result;
+        unset($params["ajax"]);
+        if($params["id"]) {
+            $result = $this->db->update("blog_category", $params, array("id" => $params["id"]));
+        } else {
+            $result = $this->db->insert("blog_category", $params);
+        }
+        return 0;
+    }
+
 }
