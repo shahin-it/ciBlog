@@ -22,4 +22,20 @@ class BlogCategory extends MY_Model {
         parent::__construct();
     }
 
+	function getParentKeyValue($exclude = null) {
+		$data = [""=>"None"];
+		$this->db->select("id, name, parent")
+			->from($this->tableName);
+		if($exclude) {
+			$this->db->where_not_in("id", [$exclude]);
+		}
+		$res = $this->db->get()->result_array();
+		foreach ($res as $row) {
+			if(!$exclude || $row["parent"] != $exclude) {
+				$data[$row["id"]] = $row["name"];
+			}
+		}
+		return $data;
+	}
+
 }

@@ -254,4 +254,11 @@ class MY_Output extends CI_Output
 	{
 		$this->_canonical = $url;
 	}
+
+	public function jsonResponse($status, $message = "", $arr = []) {
+		$resp = is_string($status) ? ["status" => $status, "message" => $message] : $status;
+		$resp = array_merge($resp, $arr);
+		$this->set_content_type('application/json')
+			->set_output(json_encode($resp));
+	}
 }

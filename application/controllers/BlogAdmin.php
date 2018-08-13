@@ -6,7 +6,6 @@ class BlogAdmin extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-        $this->output->set_template('_admin');
         $this->load->model("blogCategory");
     }
 
@@ -15,24 +14,29 @@ class BlogAdmin extends MY_Controller {
     }
 
     public function category() {
+		$this->output->set_template('_admin');
         $this->data = $this->blogCategory->getAll($this->params);
         $this->load->view('admin/blog/category', $this->data);
     }
 
     public function editCategory() {
-        $this->output->unset_template();
         $this->data["item"] = $this->blogCategory->get(@$this->params["id"]);
-        $this->data["item"]["parents"] = $this->blogCategory->getKeyValue("id, name", [@$this->params["id"]]);
+        $this->data["item"]["parents"] = $this->blogCategory->getParentKeyValue(@$this->params["id"]);
         $this->load->view('admin/blog/editCategory', $this->data);
     }
     
     public function saveCategory() {
-        $this->output->unset_template();
-        $this->blogCategory->save($this->params, "blog_category");
-        $this->output
-                ->set_content_type('application/json')
-                ->set_output(json_encode(array('status' => 'success', "message" => "Successfully Saved")));
+        if($this->blogCategory->save($this->params)) {
+			$this->output->jsonResponse("success", "Successfully Saved");
+		} else {
+			$this->output->jsonResponse("error", "Saved Failed");
+		}
     }
+
+    public function deleteCategory() {
+		$this->blogCategory->delete($this->params["id"]);
+		$this->output->jsonResponse("success", "Successfully Deleted!");
+	}
 
     public function post() {
         $this->load->view('admin/blog/post');

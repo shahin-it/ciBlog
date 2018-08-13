@@ -114,3 +114,21 @@ section#body {
 	font-size: 35px;
 	color: red;
 }
+.skui-alert {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	min-width: 250px;
+	z-index: 999;
+}
+.fade-in {
+	opacity: 1;
+	animation: fadein 1s linear;
+}
+.fade-out {
+	transition: 0.5s linear all;
+}
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}

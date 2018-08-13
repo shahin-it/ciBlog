@@ -15,11 +15,11 @@ class MY_Model extends CI_Model {
         parent::__construct();
     }
 
-    function get($id) {
-        return $this->db->where('id', $id)->get()->row_array();
+    public function get($id) {
+        return $this->db->where('id', $id)->get()->row_array() ?: [];
     }
 
-    function getAll($params = []) {
+	public function getAll($params = []) {
         $data = [];
         $offset = @$params["offset"] ?: 0;
         $max = @$params["max"] ?: 10;
@@ -31,23 +31,33 @@ class MY_Model extends CI_Model {
 
         return $data;
     }
-    
-    function getKeyValue($select, $exclude = []) {
-        $data = [];
-        $this->db->select($select)->from($this->tableName);
+
+	public function getKeyValue($select, $excludes = []) {
+        $data = [""=>"None"];
+        $this->db->select($select)
+			->from($this->tableName);
+        if($excludes) {
+			$this->db->where_not_in("id", $excludes);
+		}
         $res = $this->db->get()->result_array();
         foreach ($res as $row) {
-            array_push($data, [($row[0])=>$row[1]]);
+        	$keys = array_keys($row);
+			$data[$row[$keys[0]]] = $row[$keys[1]];
         }
         return $data;
     }
-    
-    function save($params, $table = null) {
+
+	public function save($params, $table = null) {
         if(!$table) {
             $table = $this->tableName;
         }
         $result = FALSE;
         unset($params["ajax"]);
+        foreach ($params as $k=>$v) {
+        	if($v == "") {
+				$params[$k] = null;
+			}
+		}
         if ($params["id"]) {
             $result = $this->db->update($table, $params, array("id" => $params["id"]));
         } else {
@@ -55,5 +65,10 @@ class MY_Model extends CI_Model {
         }
         return $result;
     }
+
+	public function delete($id) {
+		$this->db->where('id', $id);
+		return $this->db->delete();
+	}
 
 }

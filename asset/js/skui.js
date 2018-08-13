@@ -134,7 +134,11 @@ if (window.jQuery) {
                     case "remove":
                         var url = data.url
                         delete data.url
-                        skui.confirm("Are you confirm to remove?", function () {
+						var ask = "Are you confirm to remove ?";
+                        if(data.name) {
+							ask = 'Are you confirm to remove "<b>' + data.name + '</b>" ?';
+						}
+                        skui.confirm(ask, function () {
                             container.loader();
                             skui.ajax({
                                 url: app.baseUrl + url,
@@ -294,11 +298,14 @@ if (window.jQuery) {
         notify: function (message, type) {
             type = type || "info"
             type = type == "error" ? "danger" : type;
-            var alert = $('<div class="alert alert-'+type+' alert-dismissible fade show" role="alert">\
-			  <strong>' + type + '</strong> ' + message + '.\
+            var alert = $('<div class="skui-alert alert alert-'+type+' alert-dismissible fade show" role="alert">\
+			  <strong style="text-transform:capitalize;">' + type + '! </strong>' + message + '.\
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>\
 			</div>');
             $("body").prepend(alert);
+            setTimeout(function () {
+				alert.alert('close');
+			}, 5000);
             return alert.alert();
         },
         editPopup: function (url, data, config) {
@@ -318,7 +325,7 @@ if (window.jQuery) {
             if (typeof url != "string") {
                 content = url;
             }
-            var popup = $('<div class="modal fade skui-edit-popup ' + config.class + '" tabindex="-1" role="document" aria-hidden="true">\
+            var popup = $('<div class="modal fade skui-popup skui-edit-popup ' + config.class + '" tabindex="-1" role="document" aria-hidden="true">\
             <div class="modal-dialog ' + config.size + '" role="document">\
             	<div class="modal-content">\
                    <div class="modal-header">\
@@ -415,7 +422,7 @@ if (window.jQuery) {
             return popup;
         },
         confirm: function (message, yes, no) {
-            var popup = $('<div class="modal fade" tabindex="-1" role="document" aria-hidden="true">\
+            var popup = $('<div class="skui-popup skui-confirm modal fade" tabindex="-1" role="document" aria-hidden="true">\
             <div class="modal-dialog modal-md" role="document">\
             	<div class="modal-content">\
                    <div class="modal-header">\
@@ -431,17 +438,19 @@ if (window.jQuery) {
                 </div>\
             </div>');
 
-            popup.on("hidden.bs.modal", function (evt) {
-                var _popup = this.jq;
-                if ($(evt.target).is(".yes")) {
-                    yes && yes();
-                } else {
-                    no && no();
-                }
-                _popup.removeData();
-                _popup.modal('dispose');
-                _popup.remove();
+            popup.on("click", ".modal-footer", function (evt) {
+				if ($(evt.target).is(".yes")) {
+					yes && yes();
+				} else {
+					no && no();
+				}
+				popup.modal('hide');
+			})
 
+            popup.on("hidden.bs.modal", function (evt) {
+                popup.removeData();
+                popup.modal('dispose');
+                popup.remove();
             });
 
             popup.modal({
