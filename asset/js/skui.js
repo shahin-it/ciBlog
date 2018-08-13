@@ -67,7 +67,7 @@ if (window.jQuery) {
             }
 
             var filterForm = container.find(".filter-form");
-            data = container._data = $.extend({
+            data = container.cacheData = $.extend({
                 offset: 0,
                 max: app.maxResult,
                 searchText: ""
@@ -174,7 +174,7 @@ if (window.jQuery) {
                     success: function (resp) {
                         resp = resp.jq;
                         if (resp.length) {
-                            $.extend(container._data, reloadData);
+                            $.extend(container.cacheData, reloadData);
                             var tableBody = container.find(".skui-table");
                             tableBody.html(resp.find(".skui-table").html());
                             tableBody.updateUi();
@@ -191,11 +191,12 @@ if (window.jQuery) {
         },
         pagination: function (container) {
             var pagination = container.find(".pagination");
+            
             var count = parseInt(pagination.data("count"));
             var data = $.extend({
                 offset: 0,
                 max: app.maxResult
-            }, container._data);
+            }, container.cacheData);
             if (!count) {
                 return
             }
@@ -211,7 +212,6 @@ if (window.jQuery) {
                 last: '&raquo;&raquo;',
                 initiateStartPageClick: false,
                 totalPages: Math.ceil(count / data.max),
-                prev: "Prev",
                 onPageClick: function (evt, offset) {
                     data.offset = (offset - 1) * data.max;
                     container.reload(data);
@@ -550,6 +550,7 @@ if (window.jQuery) {
 
     $(function () {
         var body = $("body");
+        app.maxResult = 10;
         body.updateUi();
     });
 

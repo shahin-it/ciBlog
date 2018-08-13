@@ -9,32 +9,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <div class="card-body skui-table">
-		<?php echo json_encode($category); ?>
         <table class="table table-bordred table-striped">
             <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Contact</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Parent</th>
+            <th>Description</th>
+            <th>Sort Index</th>
             <th>Actions</th>
             </thead>
             <tbody>
+                <?php foreach ($items as $item) { ?>
                 <tr>
-                    <td data-label="Account">Mohsin</td>
-                    <td data-label="Account">Irshad</td>
-                    <td data-label="Account">CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan</td>
-                    <td data-label="Account">isometric.mohsin@gmail.com</td>
-                    <td data-label="Account">+923335586757</td>
-                    <td data-label="Account" class="action-navigator" data-id="" data-name="">
+                    <td data-label="ID"><?php echo $item["id"];?></td>
+                    <td data-label="Name"><?php echo $item["name"]; ?></td>
+                    <td data-label="Parent"><?php echo $item["parent"]; ?></td>
+                    <td data-label="Description"><?php echo $item["description"]; ?></td>
+                    <td data-label="Sort Index"><?php echo $item["sort_index"]; ?></td>
+                    <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["name"];?>">
                         <button class="btn btn-primary btn-sm" data-action="edit" data-url="blogAdmin/editCategory" title="Edit"><i class="fas fa-edit"></i></button>
                         <button class="btn btn-danger btn-sm" data-action="delete" data-url="blogAdmin/deleteCategory" title="Delete"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
     <div class="card-footer clearfix">
-        <ul class="pagination pagination-sm float-right"></ul>
+        <ul class="pagination pagination-sm float-right" data-count="<?php echo $count;?>"></ul>
     </div>
 </div>
