@@ -26,9 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td data-label="Parent"><?php echo $item["parent"]; ?></td>
                     <td data-label="Description"><?php echo $item["description"]; ?></td>
                     <td data-label="Sort Index"><?php echo $item["sort_index"]; ?></td>
-                    <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["name"];?>">
+                    <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["name"];?>" data-_model="blogCategory">
                         <button class="btn btn-primary btn-sm" data-action="edit" data-url="blogAdmin/editCategory" title="Edit"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger btn-sm" data-action="delete" data-url="blogAdmin/deleteCategory" title="Delete"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-danger btn-sm" data-action="delete" data-url="blogAdmin/delete" title="Delete"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
                 <?php } ?>

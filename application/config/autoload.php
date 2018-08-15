@@ -132,6 +132,6 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array("blogPost", "blogCategory", "blogComment");
 
 $autoload['_config'] = json_decode(file_get_contents('config.json'), true);

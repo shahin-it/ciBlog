@@ -11,12 +11,11 @@ class MY_Model extends CI_Model {
     protected $tableName;
 
     function __construct() {
-        $this->db->from($this->tableName);
         parent::__construct();
     }
 
     public function get($id) {
-        return $this->db->where('id', $id)->get()->row_array() ?: [];
+        return $this->db->from($this->tableName)->where('id', $id)->get()->row_array() ?: [];
     }
 
 	public function getAll($params = []) {
@@ -24,9 +23,14 @@ class MY_Model extends CI_Model {
         $offset = @$params["offset"] ?: 0;
         $max = @$params["max"] ?: 10;
         $data["count"] = $this->db->count_all($this->tableName);
-        $this->db->from($this->tableName)
-                ->limit($max, $offset);
-        $data["items"] = $this->db->get()->result_array();
+        $q = $this->db->from($this->tableName);
+        if(@$params["_join"]) {
+        	$j = $params["_join"];
+			$col = $params["_col"];
+			$q = $q->join($j, "$j.id = $this->tableName.$col", "inner")->select("$j.name");
+		}
+		$q = $q->limit($max, $offset);
+        $data["items"] = $q->get()->result_array();
         $data["size"] = count($data["items"]);
 
         return $data;
@@ -59,6 +63,9 @@ class MY_Model extends CI_Model {
 			}
 		}
         if ($params["id"]) {
+        	if($this->db->field_exists('updated', $table)) {
+				$params["updated"] = date('Y-m-d H:i:s');
+			}
             $result = $this->db->update($table, $params, array("id" => $params["id"]));
         } else {
             $result = $this->db->insert($table, $params);
@@ -67,7 +74,7 @@ class MY_Model extends CI_Model {
     }
 
 	public function delete($id) {
-		$this->db->where('id', $id);
+		$this->db->from($this->tableName)->where('id', $id);
 		return $this->db->delete();
 	}
 
