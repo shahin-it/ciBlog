@@ -58,12 +58,12 @@
 
     </head>
     <body>
-        <header class="banner">
+        <header class="banner d-print-none">
             <div id="global-info"></div>
         </header>
         <section id="body" class="container-fluid">
             <div class="row">
-                <div class="sidebar col-md-3">
+                <div class="sidebar col-md-3 d-print-none">
                     <form class="bd-search d-flex align-items-center">
                         <div class="input-group">
                             <input name="searchText" type="text" class="form-control input-search" placeholder="Search....">
@@ -88,12 +88,12 @@
                         </div>
                     </nav>
                 </div>
-                <article class="col-md-9 sidebar">
+                <article class="col sidebar">
                     <?php echo $output; ?>
                 </article>
             </div>
         </section>
-        <footer class="">
+        <footer class="d-print-none">
             <div class="row py-1 mx-0">
                 <div class="col-sm-6">
                     <a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>    

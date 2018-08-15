@@ -39,7 +39,17 @@ class BlogAdmin extends MY_Controller {
 	}
 
     public function comment() {
-        $this->load->view('admin/blog/comment');
+		$this->output->set_template('_admin');
+		$this->params["_join"] = "blog_post";
+		$this->params["_col"] = "post";
+		$this->data = $this->blogComment->getAll($this->params);
+        $this->load->view('admin/blog/comment', $this->data);
     }
+
+	public function editComment() {
+		$this->data["item"] = $this->blogComment->get(@$this->params["id"]);
+		$this->data["blogPost"] = $this->blogPost->getKeyValue("id, name", false);
+		$this->load->view('admin/blog/editComment', $this->data);
+	}
 
 }

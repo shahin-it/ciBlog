@@ -64,7 +64,7 @@
 
 </head>
 <body>
-<header class="banner">
+<header class="banner d-print-none">
 	<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
 		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><i class="fas fa-book pr-1"></i>Batayon</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,7 +102,7 @@
 		<?php echo $output; ?>
 	</article>
 </section>
-<footer class="">
+<footer class="d-print-none">
 	<div class="row py-1 mx-0">
 		<div class="col-sm-6">
 			<a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>

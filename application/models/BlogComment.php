@@ -11,11 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class BlogComment extends MY_Model {
 
     public $id;
-    public $name;
-    public $parent;
+    public $user;
+    public $post;
     public $description;
     public $created;
-    public $sort_index;
+    public $updated;
 
     function __construct() {
         $this->tableName = "blog_comment";

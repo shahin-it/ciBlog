@@ -15,7 +15,10 @@ class MY_Model extends CI_Model {
     }
 
     public function get($id) {
-        return $this->db->from($this->tableName)->where('id', $id)->get()->row_array() ?: [];
+        $row = $this->db->from($this->tableName)->where('id', $id)->get()->row_array() ?: [];
+        @$row["created"] && $row["created"] = AppUtil::localTime($row["created"]);
+        @$row["updated"] && $row["updated"] = AppUtil::localTime($row["updated"]);
+        return $row;
     }
 
 	public function getAll($params = []) {
@@ -27,17 +30,25 @@ class MY_Model extends CI_Model {
         if(@$params["_join"]) {
         	$j = $params["_join"];
 			$col = $params["_col"];
-			$q = $q->join($j, "$j.id = $this->tableName.$col", "inner")->select("$j.name");
+			$q = $q->join($j, "$j.id = $this->tableName.$col", "inner")
+				->select("$this->tableName.*, $j.name as _$col");
 		}
 		$q = $q->limit($max, $offset);
         $data["items"] = $q->get()->result_array();
-        $data["size"] = count($data["items"]);
+        foreach ($data["items"] as &$row) {
+			@$row["created"] && $row["created"] = AppUtil::localTime($row["created"]);
+			@$row["updated"] && $row["updated"] = AppUtil::localTime($row["updated"]);
+		}
 
+        $data["size"] = count($data["items"]);
         return $data;
     }
 
-	public function getKeyValue($select, $excludes = []) {
-        $data = [""=>"None"];
+	public function getKeyValue($select, $fillNone = true, $excludes = []) {
+        $data = [];
+        if($fillNone) {
+        	$data[""] = "None";
+		}
         $this->db->select($select)
 			->from($this->tableName);
         if($excludes) {
@@ -64,10 +75,13 @@ class MY_Model extends CI_Model {
 		}
         if ($params["id"]) {
         	if($this->db->field_exists('updated', $table)) {
-				$params["updated"] = date('Y-m-d H:i:s');
+				$params["updated"] = AppUtil::now();
 			}
             $result = $this->db->update($table, $params, array("id" => $params["id"]));
         } else {
+			if($this->db->field_exists('created', $table)) {
+				$params["created"] = AppUtil::now();
+			}
             $result = $this->db->insert($table, $params);
         }
         return $result;

@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <form class="create-edit-form" action="<?php echo base_url() ?>blogAdmin/save" method="post">
     <input type="hidden" name="id" value="<?php echo @$item["id"];?>">
     <input type="hidden" name="_model" value="blogPost">
-    <span class="form-title">Create/Edit Post</span>
+    <span class="form-title">Create/Edit Blog Post</span>
 	<div class="form-group">
-		<label for="">Name</label>
-		<input type="text" class="form-control" name="name" required maxlength="200" value="<?php echo @$item["name"];?>">
+		<label for="">Name/Title</label>
+		<input type="text" class="form-control" name="name" required maxlength="250" value="<?php echo @$item["name"];?>">
 	</div>
     <div class="form-row">
 		<div class="form-group col-sm-6">
@@ -20,8 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <div class="form-group">
-        <label for="">Description</label>
-        <textarea name="description" class="form-control"><?php echo @$item["description"];?></textarea>
+        <label for="">Description (TEXT/HTML)</label>
+        <textarea name="description" class="form-control" rows="5" required><?php echo @$item["description"];?></textarea>
     </div>
     <button class="btn btn-md btn-primary form-submit">Submit</button>
 </form>

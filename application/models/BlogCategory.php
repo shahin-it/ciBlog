@@ -15,6 +15,7 @@ class BlogCategory extends MY_Model {
     public $parent;
     public $description;
     public $created;
+	public $updated;
     public $sort_index;
 
     function __construct() {
