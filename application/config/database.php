@@ -92,7 +92,6 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-$____defaultCopy____ = new ArrayObject($db["default"]);
 $db["production"] = array_merge($db["default"], [
 	'hostname' => 'localhost',
 	'username' => 'id6645557_root',

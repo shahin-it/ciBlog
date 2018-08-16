@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
 -- Server version:               10.1.34-MariaDB - mariadb.org binary distribution
@@ -7,18 +9,24 @@
 
 
 -- Dumping structure for table ciblog.user
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `profession` varchar(100) DEFAULT NULL,
-  `hobby` varchar(500) DEFAULT NULL,
-  `bio` varchar(200) DEFAULT NULL,
-  `type` enum('A','M','U') NOT NULL DEFAULT 'U',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `user` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(200) NOT NULL,
+	`email` VARCHAR(200) NOT NULL,
+	`password` VARCHAR(200) NOT NULL,
+	`profession` VARCHAR(100) NULL DEFAULT NULL,
+	`hobby` VARCHAR(500) NULL DEFAULT NULL,
+	`bio` VARCHAR(200) NULL DEFAULT NULL,
+	`type` ENUM('A','M','U') NOT NULL DEFAULT 'U',
+	`is_active` INT(1) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `email` (`email`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;
+
 
 -- Dumping structure for table ciblog.blog_category
 CREATE TABLE IF NOT EXISTS `blog_category` (
@@ -46,6 +54,7 @@ CREATE TABLE `blog_post` (
 	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`sort_index` INT(11) NOT NULL DEFAULT '0',
 	`created_by` INT(11) NULL DEFAULT NULL,
+	`is_active` INT(1) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),
 	INDEX `FK_blog_post_blog_category` (`category`),
@@ -59,20 +68,27 @@ AUTO_INCREMENT=3
 ;
 
 
+
 -- Dumping structure for table ciblog.blog_comment
-CREATE TABLE IF NOT EXISTS `blog_comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(5000) NOT NULL,
-  `post` int(11) NOT NULL,
-  `user` int(11) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `FK_blog_comment_blog_post` (`post`),
-  KEY `FK_blog_comment_user` (`user`),
-  CONSTRAINT `FK_blog_comment_blog_post` FOREIGN KEY (`post`) REFERENCES `blog_post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `FK_blog_comment_user` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `blog_comment` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`description` VARCHAR(5000) NOT NULL,
+	`post` INT(11) NOT NULL,
+	`user` INT(11) NOT NULL,
+	`created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`is_active` INT(1) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	INDEX `FK_blog_comment_blog_post` (`post`),
+	INDEX `FK_blog_comment_user` (`user`),
+	CONSTRAINT `FK_blog_comment_blog_post` FOREIGN KEY (`post`) REFERENCES `blog_post` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `FK_blog_comment_user` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
 
 
 
