@@ -79,6 +79,7 @@
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url()?>" target="_blank"> View Site</a></li>
 						<li class="nav-item"><a class="nav-link" href="#"> Preferences</a></li>
+						<li class="nav-item"><a class="nav-link" href="#"> Log Out</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -87,9 +88,9 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
-						<a class="dropdown-item fa fa-eye" href="<?php echo base_url()?>" target="_blank"> View Site</a>
-						<a class="dropdown-item fa fa-cog" href="#"> Preferences</a>
-						<a class="dropdown-item fa fa-sign-out-alt" href="#"> Log Out</a>
+						<a class="dropdown-item" href="<?php echo base_url()?>" target="_blank">View Site</a>
+						<a class="dropdown-item" href="#">Preferences</a>
+						<a class="dropdown-item" href="#">Log Out</a>
 					</div>
 				</li>
 			</ul>

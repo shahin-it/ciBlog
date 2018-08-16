@@ -70,11 +70,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'default';
-$query_builder = TRUE;
-
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn' => '',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
@@ -94,3 +91,19 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+$____defaultCopy____ = new ArrayObject($db["default"]);
+$db["production"] = array_merge($db["default"], [
+	'hostname' => 'localhost',
+	'username' => 'id6645557_root',
+	'password' => '01920489953',
+	'database' => 'id6645557_tiger',
+]);
+
+if(ENVIRONMENT == 'development') {
+	$active_group = 'default';
+} else {
+	$active_group = 'production';
+}
+$query_builder = TRUE;
+
