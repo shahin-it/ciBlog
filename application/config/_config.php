@@ -8,16 +8,6 @@
  */
 $config['_config'] = json_decode(file_get_contents('config.json'), true);
 
-$config['index_page'] = '';
-$config['csrf_protection'] = TRUE;
-
-if (ENVIRONMENT == "development") {
-	$config['base_url'] = '/ciblog/';
-} else {
-	$config['base_url'] = '/ciblog/';
-}
-
-
 // Set line to collect lines that wrap
 $templine = '';
 
