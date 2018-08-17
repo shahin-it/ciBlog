@@ -18,14 +18,14 @@
 	<script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/vendor/jquery.form.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
+	<script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/js/skui.js"></script>
-	<script src="<?php echo base_url(); ?>asset/js/admin.js"></script>
+	<script src="<?php echo base_url(); ?>asset/js/site.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap-reboot.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/font-awesome.min.css"/>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/style.css"/>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/admin.css"/>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/site.css"/>
 
 	<?php
 	/** -- Copy from here -- */
@@ -65,37 +65,6 @@
 </head>
 <body>
 <header class="banner d-print-none">
-	<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><i class="fas fa-book pr-1"></i>Batayon</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('blogAdmin/category');?>">Category</a></li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('blogAdmin/post'); ?>">Post</a></li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('blogAdmin/comment'); ?>">Comment</a></li>
-				<li class="d-sm-none">
-					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url()?>" target="_blank"> View Site</a></li>
-						<li class="nav-item"><a class="nav-link" href="#"> Preferences</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo base_url('user/logout');?>"> Log Out</a></li>
-					</ul>
-				</li>
-			</ul>
-
-			<ul class="navbar-nav flex-row d-none d-sm-block">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Settings</a>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
-						<a class="dropdown-item" href="<?php echo base_url()?>" target="_blank">View Site</a>
-						<a class="dropdown-item" href="#">Preferences</a>
-						<a class="dropdown-item" href="<?php echo base_url('user/logout');?>">Log Out</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</nav>
 	<div id="global-info"></div>
 </header>
 <section id="body" class="container-fluid">

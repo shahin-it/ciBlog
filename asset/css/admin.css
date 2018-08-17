@@ -1,6 +1,5 @@
 body {
-    min-height: 20rem;
-    padding-top: 4.5rem;
+    padding: 4.5rem 0;
 }
 footer {
     background-color: #563d7c;

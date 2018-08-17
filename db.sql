@@ -17,7 +17,7 @@ CREATE TABLE `user` (
 	`profession` VARCHAR(100) NULL DEFAULT NULL,
 	`hobby` VARCHAR(500) NULL DEFAULT NULL,
 	`bio` VARCHAR(200) NULL DEFAULT NULL,
-	`type` ENUM('A','M','U') NOT NULL DEFAULT 'U',
+	`role` ENUM('A','M','U') NOT NULL DEFAULT 'U',
 	`is_active` INT(1) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `email` (`email`)
@@ -89,9 +89,5 @@ ENGINE=InnoDB
 ;
 
 
-
-
-
-
---insert initial data
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `type`) VALUES (1, 'Administrator', 'admin@admin.com', 'admin', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A');
+--initial data
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `role`, `is_active`) VALUES (1, 'Administrator', 'admin@ciblog.com', '21232f297a57a5a743894a0e4a801fc3', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A', 1);

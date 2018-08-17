@@ -29,4 +29,30 @@ class AppUtil {
 		return date($formate, strtotime($strTime));
 	}
 
+	public static function strContains($source, $key, $caseSensitive = false) {
+		if(!$caseSensitive) {
+			$source = strtolower($source);
+			$key = strtolower($key);
+		}
+		$res = @strpos($source, $key);
+		if($res !== false) {
+			return true;
+		}
+		return $res;
+	}
+
+	public static function arrayContains($array, $key, $caseSensitive = false) {
+		if(!$caseSensitive) {
+			$array = array_map("strtolower", $array);
+			$key = strtolower($key);
+		}
+		foreach ($array as $v) {
+			if(self::strContains($v, $key)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 }

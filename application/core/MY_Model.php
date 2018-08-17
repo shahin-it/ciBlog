@@ -21,7 +21,23 @@ class MY_Model extends CI_Model {
         return $row;
     }
 
-	public function getAll($params = []) {
+    public function getBy($where) {
+    	$this->db->from($this->tableName);
+    	foreach ($where as $k=>$v) {
+    		$this->db->where($k, $v);
+		}
+		return $this->db->get()->row_array();
+	}
+
+	public function getAllBy($where) {
+		$this->db->from($this->tableName);
+		foreach ($where as $k=>$v) {
+			$this->db->where($k, $v);
+		}
+		return $this->db->get()->result_array();
+	}
+
+	public function getTableData($params = []) {
         $data = [];
         $offset = @$params["offset"] ?: 0;
         $max = @$params["max"] ?: 10;

@@ -14,7 +14,7 @@ class BlogAdmin extends MY_Controller {
 
     public function category() {
 		$this->output->set_template('_admin');
-        $this->data = $this->blogCategory->getAll($this->params);
+        $this->data = $this->blogCategory->getTableData($this->params);
         $this->load->view('admin/blog/category', $this->data);
     }
 
@@ -28,7 +28,7 @@ class BlogAdmin extends MY_Controller {
 		$this->output->set_template('_admin');
 		$this->params["_join"] = "blog_category";
 		$this->params["_col"] = "category";
-		$this->data = $this->blogPost->getAll($this->params);
+		$this->data = $this->blogPost->getTableData($this->params);
         $this->load->view('admin/blog/post', $this->data);
     }
 
@@ -42,7 +42,7 @@ class BlogAdmin extends MY_Controller {
 		$this->output->set_template('_admin');
 		$this->params["_join"] = "blog_post";
 		$this->params["_col"] = "post";
-		$this->data = $this->blogComment->getAll($this->params);
+		$this->data = $this->blogComment->getTableData($this->params);
         $this->load->view('admin/blog/comment', $this->data);
     }
 

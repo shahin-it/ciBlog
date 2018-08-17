@@ -17,8 +17,20 @@ class MY_Controller extends CI_Controller {
 		$this->_before();
     }
 
-	protected function _before() {
-		$this;
+	private function _before() {
+    	$isAdminUrl = AppUtil::strContains($this->uri->segment(1), "admin");
+    	$isUserUrl = AppUtil::strContains($this->uri->segment(1), "user");
+		if($isAdminUrl || $isUserUrl) {
+			if(AppUtil::arrayContains(["user/login", "user/doLogin"], $this->uri->uri_string())) {
+				return;
+			}
+			if($this->session->has_userdata("user")) {
+				$isUser = $this->session->userdata("role") === "U";
+				$isUser && $isAdminUrl && redirect("/");
+			} else {
+				redirect("user/login");
+			}
+		}
 	}
 
 	public function save() {
@@ -27,9 +39,9 @@ class MY_Controller extends CI_Controller {
 		$this->load->model($model);
 
 		if($this->{$model}->save($this->params)) {
-			$this->output->jsonResponse("success", "Successfully Saved");
+			$this->output->rest("success", "Successfully Saved");
 		} else {
-			$this->output->jsonResponse("error", "Saved Failed");
+			$this->output->rest("error", "Saved Failed");
 		}
 	}
 
@@ -38,7 +50,7 @@ class MY_Controller extends CI_Controller {
 		$this->load->model($model);
 
 		if($this->{$model}->delete($this->params["id"])) {
-			$this->output->jsonResponse("success", "Successfully Deleted!");
+			$this->output->rest("success", "Successfully Deleted!");
 		} else {
 			$this->output->jsonResponse("error", "Deleted Failed!");
 		}

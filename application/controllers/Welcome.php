@@ -6,7 +6,6 @@ class Welcome extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-//        $this->load->helper('url');
         $this->output->set_template('_site');
     }
 

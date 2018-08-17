@@ -1,43 +1,39 @@
 * {
 	box-sizing: border-box;
 }
-
+html {
+	height: 100%;
+}
 @media print {
 	.no-print, .no-print * {
 		display: none !important;
 	}
 }
-
 body {
 	padding: 0;
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
 	background-color: white;
 	font-size: 0.8rem;
+	min-height: 100%;
 }
-
-button {
-	font-weight: bold !important;
-}
-
 header a:hover, footer a:hover {
 	text-decoration: none;
 	color: inherit;
 	cursor: pointer;
 }
-
 footer {
 	background-clip: content-box;
+	position: sticky;
+	position: -webkit-sticky;
+	top: 100%;
 }
-
 section#body {
 	margin: 10px auto;
 }
-
 .sidebar {
 	padding-bottom: 15px;
 }
-
 .navigation {
 	margin: 10px auto;
 }
@@ -45,7 +41,9 @@ section#body {
 .pagination {
 	margin: 0;
 }
-
+button {
+	font-weight: bold !important;
+}
 .overlay {
 	position: absolute;
 	top: 0;
@@ -81,6 +79,11 @@ section#body {
 	margin: 0;
 }
 
+.skui-h-center {
+	margin: 8% auto;
+	width: 40%;
+}
+
 .skui-table th, .skui-table td {
 	text-align: center;
 }
@@ -91,11 +94,10 @@ section#body {
 	text-transform: uppercase;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
 	.skui-table {
 		border: 0;
 	}
-
 	.skui-table thead {
 		border: none;
 		clip: rect(0 0 0 0);
@@ -106,30 +108,31 @@ section#body {
 		position: absolute;
 		width: 1px;
 	}
-
 	.skui-table tr {
 		border-bottom: 1px solid #ddd;
 		display: block;
 		margin-bottom: .625em;
 	}
-
 	.skui-table td {
 		border-bottom: 1px solid #ddd;
 		display: block;
 		font-size: .8em;
 		text-align: right;
 	}
-
 	.skui-table td:before {
 		content: attr(data-label);
 		float: left;
 		font-weight: bold;
 		text-transform: uppercase;
 	}
-
 	.skui-table td:last-child {
 		border-bottom: 0;
 	}
+
+	.skui-h-center {
+		width: 100%;
+	}
+
 }
 
 .skui-create-edit-panel .close, .skui-edit-popup .close, .modal .close {
@@ -142,6 +145,7 @@ section#body {
 
 .skui-alert {
 	position: absolute;
+	top: 5%;
 	left: 50%;
 	transform: translateX(-50%);
 	min-width: 250px;

@@ -305,7 +305,7 @@ if (window.jQuery) {
             $("body").prepend(alert);
             setTimeout(function () {
 				alert.alert('close');
-			}, 5000);
+			}, 8000);
             return alert.alert();
         },
         editPopup: function (url, data, config) {
@@ -553,6 +553,9 @@ if (window.jQuery) {
                 if (resp && resp.message) {
                     skui.notify(resp.message, resp.status);
                 }
+                if(resp.redirect) {
+                	location.href = resp.redirect;
+				}
             }
         });
     }
