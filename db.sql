@@ -24,24 +24,30 @@ CREATE TABLE `user` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=2
+AUTO_INCREMENT=3
 ;
 
 
+
 -- Dumping structure for table ciblog.blog_category
-CREATE TABLE IF NOT EXISTS `blog_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  `parent` int(11) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `sort_index` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  KEY `FK_blog_category_blog_category` (`parent`),
-  CONSTRAINT `FK_blog_category_blog_category` FOREIGN KEY (`parent`) REFERENCES `blog_category` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+CREATE TABLE `blog_category` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(200) NOT NULL,
+	`parent` INT(11) NULL DEFAULT NULL,
+	`description` VARCHAR(500) NULL DEFAULT NULL,
+	`created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`sort_index` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `name` (`name`),
+	INDEX `FK_blog_category_blog_category` (`parent`),
+	CONSTRAINT `FK_blog_category_blog_category` FOREIGN KEY (`parent`) REFERENCES `blog_category` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=19
+;
+
 
 
 -- Dumping structure for table ciblog.blog_post
@@ -54,7 +60,7 @@ CREATE TABLE `blog_post` (
 	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`sort_index` INT(11) NOT NULL DEFAULT '0',
 	`created_by` INT(11) NULL DEFAULT NULL,
-	`is_active` INT(1) NOT NULL DEFAULT '0',
+	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),
 	INDEX `FK_blog_post_blog_category` (`category`),
@@ -64,8 +70,9 @@ CREATE TABLE `blog_post` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=3
+AUTO_INCREMENT=2
 ;
+
 
 
 
@@ -74,19 +81,20 @@ CREATE TABLE `blog_comment` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`description` VARCHAR(5000) NOT NULL,
 	`post` INT(11) NOT NULL,
-	`user` INT(11) NOT NULL,
+	`created_by` INT(11) NULL DEFAULT NULL,
 	`created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	`is_active` INT(1) NOT NULL DEFAULT '0',
+	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
 	PRIMARY KEY (`id`),
 	INDEX `FK_blog_comment_blog_post` (`post`),
-	INDEX `FK_blog_comment_user` (`user`),
-	CONSTRAINT `FK_blog_comment_blog_post` FOREIGN KEY (`post`) REFERENCES `blog_post` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
-	CONSTRAINT `FK_blog_comment_user` FOREIGN KEY (`user`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+	INDEX `FK_blog_comment_user` (`created_by`),
+	CONSTRAINT `FK_blog_comment_user` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
+AUTO_INCREMENT=4
 ;
+
 
 
 --initial data
