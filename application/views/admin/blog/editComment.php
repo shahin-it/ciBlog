@@ -8,13 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="form-row">
 		<div class="form-group col-sm-6">
 			<label for="">User</label>
-			<div class="form-control"><?php echo "Current User"?></div>
+			<div class="form-control"><?php echo $item["_created_by"]?></div>
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="">Blog Post</label>
 			<?php echo form_dropdown('post', $blogPost, @$item["post"], 'class="form-control" required'); ?>
 		</div>
     </div>
+	<div class="form-group">
+		<label for="">Published</label>
+		<?php echo form_dropdown('is_active', ["N"=>"NO", "Y"=>"YES"], @$item["is_active"], 'class="form-control"'); ?>
+	</div>
     <div class="form-group">
         <label for="">Comment</label>
         <textarea name="description" class="form-control" maxlength="5000" required><?php echo @$item["description"];?></textarea>

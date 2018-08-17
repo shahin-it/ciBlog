@@ -116,7 +116,7 @@ button {
 	.skui-table td {
 		border-bottom: 1px solid #ddd;
 		display: block;
-		font-size: .8em;
+		font-size: 0.9em;
 		text-align: right;
 	}
 	.skui-table td:before {
@@ -149,7 +149,7 @@ button {
 	left: 50%;
 	transform: translateX(-50%);
 	min-width: 250px;
-	z-index: 999;
+	z-index: 99999;
 }
 
 .fade-in {
@@ -168,4 +168,10 @@ button {
 	to {
 		opacity: 1;
 	}
+}
+.trim-text {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
 }

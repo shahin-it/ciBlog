@@ -15,50 +15,62 @@ class MY_Model extends CI_Model {
     }
 
     public function get($id) {
-        $row = $this->db->from($this->tableName)->where('id', $id)->get()->row_array() ?: [];
-        @$row["created"] && $row["created"] = AppUtil::localTime($row["created"]);
-        @$row["updated"] && $row["updated"] = AppUtil::localTime($row["updated"]);
-        return $row;
+        return @$this->getRow([], ['id'=>$id]);
     }
 
-    public function getBy($where) {
-    	$this->db->from($this->tableName);
-    	foreach ($where as $k=>$v) {
-    		$this->db->where($k, $v);
-		}
-		return $this->db->get()->row_array();
+    public function getBy($join = [], $where = []) {
+		return @$this->getRow($join, $where);
 	}
 
-	public function getAllBy($where) {
-		$this->db->from($this->tableName);
+	public function getAllBy($join = [], $where = []) {
+		return $this->getRows([], $join, $where);
+	}
+
+	public function getTableData($params = [], $join = [], $where = []) {
+        $data = [];
+		$params["offset"] = @$params["offset"] ?: 0;
+		$params["max"] = @$params["max"] ?: 10;
+        $data["count"] = $this->db->count_all($this->tableName);
+        if($data["count"] && $data["count"] <= $params["offset"]) {
+			$params["offset"] -= @$params["max"];
+		}
+        $data["items"] = $this->getRows($params, $join, $where);
+        $data["size"] = count($data["items"]);
+        return $data;
+    }
+
+    private function getRow($join, $where = []) {
+    	return @$this->getRows(["max"=>1], $join, $where)[0] ?: array();
+	}
+
+    private function getRows($params = [], $join = [], $where = []) {
+		$offset = @$params["offset"] ?: 0;
+		$max = @$params["max"] ?: -1;
+		$q = $this->db->select($this->tableName.".*")->from($this->tableName);
+
+		foreach ((is_string(@$join[0]) ? [$join] : $join) as $j) {
+			$select = $j[0];
+			$table = $j[1];
+			$cond = $j[2];
+			$type = @$j[3] ?: "inner";
+			$q = $q->select($select)
+				->join($table, $cond, $type);
+		}
 		foreach ($where as $k=>$v) {
 			$this->db->where($k, $v);
 		}
-		return $this->db->get()->result_array();
-	}
-
-	public function getTableData($params = []) {
-        $data = [];
-        $offset = @$params["offset"] ?: 0;
-        $max = @$params["max"] ?: 10;
-        $data["count"] = $this->db->count_all($this->tableName);
-        $q = $this->db->from($this->tableName);
-        if(@$params["_join"]) {
-        	$j = $params["_join"];
-			$col = $params["_col"];
-			$q = $q->join($j, "$j.id = $this->tableName.$col", "inner")
-				->select("$this->tableName.*, $j.name as _$col");
+		$q = $q->offset($offset);
+		if($max > 0) {
+			$q = $q->limit($max);
 		}
-		$q = $q->limit($max, $offset);
-        $data["items"] = $q->get()->result_array();
-        foreach ($data["items"] as &$row) {
+		$res = $q->get()->result_array();
+		foreach ($res as &$row) {
 			@$row["created"] && $row["created"] = AppUtil::localTime($row["created"]);
 			@$row["updated"] && $row["updated"] = AppUtil::localTime($row["updated"]);
 		}
 
-        $data["size"] = count($data["items"]);
-        return $data;
-    }
+		return $res;
+	}
 
 	public function getKeyValue($select, $fillNone = true, $excludes = []) {
         $data = [];
@@ -98,6 +110,13 @@ class MY_Model extends CI_Model {
 			if($this->db->field_exists('created', $table)) {
 				$params["created"] = AppUtil::now();
 			}
+			if($this->db->field_exists('updated', $table)) {
+				$params["updated"] = AppUtil::now();
+			}
+			if($this->db->field_exists('created_by', $table)) {
+				$params["created_by"] = $this->session->userdata("user");
+			}
+
             $result = $this->db->insert($table, $params);
         }
         return $result;

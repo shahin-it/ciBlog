@@ -12,23 +12,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<table class="table table-bordred table-striped">
 			<thead>
 			<th>ID</th>
-			<th>Post</th>
-			<th>User</th>
-			<th>Comment</th>
+			<th width="20%">Post</th>
+			<th>Created By</th>
+			<th width="25%">Comment</th>
 			<th>Created</th>
 			<th>Updated</th>
+			<th>Published</th>
 			<th>Actions</th>
 			</thead>
 			<tbody>
 			<?php foreach ($items as $item) { ?>
 				<tr>
 					<td data-label="ID"><?php echo $item["id"];?></td>
-					<td data-label="Post"><?php echo htmlentities($item["_post"]); ?></td>
-					<td data-label="User"><?php /*echo "[".$item["category"]."] ".$item["_category"];*/ ?></td>
-					<td data-label="Comment"><?php echo htmlentities($item["description"]); ?></td>
+					<td data-label="Post"><span class="trim-text"><?php echo htmlentities($item["_post"]); ?></span></td>
+					<td data-label="Created By"><?php echo $item["_created_by"]; ?></td>
+					<td data-label="Comment"><span class="trim-text"><?php echo htmlentities($item["description"]); ?></span></td>
 					<td data-label="Created"><?php echo $item["created"]; ?></td>
 					<td data-label="Updated"><?php echo $item["updated"]; ?></td>
-					<td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["name"];?>" data-_model="blogComment">
+					<td data-label="Published"><?php echo $item["is_active"]; ?></td>
+					<td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["_post"];?>" data-_model="blogComment">
 						<button class="btn btn-primary btn-sm" data-action="edit" data-url="blogAdmin/editComment" title="Edit"><i class="fas fa-edit"></i></button>
 						<button class="btn btn-danger btn-sm" data-action="delete" data-url="blogAdmin/delete" title="Delete"><i class="fas fa-trash"></i></button>
 					</td>

@@ -14,6 +14,6 @@
 		</div>
 	</form>
 	<div class="card-footer">
-		<span class="hints">Don't have an account? <a href="<?php echo base_url(); ?>users/registration">Register here</a></span>
+		<span class="hints">Don't have an account? <a href="<?php echo base_url(); ?>user/registration">Register here</a></span>
 	</div>
 </div>

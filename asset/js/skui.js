@@ -183,6 +183,7 @@ if (window.jQuery) {
                             tableBody.html(resp.find(".skui-table").html());
                             tableBody.updateUi();
                             container.find(".filter-form").prev("input").val(reqData.searchText);
+                            container.find(".pagination").replaceWith(resp.find(".pagination"));
                             _self.pagination(container);
                             config.afterLoad.apply(this, arguments);
                         }

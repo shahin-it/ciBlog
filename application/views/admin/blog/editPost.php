@@ -5,9 +5,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <input type="hidden" name="id" value="<?php echo @$item["id"];?>">
     <input type="hidden" name="_model" value="blogPost">
     <span class="form-title">Create/Edit Blog Post</span>
-	<div class="form-group">
-		<label for="">Name/Title</label>
-		<input type="text" class="form-control" name="name" required maxlength="250" value="<?php echo @$item["name"];?>">
+	<div class="form-row">
+		<div class="form-group col-sm">
+			<label for="">Name/Title</label>
+			<input type="text" class="form-control" name="name" required maxlength="250" value="<?php echo @$item["name"];?>">
+		</div>
+		<div class="form-group col-sm">
+			<label for="">Publish</label>
+			<?php echo form_dropdown('is_active', ["Y"=>"YES", "N"=>"NO"], @$item["is_active"], 'class="form-control"'); ?>
+		</div>
 	</div>
     <div class="form-row">
 		<div class="form-group col-sm-6">
@@ -16,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         <div class="form-group col-sm-6">
             <label for="">Sort Index</label>
-            <input type="number" class="form-control" name="sort_index" max="999" required value="<?php echo @$item["sort_index"]; ?>">
+            <input type="number" class="form-control" name="sort_index" max="999" required value="<?php echo @$item["sort_index"] ?: 0; ?>">
         </div>
     </div>
     <div class="form-group">

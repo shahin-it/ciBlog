@@ -26,9 +26,8 @@ class BlogAdmin extends MY_Controller {
 
     public function post() {
 		$this->output->set_template('_admin');
-		$this->params["_join"] = "blog_category";
-		$this->params["_col"] = "category";
-		$this->data = $this->blogPost->getTableData($this->params);
+		$this->data = $this->blogPost->getTableData($this->params,
+			[["blog_category.name as _category", "blog_category", "blog_post.category = blog_category.id", "LEFT"], ["user.email as _created_by", "user", "blog_post.created_by = user.id", "LEFT"]]);
         $this->load->view('admin/blog/post', $this->data);
     }
 
@@ -40,14 +39,16 @@ class BlogAdmin extends MY_Controller {
 
     public function comment() {
 		$this->output->set_template('_admin');
-		$this->params["_join"] = "blog_post";
-		$this->params["_col"] = "post";
-		$this->data = $this->blogComment->getTableData($this->params);
+		$this->data = $this->blogComment->getTableData($this->params,
+			[["blog_post.name as _post", "blog_post", "blog_comment.post = blog_post.id", "LEFT"], ["user.email as _created_by", "user", "blog_comment.created_by = user.id", "LEFT"]]);
         $this->load->view('admin/blog/comment', $this->data);
     }
 
 	public function editComment() {
-		$this->data["item"] = $this->blogComment->get(@$this->params["id"]);
+		$this->data["item"] = $this->blogComment->getBy(["user.email as _created_by", "user", "blog_comment.created_by = user.id", "LEFT"], ["blog_comment.id"=>@$this->params["id"]]);
+		if(@!$this->data["item"]["id"]) {
+			$this->data["item"]["_created_by"] = $this->session->userdata("loggedUser")["email"];
+		}
 		$this->data["blogPost"] = $this->blogPost->getKeyValue("id, name", false);
 		$this->load->view('admin/blog/editComment', $this->data);
 	}

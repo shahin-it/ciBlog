@@ -25,10 +25,11 @@ class UserController extends MY_Controller {
 	public function doLogin() {
     	$email = $this->params["email"];
     	$pass = md5($this->params["pass"]);
-    	$user = $this->user->getBy(["email"=>$email, "password"=>$pass]);
+    	$user = $this->user->getBy([], ["email"=>$email, "password"=>$pass]);
     	if($user) {
 			$this->session->set_userdata("user", $user["id"]);
 			$this->session->set_userdata("role", $user["role"]);
+			$this->session->set_userdata("loggedUser", $user);
 
 			if($user["role"] === "A" || $user["role"] === "M") {
 				$this->output->rest("success", "Login success, Please wait to redirect", ["redirect"=>base_url("admin")]);
@@ -44,6 +45,7 @@ class UserController extends MY_Controller {
 	public function logout() {
 		$this->session->unset_userdata('user');
 		$this->session->unset_userdata('role');
+		$this->session->unset_userdata('loggedUser');
 		$this->session->sess_destroy();
 		redirect('user/login');
 	}

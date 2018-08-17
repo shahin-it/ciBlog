@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="form-group col-sm-6">
             <label for="">Sort Index</label>
-            <input type="number" class="form-control" name="sort_index" max="999" required value="<?php echo @$item["sort_index"]; ?>">
+            <input type="number" class="form-control" name="sort_index" max="999" required value="<?php echo @$item["sort_index"] ?: 0; ?>">
         </div>
     </div>
     <div class="form-group">
