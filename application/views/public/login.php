@@ -7,7 +7,7 @@
 			<input type="email" class="form-control" name="email" placeholder="Email" maxlength="150" required value>
 		</div>
 		<div class="form-group">
-			<input type="password" class="form-control" name="pass" maxlength="200" placeholder="150" required>
+			<input type="password" class="form-control" name="pass" placeholder="Password" maxlength="150" required>
 		</div>
 		<div class="form-group">
 			<button type="submit" name="loginSubmit" class="btn btn-primary">Submit</button>
