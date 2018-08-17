@@ -528,4 +528,4 @@ if (ENVIRONMENT == "development") {
 	$config['base_url'] = '/ciblog/';
 }
 $config['index_page'] = '';
-$config['csrf_protection'] = TRUE;
+$config['csrf_protection'] = FALSE;
