@@ -19,6 +19,9 @@ $(document).on("update-ui-done", function (evt, container) {
 				{ title: 'Test template 1', content: 'Test 1' },
 				{ title: 'Test template 2', content: 'Test 2' }
 			],
+			content_css: [
+				'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+			]
 		})
 	}
 
