@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="form-group">
         <label for="">Description (TEXT/HTML)</label>
-        <textarea name="description" class="form-control" rows="5" required><?php echo @$item["description"];?></textarea>
+        <textarea name="description" class="skui-text-editor" required><?php echo @$item["description"];?></textarea>
     </div>
     <button class="btn btn-md btn-primary form-submit">Submit</button>
 </form>

@@ -56,6 +56,7 @@ if (window.jQuery) {
         },
         updateUi: function () {
             updateUi.call(this);
+            $(document).triggerHandler("update-ui-done", [this])
         }
     });
 
