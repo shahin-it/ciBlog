@@ -54,6 +54,9 @@
         } echo "\n\t";
 
         /** -- to here -- */
+
+
+		$categories = $this->blogCategory->getAllBy([], ["parent"=>null]);
         ?>
 
     </head>
@@ -80,15 +83,13 @@
                     </form>
                     <nav class="navigation">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action active">America</a>
-                            <a href="#" class="list-group-item list-group-item-action">England</a>
-                            <a href="#" class="list-group-item list-group-item-action">Bangladesh</a>
-                            <a href="#" class="list-group-item list-group-item-action">Australia</a>
-                            <a href="#" class="list-group-item list-group-item-action disabled">Rusia</a>
+							<?php foreach ($categories as $category) {?>
+    	                        <a href="<?php echo base_url("category/".$category['id'])?>" class="list-group-item list-group-item-action <!--active-->"><?php echo($category['name']);?></a>
+							<?php }?>
                         </div>
                     </nav>
                 </div>
-                <article class="col sidebar">
+                <article class="col-md-9 sidebar">
                     <?php echo $output; ?>
                 </article>
             </div>

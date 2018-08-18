@@ -31,6 +31,7 @@ class MY_Controller extends CI_Controller {
 				redirect("user/login");
 			}
 		}
+
 	}
 
 	public function save() {

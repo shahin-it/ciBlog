@@ -23,4 +23,12 @@ class BlogPost extends MY_Model {
         parent::__construct();
     }
 
+    public function getPostDetails($where = []) {
+    	$_where = [];
+    	foreach ($where as $k=>$v) {
+    		$_where[$this->tableName.".".$k] = $v;
+		}
+    	return $this->getBy(["user.name as _user", "user", "blog_post.created_by = user.id", "LEFT"], $_where);
+	}
+
 }

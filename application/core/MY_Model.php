@@ -46,6 +46,8 @@ class MY_Model extends CI_Model {
     private function getRows($params = [], $join = [], $where = []) {
 		$offset = @$params["offset"] ?: 0;
 		$max = @$params["max"] ?: -1;
+		$orderBy = @$params["orderBy"];
+		$dir = @$params["dir"] ?: "asc";
 		$q = $this->db->select($this->tableName.".*")->from($this->tableName);
 
 		foreach ((is_string(@$join[0]) ? [$join] : $join) as $j) {
@@ -59,6 +61,12 @@ class MY_Model extends CI_Model {
 		foreach ($where as $k=>$v) {
 			$this->db->where($k, $v);
 		}
+
+		if($orderBy) {
+			$orderBy = $this->tableName.'.'.$orderBy;
+			$q = $q->order_by($orderBy, $dir);
+		}
+
 		$q = $q->offset($offset);
 		if($max > 0) {
 			$q = $q->limit($max);

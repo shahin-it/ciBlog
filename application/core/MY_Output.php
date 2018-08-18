@@ -32,6 +32,7 @@ class MY_Output extends CI_Output
 	private $_meta = array("keywords" => array(), "description" => null);
 	private $_rdf = array("keywords" => array(), "description" => null);
 	private $_template = null;
+	public $current_template = null;
 	private $_mode = self::OUTPUT_MODE_NORMAL;
 	private $_messages = array("error" => "", "info" => "", "debug" => "");
 	private $_output_data = array();
@@ -56,7 +57,7 @@ class MY_Output extends CI_Output
 		$this->set_mode(self::OUTPUT_MODE_TEMPLATE);
 		$this->loadCommonHelpers();
 		$template_view = str_replace(".php", "", $template_view);
-		$this->_template = self::TEMPLATE_ROOT . $template_view;
+		$this->_template = $this->_current_template = self::TEMPLATE_ROOT . $template_view;
 	}
 
 	/**set_mode alias
