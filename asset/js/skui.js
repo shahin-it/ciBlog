@@ -195,6 +195,43 @@ if (window.jQuery) {
 
             return container;
         },
+		paginatedPage: function(container, data, config) {
+			var _self = this;
+			if (!container.is(".skui-paginated-page")) {
+				return;
+			}
+
+			var filterForm = container.find(".filter-form");
+			data = container.cacheData = $.extend({
+				offset: 0,
+				max: app.maxResult,
+				searchText: ""
+			}, data, filterForm.serializeObject());
+
+			config = $.extend({
+				url: "#"
+			}, container.data(), config);
+			container.on("click", ".filter-form button", function () {
+				if (this.jq.is(".clear-button")) {
+					filterForm[0].reset();
+				}
+				container.reload(filterForm.serializeObject());
+			});
+			container.on("keypress", ".filter-form input", function (e) {
+				if (e.which == 13) {
+					container.reload(filterForm.serializeObject());
+				}
+			});
+
+			_self.pagination(container);
+
+			container.reload = function (reloadData) {
+				var reqData = $.extend(data, reloadData);
+				container.loader();
+				$.extend(container.cacheData, reloadData);
+				location.href = app.baseUrl + config.url + "?page=" + (data.offset ? data.offset : 1);
+			};
+		},
         pagination: function (container) {
             var pagination = container.find(".pagination");
             
@@ -520,7 +557,8 @@ if (window.jQuery) {
         var delegate = this;
         delegate.find(".skui-data-table").each(function () {
             skui.dataTable($(this));
-        })
+        });
+		skui.paginatedPage(delegate.find(".skui-paginated-page"))
         this.find(".skui-file-chooser").on("change", "input[type=file]:last", function () {
             if (this.value) {
                 if ((this.files[0].size / 1024) > (+this.jq.attr("max-size"))) {

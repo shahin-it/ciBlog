@@ -11,6 +11,7 @@
         <script type="text/javascript">
             var app = {
                 baseUrl: '<?php base_url() ?>',
+				maxResult: 10,
             };
         </script>
         

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 if($items) {
 ?>
-<div class="category-details">
+<div class="category-details skui-paginated-page">
 	<div class="card-header">
 		<div class="card-title">Post from </div>
 	</div>
@@ -18,8 +18,8 @@ if($items) {
 		</div>
 	</div>
 	<?php }?>
-	<div class="card-footer text-center">
-		<a class="btn btn-success btn-sm fas fa-chevron-circle-down" href="#"></a>
+	<div class="card-footer clearfix">
+		<ul class="pagination pagination-sm float-right" data-count="<?php echo $count;?>"></ul>
 	</div>
 </div>
 <?php } else {
