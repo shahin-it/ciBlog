@@ -172,12 +172,12 @@ button {
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 }
-.trim-text-5 {
+.trim-text-10 {
 	overflow: hidden;
 	display: -webkit-box;
 	-webkit-line-clamp: 10;
 	-webkit-box-orient: vertical;
-	max-height: 100px;
+	max-height: 200px;
 	line-height: 10px;
 	margin-bottom: 15px;
 }

@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if($items) {
 ?>
 <div class="category-details">
 	<div class="card-header">
@@ -12,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="card-text">Published at <?php echo AppUtil::localTime($item["created"])?></div>
 		</div>
 		<div class="card-body">
-			<span class="trim-text-5"><?php echo $item["description"]?></span>
-			<p><a class="btn btn-md btn-secondary" href="<?php echo base_url("post/".$item["id"]); ?>" role="button">View details »</a></p>
+			<div class="trim-text-10"><?php echo $item["description"]?></div>
+			<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$item["id"]); ?>" role="button">View details »</a></div>
 		</div>
 	</div>
 	<?php }?>
@@ -21,3 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a class="btn btn-success btn-sm fas fa-chevron-circle-down" href="#"></a>
 	</div>
 </div>
+<?php } else {
+	?>
+	<p>No post found!</p>
+<?php }?>

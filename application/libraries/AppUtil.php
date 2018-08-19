@@ -61,7 +61,15 @@ class AppUtil {
 		return array_keys($arr) !== range(0, count($arr) - 1);
 	}
 
-	public static function truncate($string, $length=100, $append="&hellip;") {
+	public static function getFirstNLine($str, $n = 5) {
+		$lines = explode(PHP_EOL, $str);
+		if(count($lines) > $n) {
+			return implode(PHP_EOL, array_slice($lines,0, $n)).PHP_EOL;
+		}
+		return $str;
+	}
+
+	public static function truncate($string, $length = 100, $append="&hellip;") {
 		$string = trim($string);
 
 		if(strlen($string) > $length) {
