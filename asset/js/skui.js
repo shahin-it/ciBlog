@@ -203,7 +203,7 @@ if (window.jQuery) {
 
 			var filterForm = container.find(".filter-form");
 			data = container.cacheData = $.extend({
-				offset: 0,
+				page: 0,
 				max: app.maxResult,
 				searchText: ""
 			}, data, filterForm.serializeObject());
@@ -229,15 +229,17 @@ if (window.jQuery) {
 				var reqData = $.extend(data, reloadData);
 				container.loader();
 				$.extend(container.cacheData, reloadData);
-				location.href = app.baseUrl + config.url + "?page=" + (data.offset ? data.offset : 1);
+				location.href = app.baseUrl + config.url + "?page=" + data.page;
 			};
 		},
         pagination: function (container) {
             var pagination = container.find(".pagination");
             
-            var count = parseInt(pagination.data("count"));
+            const count = parseInt(pagination.data("count"));
+            const offset = parseInt(pagination.data("offset"));
             var data = $.extend({
-                offset: 0,
+                offset: offset ? offset : 0,
+				page: 0,
                 max: app.maxResult
             }, container.cacheData);
             if (!count) {
@@ -255,8 +257,9 @@ if (window.jQuery) {
                 last: '&raquo;&raquo;',
                 initiateStartPageClick: false,
                 totalPages: Math.ceil(count / data.max),
-                onPageClick: function (evt, offset) {
-                    data.offset = (offset - 1) * data.max;
+                onPageClick: function (evt, _offset) {
+					data.page = _offset - 1;
+					data.offset = (_offset - 1) * data.max;
                     container.reload(data);
                 }
             });

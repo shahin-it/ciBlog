@@ -10,7 +10,7 @@
 
         <script type="text/javascript">
             var app = {
-                baseUrl: '<?php base_url() ?>',
+                baseUrl: '<?php echo base_url() ?>',
 				maxResult: 10,
             };
         </script>

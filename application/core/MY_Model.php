@@ -29,14 +29,15 @@ class MY_Model extends CI_Model {
 
 	public function getTableData($params = [], $join = [], $where = []) {
         $data = [];
-		$params["offset"] = @$params["offset"] ?: 0;
 		$params["max"] = @$params["max"] ?: 10;
+		$params["offset"] = @$params["offset"] ?: (@$params["page"] ? $params["max"]*$params["page"] : 0);
         $data["count"] = $this->db->count_all($this->tableName);
         if($data["count"] && $data["count"] <= $params["offset"]) {
 			$params["offset"] -= @$params["max"];
 		}
         $data["items"] = $this->getRows($params, $join, $where);
         $data["size"] = count($data["items"]);
+        $data["params"] = $params;
         return $data;
     }
 
@@ -113,6 +114,9 @@ class MY_Model extends CI_Model {
         if ($params["id"]) {
         	if($this->db->field_exists('updated', $table)) {
 				$params["updated"] = AppUtil::now();
+			}
+			if(@$params["is_default"] == "Y") {
+				$this->db->update($table, ["is_default"=>"Y"]);
 			}
             $result = $this->db->update($table, $params, array("id" => $params["id"]));
         } else {

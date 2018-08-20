@@ -17,8 +17,9 @@ class Post extends MY_Controller {
     public function category($id) {
     	$this->params["orderBy"] = "sort_index";
     	$this->params["dir"] = "asc";
-        $this->data = $this->blogPost->getTableData($this->params, ["user.name as _user", "user", "blog_post.created_by = user.id", "LEFT"], ["blog_post.category"=>$id]);
-        $this->load->view('blog/postListing', $this->data);
+		$this->data = $this->blogPost->getTableData($this->params, ["user.name as _user", "user", "blog_post.created_by = user.id", "LEFT"], ["blog_post.category"=>$id]);
+		$this->data["id"] = $id;
+		$this->load->view('blog/postListing', $this->data);
     }
 
 }

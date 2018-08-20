@@ -14,7 +14,8 @@ class MY_Controller extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->params = array_merge($this->input->get_post(NULL, TRUE), $this->input->post_get(NULL, TRUE));
-		$this->_before();
+		$this->data["params"] = &$this->params;
+        $this->_before();
     }
 
 	private function _before() {

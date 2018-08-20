@@ -25,6 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input type="number" class="form-control" name="sort_index" max="999" required value="<?php echo @$item["sort_index"] ?: 0; ?>">
         </div>
     </div>
+	<div class="form-group col-sm">
+		<label for="">Is Pined</label>
+		<?php echo form_dropdown('is_default', ["N"=>"NO", "Y"=>"YES"], @$item["is_default"], 'class="form-control"'); ?>
+	</div>
     <div class="form-group">
         <label for="">Description (TEXT/HTML)</label>
         <textarea name="description" class="skui-text-editor" required><?php echo @$item["description"];?></textarea>

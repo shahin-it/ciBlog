@@ -15,3 +15,6 @@ footer {
     background-color: #062b18;
     background-origin: content-box;
 }
+.post-summary {
+	margin: 30px auto;
+}

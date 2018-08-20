@@ -5,7 +5,7 @@ if($post) {
 <div class="card">
 	<div class="card-header">
 		<div class="card-title"><?php echo $post["name"]?></div>
-		<div class="card-text"><?php echo "Published By ".$post["_user"]." at ".AppUtil::localTime($post["created"]) ?></div>
+		<div class="card-text"><i class="fas fa-calendar-alt"></i><?php echo " Published By ".$post["_user"]." at ".AppUtil::localTime($post["created"]) ?></div>
 	</div>
 	<div class="card-body"><?php echo $post["description"]?></div>
 	<div class="card-footer">
