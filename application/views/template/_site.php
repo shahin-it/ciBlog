@@ -57,7 +57,7 @@
         /** -- to here -- */
 
 
-		$categories = $this->blogCategory->getAllBy([], ["parent"=>null]);
+		$categories = $this->blogCategory->getCategoryTree(["parent"=>null]);
         ?>
 
     </head>
@@ -67,7 +67,7 @@
         </header>
         <section id="body" class="container-fluid">
             <div class="row">
-                <div class="sidebar col-md-3 d-print-none">
+                <div class="sidebar col-md-3 col-lg-2 d-print-none">
                     <form class="bd-search d-flex align-items-center">
                         <div class="input-group">
                             <input name="searchText" type="text" class="form-control input-search" placeholder="Search....">
@@ -83,14 +83,25 @@
                         </button>
                     </form>
                     <nav class="navigation">
-                        <div class="list-group">
-							<?php foreach ($categories as $category) {?>
-    	                        <a href="<?php echo base_url("category/".$category['id'])?>" class="list-group-item list-group-item-action <!--active-->"><?php echo($category['name']);?></a>
-							<?php }?>
-                        </div>
+						<div class="navigation-item">
+							<ul class="side-bar-nav skui-accordion-panel">
+								<li><h6>Categories</h6></li>
+								<?php foreach ($categories as $category) {?>
+									<li class="nav-item clearfix">
+										<a class="" href="<?php echo base_url("category/".$category['id'])?>"><?php echo($category['name']);?></a>
+										<a class="skui-accordion-label badge badge-light float-right" href="#"><i class="fas fa-arrow-circle-down"></i></a>
+										<ul class="skui-accordion-item">
+											<?php foreach ($category["child"] as $cat) {?>
+												<li class="nav-item"><a href="<?php echo base_url("category/".$cat['id'])?>" class="skui-accordion-label"><?php echo($cat['name']);?></a></li>
+											<?php }?>
+										</ul>
+									</li>
+								<?php }?>
+							</ul>
+						</div>
                     </nav>
                 </div>
-                <article class="col-md-9 sidebar">
+                <article class="sidebar col-md-9 col-lg-10">
                     <?php echo $output; ?>
                 </article>
             </div>

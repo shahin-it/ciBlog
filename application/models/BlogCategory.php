@@ -39,4 +39,12 @@ class BlogCategory extends MY_Model {
 		return $data;
 	}
 
+	function getCategoryTree($where = []) {
+    	$cats = $this->getAllBy([], $where);
+    	foreach ($cats as &$cat) {
+    		$cat["child"] = $this->getAllBy([], ["parent"=>$cat["id"]]);
+		}
+		return $cats;
+	}
+
 }

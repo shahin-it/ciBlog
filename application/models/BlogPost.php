@@ -28,7 +28,7 @@ class BlogPost extends MY_Model {
     	foreach ($where as $k=>$v) {
     		$_where[$this->tableName.".".$k] = $v;
 		}
-    	return $this->getBy(["user.name as _user", "user", "blog_post.created_by = user.id", "LEFT"], $_where);
+    	return $this->getBy([["blog_category.name as _category", "blog_category", "blog_post.category = blog_category.id", "LEFT"], ["user.name as _user", "user", "blog_post.created_by = user.id", "LEFT"]], $_where);
 	}
 
 }

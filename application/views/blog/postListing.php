@@ -2,23 +2,30 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 if($items) {
 ?>
-<div class="category-details skui-paginated-page" data-url="category/<?php echo $id ?>">
-	<div class="card-header">
-		<div class="card-title">Post from </div>
+<div class="post-listing skui-paginated-page" data-url="category/<?php echo $id ?>">
+	<div class="list-header">
+		<h5>Post Summary</h5>
 	</div>
-	<?php foreach ($items as $item) {?>
-	<div class="card post-summary">
-		<div class="card-header">
-			<div class="card-title"><a href="<?php echo base_url("post/".$item["id"]); ?>"><?php echo $item["name"]; ?></a></div>
-			<div class="card-text"><i class="fas fa-calendar-alt"></i> Published at <?php echo AppUtil::localTime($item["created"])?></div>
-		</div>
-		<div class="card-body">
-			<div class="trim-text-10"><?php echo $item["description"]?></div>
-			<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$item["id"]); ?>" role="button">View details »</a></div>
-		</div>
+	<div class="list-items">
+		<?php foreach ($items as $post) {?>
+			<div class="list-item post-summary">
+				<div class="post-title">
+					<div class="post-info">
+						<div class="category"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
+					</div>
+					<h2 class=""><?php echo $post["name"]?></h2>
+					<div class="post-meta text-danger">
+						<i class="fas fa-calendar-alt"></i><span> <?php echo "By ".$post["_user"]." at ".AppUtil::localTime($post["created"]) ?></span>
+					</div>
+				</div>
+				<div class="post-details">
+					<div class="post-summary"><?php echo $post["summary"]?></div>
+					<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$post["id"]); ?>" role="button">View details »</a></div>
+				</div>
+			</div>
+		<?php }?>
 	</div>
-	<?php }?>
-	<div class="card-footer clearfix">
+	<div class="list-footer clearfix">
 		<ul class="pagination pagination-sm float-right" data-count="<?php echo $count;?>" data-offset="<?php echo $params['offset']; ?>"></ul>
 	</div>
 </div>

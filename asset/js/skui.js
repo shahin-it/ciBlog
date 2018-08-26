@@ -99,6 +99,7 @@ if (window.jQuery) {
                 var url = data.url;
                 delete data.url;
                 var _popup = skui.editPopup(app.baseUrl + url, data, {
+					size: "modal-lg",
                     title: "Create/Edit " + (config.feature ? config.feature : ''),
                     loaded: function (popup, body) {
                         container.trigger("popupLoaded", arguments);
@@ -519,6 +520,22 @@ if (window.jQuery) {
                 reader.readAsDataURL(files[0])
             })
         },
+		accordion: function(panel) {
+			if (!panel.is(".skui-accordion-panel")) {
+				return
+			}
+			panel.expand = function(label) {
+				panel.find(".skui-accordion-label").removeClass("expanded");
+				panel.find(".skui-accordion-item").removeClass("expanded").hide();
+				label.addClass("expanded");
+				label.next(".skui-accordion-item").addClass("expanded").show();
+			}
+			panel.expand(panel.find(".skui-accordion-label:first"));
+			panel.on("click", ".skui-accordion-label", function() {
+				panel.expand(this.jq);
+			})
+			return panel;
+		},
         toggle: function (container) {
             var inputs = container.find("[data-toggle-target]");
             if (!inputs.length) {
@@ -580,7 +597,10 @@ if (window.jQuery) {
         });
         this.find(".skui-image-chooser").each(function () {
             skui.imageInput(this.jq);
-        })
+        });
+		this.find(".skui-accordion-panel").each(function() {
+			skui.accordion(this.jq);
+		})
         skui.toggle(this);
         var form = this.find(".ajax-submit");
         skui.ajaxForm(form, {

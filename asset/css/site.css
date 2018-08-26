@@ -15,6 +15,34 @@ footer {
     background-color: #062b18;
     background-origin: content-box;
 }
+section#body {
+	margin: 40px auto;
+}
+.post-info {
+	text-transform: uppercase;
+}
 .post-summary {
 	margin: 30px auto;
+}
+.post-details {
+	margin: 50px 10px;
+}
+.post-meta {
+	font-weight: bold;
+}
+.side-bar-nav {
+	border: 1px #ced4da solid;
+	border-radius: 2px;
+	padding: 10px;
+	font-weight: bold;
+}
+.side-bar-nav a {
+	text-decoration: none;
+}
+.side-bar-nav .nav-item {
+	margin: 15px auto;
+	border-bottom: 1px #455a64 dotted;
+}
+ul.side-bar-nav {
+	list-style: none;
 }
