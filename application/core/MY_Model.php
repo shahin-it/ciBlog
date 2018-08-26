@@ -116,7 +116,7 @@ class MY_Model extends CI_Model {
 				$params["updated"] = AppUtil::now();
 			}
 			if(@$params["is_default"] == "Y") {
-				$this->db->update($table, ["is_default"=>"Y"]);
+				$this->db->update($table, ["is_default"=>"N"]);
 			}
             $result = $this->db->update($table, $params, array("id" => $params["id"]));
         } else {
