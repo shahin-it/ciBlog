@@ -29,6 +29,7 @@ AUTO_INCREMENT=3
 
 
 
+
 -- Dumping structure for table ciblog.blog_category
 CREATE TABLE `blog_category` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -45,8 +46,9 @@ CREATE TABLE `blog_category` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=19
+AUTO_INCREMENT=15
 ;
+
 
 
 
@@ -61,6 +63,8 @@ CREATE TABLE `blog_post` (
 	`sort_index` INT(11) NOT NULL DEFAULT '0',
 	`created_by` INT(11) NULL DEFAULT NULL,
 	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
+	`is_default` ENUM('Y','N') NULL DEFAULT 'N',
+	`summary` VARCHAR(1000) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),
 	INDEX `FK_blog_post_blog_category` (`category`),
@@ -70,7 +74,7 @@ CREATE TABLE `blog_post` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=2
+AUTO_INCREMENT=5
 ;
 
 
@@ -94,6 +98,7 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 AUTO_INCREMENT=4
 ;
+
 
 
 

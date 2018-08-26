@@ -11,12 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Dumping database structure for ciblog
-DROP DATABASE IF EXISTS `ciblog`;
-CREATE DATABASE IF NOT EXISTS `ciblog` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `ciblog`;
-
 -- Dumping structure for table ciblog.blog_category
 DROP TABLE IF EXISTS `blog_category`;
 CREATE TABLE IF NOT EXISTS `blog_category` (
@@ -92,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `blog_post` (
   CONSTRAINT `FK_blog_post_user` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ciblog.blog_post: ~2 rows (approximately)
+-- Dumping data for table ciblog.blog_post: ~3 rows (approximately)
 /*!40000 ALTER TABLE `blog_post` DISABLE KEYS */;
 INSERT INTO `blog_post` (`id`, `name`, `description`, `category`, `created`, `updated`, `sort_index`, `created_by`, `is_active`, `is_default`, `summary`) VALUES
 	(1, 'Strat With C Programming', '<p>Views within other views are called <strong>Nested views</strong>. There are two ways of including nested views in CodeIgniter:</p>\r\n<h2>1. Load a nested view inside the controller</h2>\r\n<p>Load the view in advance and pass to the other view. First put this in the controller:</p>\r\n<pre class="lang-php prettyprint prettyprinted"><code><span class="pun">&lt;?</span><span class="pln">php\r\n</span><span class="com">// the "TRUE" argument tells it to return the content, rather than display it immediately</span><span class="pln">\r\n$data</span><span class="pun">[</span><span class="str">\'menu\'</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> $this</span><span class="pun">-></span><span class="pln">load</span><span class="pun">-></span><span class="pln">view</span><span class="pun">(</span><span class="str">\'menu\'</span><span class="pun">,</span><span class="pln"> NULL</span><span class="pun">,</span><span class="pln"> TRUE</span><span class="pun">);</span><span class="pln">\r\n$this</span><span class="pun">-></span><span class="pln">load</span><span class="pun">-></span><span class="pln">view </span><span class="pun">(</span><span class="str">\'home\'</span><span class="pun">,</span><span class="pln"> $data</span><span class="pun">);</span>\r\n<span class="pun">?&gt;</span></code></pre>\r\n<p>Then put <code>&lt;!--?=$menu? ></code> in your view at the point you want the menu to appear.</p>\r\n<h2 xss=removed>2. Load a view "from within" a view</h2>\r\n<p xss=removed>First put this in the controller:</p>\r\n<pre class="lang-php prettyprint prettyprinted" xss=removed><code xss=removed><span class="pun" xss=removed>&lt;?</span><span class="pln" xss=removed>php\r\n  $this</span><span class="pun" xss=removed>-></span><span class="pln" xss=removed>load</span><span class="pun" xss=removed>-></span><span class="pln" xss=removed>view</span><span class="pun" xss=removed>(</span><span class="str" xss=removed>\'home\'</span><span class="pun" xss=removed>);</span>\r\n<span class="pun" xss=removed>?--&gt;</code></p>\r\n<p>Then put this in the <code>/application/views/home.php</code> view:</p>\r\n<pre class="lang-php prettyprint prettyprinted"><code><span class="pun">&lt;?</span><span class="pln">php $this</span><span class="pun">-></span><span class="pln">view</span><span class="pun">(</span><span class="str">\'menu\'</span><span class="pun">);</span> <span class="pun">?&gt;</span>\r\n\r\n</code></pre>\r\n<p> </p>\r\n<pre class="lang-php prettyprint prettyprinted"><code><span class="pln">Other home content...</span></code></pre>\r\n<p>About best method, I prefer the 1st method over 2nd one, because by using 1st method I don\'t have to mix up code, it is not like <strong>include</strong> php. Although indirectly both are same, the 1st method is clearer & cleaner than 2nd one!</p>', 5, '2018-08-18 01:26:53', '2018-08-27 00:24:03', 0, 1, 'Y', 'Y', 'Place a nice introduction here to catch reader\'s attention. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderi.'),
