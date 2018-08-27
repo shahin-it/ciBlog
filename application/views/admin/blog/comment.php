@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<th>Created</th>
 			<th>Updated</th>
 			<th>Published</th>
-			<th>Actions</th>
+			<th width="10%">Actions</th>
 			</thead>
 			<tbody>
 			<?php foreach ($items as $item) { ?>

@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th width="25%">Description</th>
             <th>Created</th>
             <th>Sort Index</th>
-            <th>Actions</th>
+            <th width="10%">Actions</th>
             </thead>
             <tbody>
                 <?php foreach ($items as $item) { ?>

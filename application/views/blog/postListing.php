@@ -11,11 +11,11 @@ if($items) {
 			<div class="list-item post-summary">
 				<div class="post-title">
 					<div class="post-info">
-						<div class="category"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
+						<div class="category font-weight-bold"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
 					</div>
 					<h2 class=""><?php echo $post["name"]?></h2>
-					<div class="post-meta text-danger">
-						<i class="fas fa-calendar-alt"></i><span> <?php echo "By ".$post["_user"]." at ".AppUtil::localTime($post["created"]) ?></span>
+					<div class="post-meta text-muted">
+						<i class="fas fa-calendar-alt"></i><span> <?php echo "By ".$post["_user"]." at ".$post["created"] ?></span>
 					</div>
 				</div>
 				<div class="post-details">

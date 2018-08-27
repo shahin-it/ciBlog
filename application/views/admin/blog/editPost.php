@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
 		<div class="form-group col-sm-3">
 			<label for="">Is Featured</label>
-			<?php echo form_dropdown('is_featured', ["N"=>"NO", "Y"=>"YES"], @$item["is_default"], 'class="form-control"'); ?>
+			<?php echo form_dropdown('is_featured', ["N"=>"NO", "Y"=>"YES"], @$item["is_featured"], 'class="form-control"'); ?>
 		</div>
     </div>
 	<div class="form-group">

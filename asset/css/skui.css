@@ -13,12 +13,15 @@ body.body {
 	padding: 0;
 	margin: 0;
 	font-family: "Open Sans",sans-serif;
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	font-weight: normal;
 	line-height: 1.5;
 	color: #212529;
 	background-color: #fff;
 	min-height: 100%;
+}
+header {
+	margin-bottom: 15px;
 }
 header a:hover, footer a:hover {
 	text-decoration: none;
@@ -200,4 +203,10 @@ button {
 .mark-prime {
 	border-left: 5px solid #5bc0de;
 	border-radius: .25rem;
+}
+.overflow-hide {
+	overflow: hidden !important;
+}
+.flex-body {
+	margin: 0 -15px;
 }
