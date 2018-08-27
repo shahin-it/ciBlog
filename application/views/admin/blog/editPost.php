@@ -25,8 +25,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input type="number" class="form-control" name="sort_index" max="999" required value="<?php echo @$item["sort_index"] ?: 0; ?>">
         </div>
 		<div class="form-group col-sm-3">
-			<label for="">Is Pined</label>
-			<?php echo form_dropdown('is_default', ["N"=>"NO", "Y"=>"YES"], @$item["is_default"], 'class="form-control"'); ?>
+			<label for="">Is Featured</label>
+			<?php echo form_dropdown('is_featured', ["N"=>"NO", "Y"=>"YES"], @$item["is_default"], 'class="form-control"'); ?>
 		</div>
     </div>
 	<div class="form-group">

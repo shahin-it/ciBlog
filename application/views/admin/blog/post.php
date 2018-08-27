@@ -15,7 +15,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th width="20%">Name/Title</th>
             <th>Category</th>
             <th>Created By</th>
-<!--            <th width="25%">Description</th>-->
             <th>Created</th>
             <th>Updated</th>
             <th>Sort Index</th>
@@ -24,12 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </thead>
             <tbody>
                 <?php foreach ($items as $item) { ?>
-                <tr class="<?php echo ($item["is_default"] == "Y" ? "mark-prime":"")?>">
+                <tr class="<?php echo ($item["is_featured"] == "Y" ? "mark-prime":"")?>">
                     <td data-label="ID"><?php echo $item["id"];?></td>
                     <td data-label="Name/Title"><span class="trim-text"><?php echo htmlentities($item["name"]); ?></span></td>
                     <td data-label="Category"><?php echo "[".$item["category"]."] ".$item["_category"]; ?></td>
                     <td data-label="Created By"><?php echo $item["_created_by"]; ?></td>
-<!--					<td data-label="Description"><span class="trim-text">--><?php //echo htmlentities($item["description"]); ?><!--</span></td>-->
                     <td data-label="Created"><?php echo $item["created"]; ?></td>
                     <td data-label="Updated"><?php echo $item["updated"]; ?></td>
                     <td data-label="Sort Index"><?php echo $item["sort_index"]; ?></td>

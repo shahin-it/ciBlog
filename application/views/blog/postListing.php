@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 if($items) {
 ?>
-<div class="post-listing skui-paginated-page" data-url="category/<?php echo $id ?>">
+<div class="post-listing skui-paginated-page" data-url="category/<?php echo $uri ?>">
 	<div class="list-header">
 		<h5>Post Summary</h5>
 	</div>

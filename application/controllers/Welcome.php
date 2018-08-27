@@ -10,7 +10,7 @@ class Welcome extends MY_Controller {
 	}
 
     public function index() {
-		$this->data["post"] = $this->blogPost->getPostDetails(["is_default"=>"Y"]);
+		$this->data["post"] = $this->blogPost->getPostDetails(["is_featured"=>"Y"]);
         $this->load->view("index", $this->data);
     }
 

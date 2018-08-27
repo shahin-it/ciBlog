@@ -115,9 +115,6 @@ class MY_Model extends CI_Model {
         	if($this->db->field_exists('updated', $table)) {
 				$params["updated"] = AppUtil::now();
 			}
-			if(@$params["is_default"] == "Y") {
-				$this->db->update($table, ["is_default"=>"N"]);
-			}
             $result = $this->db->update($table, $params, array("id" => $params["id"]));
         } else {
 			if($this->db->field_exists('created', $table)) {

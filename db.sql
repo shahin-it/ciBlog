@@ -63,7 +63,7 @@ CREATE TABLE `blog_post` (
 	`sort_index` INT(11) NOT NULL DEFAULT '0',
 	`created_by` INT(11) NULL DEFAULT NULL,
 	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
-	`is_default` ENUM('Y','N') NULL DEFAULT 'N',
+	`is_featured` ENUM('Y','N') NULL DEFAULT 'N',
 	`summary` VARCHAR(1000) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),

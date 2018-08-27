@@ -65,7 +65,7 @@
 	?>
 
 </head>
-<body>
+<body class="body">
 <header class="banner d-print-none">
 	<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
 		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><i class="fas fa-book pr-1"></i>Batayon</a>
