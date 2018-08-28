@@ -252,10 +252,10 @@ if (window.jQuery) {
             return pagination.twbsPagination({
                 startPage: (data.offset / data.max) + 1,
                 visiblePages: 3,
-                first: '&laquo;&laquo;',
-                prev: '&laquo;',
-                next: '&raquo;',
-                last: '&raquo;&raquo;',
+                first: "«",
+                prev: "‹",
+                next: "›",
+                last: "»",
                 initiateStartPageClick: false,
                 totalPages: Math.ceil(count / data.max),
                 onPageClick: function (evt, _offset) {

@@ -73,14 +73,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="main-nav-bar">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
+						<li class="nav-item <?php echo @$home?>">
 							<a class="nav-link" href="<?php echo base_url()?>">Home <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Link</a>
+							<a class="nav-link" href="<?php echo base_url("category/featured")?>">Featured</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link disabled" href="#">Disabled</a>
+							<a class="nav-link" href="<?php echo base_url("category/latest")?>">Latest</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo base_url("category/popular")?>">Popular</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -97,7 +100,7 @@
 				</div>
 			</nav>
 		</header>
-		<?php echo isset($featured) ? $featured : ""; ?>
+		<?php echo @$heading; ?>
 		<main role="main" id="body">
 			<div class="row">
 				<aside class="col-md-4 col-lg-3 blog-sidebar">
@@ -162,61 +165,8 @@
 	</div>
 
 	<footer class="blog-footer">
-		<p>Blog template built by <a href="https://twitter.com/shahin_it" target="_blank">@shahin_it</a>.</p>
-		<p>© 2018 SHAHIN KHALED. All rights reserved</p>
+		<p>© 2018 <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</p>
 		<p><a href="#">Back to top</a></p>
 	</footer>
-
-	<!--<section id="body" class="container-fluid">
-		<div class="row">
-			<div class="sidebar col-md-3 col-lg-2 d-print-none">
-				<form class="bd-search d-flex align-items-center">
-					<div class="input-group">
-						<input name="searchText" type="text" class="form-control input-search" placeholder="Search....">
-						<div class="input-group-append">
-							<span class="btn input-group-text"><i class="fa fa-search"></i></span>
-						</div>
-					</div>
-					<button class="btn btn-link d-md-none p-0 ml-3" onclick="$('.navigation').slideToggle()" type="button">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
-						<title>Menu</title>
-						<path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
-						</svg>
-					</button>
-				</form>
-				<nav class="navigation">
-					<div class="navigation-item">
-						<ul class="side-bar-nav skui-accordion-panel">
-							<li><h6>Categories</h6></li>
-							<?php /*foreach ($categories as $category) {*/?>
-								<li class="nav-item clearfix">
-									<a class="" href="<?php /*echo base_url("category/".$category['id'])*/?>"><?php /*echo($category['name']);*/?></a>
-									<a class="skui-accordion-label badge badge-light float-right" href="#"><i class="fas fa-arrow-circle-down"></i></a>
-									<ul class="skui-accordion-item">
-										<?php /*foreach ($category["child"] as $cat) {*/?>
-											<li class="nav-item"><a href="<?php /*echo base_url("category/".$cat['id'])*/?>" class="skui-accordion-label"><?php /*echo($cat['name']);*/?></a></li>
-										<?php /*}*/?>
-									</ul>
-								</li>
-							<?php /*}*/?>
-						</ul>
-					</div>
-				</nav>
-			</div>
-			<article class="sidebar col-md-9 col-lg-10">
-				<?php /*echo $output; */?>
-			</article>
-		</div>
-	</section>
-	<footer class="d-print-none">
-		<div class="row py-1 mx-0">
-			<div class="col-sm-6">
-				<a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>
-			</div>
-			<div class="col-sm-6 text-sm-right">
-				<span>© 2013 Company Name. All rights reserved</span>
-			</div>
-		</div>
-	</footer>-->
     </body>
 </html>

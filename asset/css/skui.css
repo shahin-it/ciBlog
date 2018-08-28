@@ -38,7 +38,7 @@ section#body {
 	margin: 15px auto;
 }
 h1,h2,h3,h4,h5,h6 {
-	font-weight: 700;
+
 }
 .sidebar {
 	padding-bottom: 15px;
@@ -206,7 +206,13 @@ button {
 }
 .overflow-hide {
 	overflow: hidden !important;
+	word-break: break-word;
 }
 .flex-body {
 	margin: 0 -15px;
+}
+.link, .link:link, .link:hover {
+	color: inherit;
+	text-decoration: inherit;
+	cursor: pointer;
 }

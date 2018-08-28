@@ -67,7 +67,8 @@
 	text-transform: uppercase;
 }
 .post-summary {
-	margin: 30px auto;
+	margin: 20px auto;
+	padding-bottom: 20px;
 }
 .post-details {
 	margin: 50px 10px;

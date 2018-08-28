@@ -17,9 +17,7 @@ class Post extends MY_Controller {
     public function category($uri) {
     	$where = [];
     	$view = "postListing";
-		$featured = "";
     	$this->params["orderBy"] = "sort_index";
-    	$this->params["dir"] = "asc";
     	switch ($uri) {
 			case "latest":
 				$this->params["orderBy"] = "updated";
@@ -33,10 +31,10 @@ class Post extends MY_Controller {
 				$where = ["blog_post.category"=>$uri];
 				break;
 		}
-		$this->data = $this->blogPost->getPostTableData($this->params, $where);
 		$this->data["uri"] = $uri;
-		$this->data["featured"] = $featured;
-		$this->load->view('blog/'.$view, $this->data);
+		$this->data[$uri] = "active";
+		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
+		$this->load->view("blog/".$view, $this->data);
     }
 
 }

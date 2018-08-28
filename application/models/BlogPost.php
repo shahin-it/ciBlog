@@ -24,7 +24,7 @@ class BlogPost extends MY_Model {
     }
 
     public function getPostDetails($where = []) {
-    	$_where = [];
+    	$_where = ["$this->tableName.is_active"=>"Y"];
     	foreach ($where as $k=>$v) {
     		$_where[$this->tableName.".".$k] = $v;
 		}
@@ -32,6 +32,7 @@ class BlogPost extends MY_Model {
 	}
 
 	public function getPostTableData($params, $where = []) {
+    	$where["blog_post.is_active"] = "Y";
     	return $this->blogPost->getTableData($params, [["blog_category.name as _category", "blog_category", "blog_post.category = blog_category.id", "LEFT"], ["user.name as _user", "user", "blog_post.created_by = user.id", "LEFT"]], $where);
 	}
 

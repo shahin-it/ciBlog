@@ -31,7 +31,7 @@ class MY_Model extends CI_Model {
         $data = [];
 		$params["max"] = @$params["max"] ?: 10;
 		$params["offset"] = @$params["offset"] ?: (@$params["page"] ? $params["max"]*$params["page"] : 0);
-        $data["count"] = $this->db->count_all($this->tableName);
+        $data["count"] = $this->db->where($where)->count_all_results($this->tableName);
         if($data["count"] && $data["count"] <= $params["offset"]) {
 			$params["offset"] -= @$params["max"];
 		}

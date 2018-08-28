@@ -4,7 +4,7 @@ if($items) {
 ?>
 <div class="post-listing skui-paginated-page" data-url="category/<?php echo $uri ?>">
 	<div class="list-header">
-		<h5>Post Summary</h5>
+		<h3 class="pb-3 mb-4 font-italic border-bottom">From the <?php echo $items[0]["_category"]?></h3>
 	</div>
 	<div class="list-items">
 		<?php foreach ($items as $post) {?>
