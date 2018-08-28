@@ -17,7 +17,6 @@ if($items) {
 					<div class="post-meta text-muted">
 						<i class="fas fa-calendar-alt"></i><span> <?php echo "By ".$post["_user"]." at ".$post["created"] ?></span>
 					</div>
-
 				</div>
 				<div class="post-details">
 					<div class="post-summary"><?php echo $post["summary"]?></div>
