@@ -525,7 +525,7 @@ $config['proxy_ips'] = '';
 if (ENVIRONMENT == "development") {
 	$config['base_url'] = '/ciblog/';
 } else {
-	$config['base_url'] = '/ciblog/';
+	$config['base_url'] = '/';
 }
 $config['index_page'] = '';
 $config['csrf_protection'] = FALSE;

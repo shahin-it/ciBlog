@@ -6,7 +6,6 @@
  * Date: 04-Aug-18
  * Time: 1:43 AM
  */
-$config['_config'] = json_decode(file_get_contents('config.json'), true);
 
 // Set line to collect lines that wrap
 $templine = '';
