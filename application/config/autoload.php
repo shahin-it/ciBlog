@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'text', 'form', 'date');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('_config');
+$autoload['config'] = array();
 
 /*
 | -------------------------------------------------------------------
@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array("blogPost", "blogCategory", "blogComment");
+$autoload['model'] = array("user", "blogPost", "blogCategory", "blogComment");

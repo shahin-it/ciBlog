@@ -1,8 +1,0 @@
-{
-  "dev": true,
-  "baseUrl": "/ciblog",
-  "resourceDir": "asset/",
-  "dbHost": "localhost",
-  "dbUser": "root",
-  "dbPass": ""
-}
