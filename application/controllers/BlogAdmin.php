@@ -15,6 +15,7 @@ class BlogAdmin extends MY_Controller {
     public function category() {
 		$this->output->set_template('_admin');
         $this->data = $this->blogCategory->getTableData($this->params);
+		$this->data["category"] = "active";
         $this->load->view('admin/blog/category', $this->data);
     }
 
@@ -28,6 +29,7 @@ class BlogAdmin extends MY_Controller {
 		$this->output->set_template('_admin');
 		$this->data = $this->blogPost->getTableData($this->params,
 			[["blog_category.name as _category", "blog_category", "blog_post.category = blog_category.id", "LEFT"], ["user.email as _created_by", "user", "blog_post.created_by = user.id", "LEFT"]]);
+		$this->data["post"] = "active";
         $this->load->view('admin/blog/post', $this->data);
     }
 
@@ -41,6 +43,7 @@ class BlogAdmin extends MY_Controller {
 		$this->output->set_template('_admin');
 		$this->data = $this->blogComment->getTableData($this->params,
 			[["blog_post.name as _post", "blog_post", "blog_comment.post = blog_post.id", "LEFT"], ["user.email as _created_by", "user", "blog_comment.created_by = user.id", "LEFT"]]);
+		$this->data["comment"] = "active";
         $this->load->view('admin/blog/comment', $this->data);
     }
 

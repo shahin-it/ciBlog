@@ -64,7 +64,7 @@ CREATE TABLE `blog_post` (
 	`created_by` INT(11) NULL DEFAULT NULL,
 	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
 	`is_featured` ENUM('Y','N') NULL DEFAULT 'N',
-	`summary` VARCHAR(1000) NOT NULL,
+	`summary` VARCHAR(500) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),
 	INDEX `FK_blog_post_blog_category` (`category`),

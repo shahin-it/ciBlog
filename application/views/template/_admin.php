@@ -68,15 +68,15 @@
 <body class="body">
 <header class="banner d-print-none">
 	<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><i class="fas fa-book pr-1"></i>Batayon</a>
+		<a class="navbar-brand" href="<?php echo site_url('admin') ?>"><img class="logo" height="32" width="32" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('blogAdmin/category');?>">Category</a></li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('blogAdmin/post'); ?>">Post</a></li>
-				<li class="nav-item"><a class="nav-link" href="<?php echo base_url('blogAdmin/comment'); ?>">Comment</a></li>
+				<li class="nav-item <?php echo @$category?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/category');?>">Category</a></li>
+				<li class="nav-item <?php echo @$post?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/post'); ?>">Post</a></li>
+				<li class="nav-item <?php echo @$comment?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/comment'); ?>">Comment</a></li>
 				<li class="d-sm-none">
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" href="<?php echo base_url()?>" target="_blank"> View Site</a></li>

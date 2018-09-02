@@ -18,7 +18,7 @@
             };
         </script>
         
-        <link rel="icon" type="image/x-icon" href="<?php echo base_url(); ?>asset/image/default/favicon.png">
+        <link rel="icon" type="image/x-icon" href="<?php echo base_url("asset/image/default/favicon.png");?>">
         <script src="<?php echo base_url(); ?>asset/vendor/jquery-3.3.1.min.js"></script>
 		<script src="<?php echo base_url(); ?>asset/vendor/jquery.form.min.js"></script>
         <script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
@@ -66,8 +66,8 @@
     <body>
 	<div class="container">
 		<header class="blog-header">
-			<nav class="navbar navbar-expand-md navbar-dark bg-secondary">
-				<a class="navbar-brand" href="<?php echo base_url()?>"><i class="fas fa-book pr-1"></i> Batayon</a>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+				<a class="navbar-brand" href="<?php echo base_url()?>"><img class="logo" height="32" width="32" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-bar" aria-controls="main-nav-bar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -76,13 +76,13 @@
 						<li class="nav-item <?php echo @$home?>">
 							<a class="nav-link" href="<?php echo base_url()?>">Home <span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item <?php echo @$featured?>">
 							<a class="nav-link" href="<?php echo base_url("category/featured")?>">Featured</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item <?php echo @$latest?>">
 							<a class="nav-link" href="<?php echo base_url("category/latest")?>">Latest</a>
 						</li>
-						<li class="nav-item">
+						<li class="nav-item <?php echo @$popular?>">
 							<a class="nav-link" href="<?php echo base_url("category/popular")?>">Popular</a>
 						</li>
 						<li class="nav-item dropdown">

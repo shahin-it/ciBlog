@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td data-label="Published"><?php echo $item["is_active"]; ?></td>
                     <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["name"];?>" data-_model="blogPost">
                         <button class="btn btn-primary btn-sm" data-action="edit" data-url="blogAdmin/editPost" title="Edit"><i class="fas fa-edit"></i></button>
-                        <a class="btn btn-success btn-sm" data-action="view" title="View in site" href="<?php echo base_url("post/".$item["id"])?>"><i class="fas fa-eye"></i></a>
+                        <a class="btn btn-success btn-sm" data-action="view" title="View in site" target="_blank" href="<?php echo base_url("post/".$item["id"])?>"><i class="fas fa-eye"></i></a>
                         <button class="btn btn-danger btn-sm" data-action="delete" data-url="blogAdmin/delete" title="Delete"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>

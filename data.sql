@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `blog_post` (
   `created_by` int(11) DEFAULT NULL,
   `is_active` enum('Y','N') NOT NULL DEFAULT 'N',
   `is_featured` enum('Y','N') DEFAULT 'N',
-  `summary` varchar(1000) NOT NULL,
+  `summary` varchar(500) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `FK_blog_post_blog_category` (`category`),

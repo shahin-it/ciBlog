@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 	<div class="form-group">
 		<label for="">Summary (TEXT/HTML)</label>
-		<textarea name="summary" class="form-control" required maxlength="1000"><?php echo @$item["summary"];?></textarea>
+		<textarea name="summary" class="form-control" required maxlength="500"><?php echo @$item["summary"];?></textarea>
 	</div>
     <div class="form-group">
         <label for="">Description (TEXT/HTML)</label>
