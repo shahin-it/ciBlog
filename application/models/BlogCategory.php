@@ -41,6 +41,7 @@ class BlogCategory extends MY_Model {
 
 	function getCategoryTree($where = []) {
     	$cats = $this->getAllBy([], $where);
+    	$parents = [];
     	foreach ($cats as &$cat) {
     		$cat["child"] = $this->getAllBy([], ["parent"=>$cat["id"]]);
 		}

@@ -117,11 +117,11 @@
 							<a class="nav-link" href="<?php echo base_url("category/latest")?>">Latest</a>
 						</li>
 						<li class="nav-item <?php echo @$popular?>">
-							<a class="nav-link" href="<?php echo base_url("category/popular")?>">Popular</a>
+							<a class="nav-link" href="<?php echo base_url("category/popular")?>">Most Popular</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="https://bootstrapthemes.co" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Dropdown link
+								Others
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li><a class="dropdown-item" href="#">Action</a></li>
