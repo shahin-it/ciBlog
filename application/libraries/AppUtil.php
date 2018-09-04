@@ -81,4 +81,41 @@ class AppUtil {
 		return $string;
 	}
 
+	public static function buildTree($category, $parentId = null) {
+		$tree = $category;
+		$branch = array();
+
+		foreach ($tree as $element) {
+			if ($element['parent'] == $parentId) {
+				$children = self::buildTree($tree, $element['id']);
+				$element['child'] = $children;
+				$branch[] = $element;
+			}
+		}
+
+		return $branch;
+
+
+		/*$return = array();
+    	# Traverse the tree and search for direct children of the root
+		foreach($tree as $k=>$child) {
+			$key = array_search($child["parent"], array_column($tree, 'id'));
+			if(!$key) {
+				continue;
+			}
+			$parent = $tree[$key];
+        	# A direct child is found
+			if($parent["parent"] == $root) {
+            	# Remove item from tree (we don't need to traverse this again)
+				unset($tree[$k]);
+				unset($tree[$key]);
+            	# Append the child into result array and parse its children
+				$parent["child"][] = $child;
+				$return[] = $parent;
+				self::parseCategory($tree, $child["parent"]);
+			}
+		}
+		return $return;*/
+	}
+
 }

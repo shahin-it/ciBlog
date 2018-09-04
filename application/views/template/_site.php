@@ -59,47 +59,14 @@
         /** -- to here -- */
 
 
-		$categories = $this->blogCategory->getCategoryTree(["parent"=>null]);
+		$categories = $this->blogCategory->getCategoryTree();
+		$postByMonth = $this->blogPost->getPostByMonth();
         ?>
 
     </head>
     <body>
 	<div class="container">
 		<header class="blog-header">
-			<!--<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-				<a class="navbar-brand" href="<?php /*echo base_url()*/?>"><img class="logo" height="32" width="32" src="<?php /*echo base_url("asset/image/default/logo.png")*/?>"/> Batayon</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-bar" aria-controls="main-nav-bar" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="main-nav-bar">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item <?php /*echo @$home*/?>">
-							<a class="nav-link" href="<?php /*echo base_url()*/?>">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item <?php /*echo @$featured*/?>">
-							<a class="nav-link" href="<?php /*echo base_url("category/featured")*/?>">Featured</a>
-						</li>
-						<li class="nav-item <?php /*echo @$latest*/?>">
-							<a class="nav-link" href="<?php /*echo base_url("category/latest")*/?>">Latest</a>
-						</li>
-						<li class="nav-item <?php /*echo @$popular*/?>">
-							<a class="nav-link" href="<?php /*echo base_url("category/popular")*/?>">Popular</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-							<div class="dropdown-menu" aria-labelledby="dropdown04">
-								<a class="dropdown-item" href="#">Action</a>
-								<a class="dropdown-item" href="#">Another action</a>
-								<a class="dropdown-item" href="#">Something else here</a>
-							</div>
-						</li>
-					</ul>
-					<form class="form-inline my-2 my-md-0">
-						<input class="form-control" type="text" placeholder="Search">
-					</form>
-				</div>
-			</nav>-->
-
 			<nav class="navbar navbar-expand-md navbar-light bg-light skui-hover-menu">
 				<a class="navbar-brand" href="<?php echo base_url()?>"><img class="logo" height="28" width="28" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -202,27 +169,18 @@
 					<div class="p-3">
 						<h4 class="font-italic">Archives</h4>
 						<ol class="list-unstyled mb-0">
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">March 2014</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">February 2014</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">January 2014</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">December 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">November 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">October 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">September 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">August 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">July 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">June 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">May 2013</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">April 2013</a></li>
+							<?php foreach ($postByMonth as $dateTime) {?>
+							<li><a href="#"><?php echo (date("F", strtotime($dateTime["year"]."-".$dateTime["month"]))." ".$dateTime["year"])?></a></li>
+							<?php }?>
 						</ol>
 					</div>
 
 					<div class="p-3">
 						<h4 class="font-italic">Elsewhere</h4>
 						<ol class="list-unstyled">
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">GitHub</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">Twitter</a></li>
-							<li><a href="https://getbootstrap.com/docs/4.1/examples/blog/#">Facebook</a></li>
+							<li><a href="#">GitHub</a></li>
+							<li><a href="#">Twitter</a></li>
+							<li><a href="#">Facebook</a></li>
 						</ol>
 					</div>
 				</aside><!-- /.blog-sidebar -->

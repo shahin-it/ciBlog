@@ -10,12 +10,19 @@ class Post extends MY_Controller {
     }
 
     public function details($id) {
-		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$id]);
-		$this->load->view('blog/postDetails', $this->data);
+		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$id, "is_active"=> "Y"]);
+		if($this->data["post"]) {
+			$this->load->view('blog/postDetails', $this->data);
+		} else {
+			$this->data["heading"] = "Error 404";
+			$this->data["message"] = "Post not found!";
+			header("HTTP/1.1 404 Not Found");
+			$this->load->view('errors/html/error_404', $this->data);
+		}
     }
 
     public function category($uri) {
-    	$where = [];
+    	$where = ["blog_post.is_active"=> "Y"];
     	$view = "postListing";
     	$this->params["orderBy"] = "sort_index";
     	switch ($uri) {
@@ -24,11 +31,11 @@ class Post extends MY_Controller {
 				$this->params["dir"] = "desc";
 				break;
 			case "featured":
-				$where = ["is_featured"=>"Y"];
+				$where["is_featured"] = "Y";
 				$view = "featuredPost";
 				break;
 			default:
-				$where = ["blog_post.category"=>$uri];
+				$where["blog_post.category"] = $uri;
 				break;
 		}
 		$this->data["uri"] = $uri;
