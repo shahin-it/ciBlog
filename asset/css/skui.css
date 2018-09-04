@@ -216,3 +216,69 @@ button {
 	text-decoration: inherit;
 	cursor: pointer;
 }
+
+/*=-====skui-hover-menu=====*/
+.navbar-light .navbar-nav .nav-link {
+	color: rgb(64, 64, 64);
+}
+.skui-hover-menu a ,  .navbar > li > a {
+	text-transform: capitalize;
+	padding: 10px 15px;
+}
+.skui-hover-menu .active a,
+.skui-hover-menu .active a:focus,
+.skui-hover-menu .active a:hover,
+.skui-hover-menu li a:hover,
+.skui-hover-menu li a:focus ,
+.navbar>.show>a,  .navbar>.show>a:focus,  .navbar>.show>a:hover{
+	color: #000;
+	background: transparent;
+	outline: 0;
+}
+
+/*submenu style start from here*/
+.skui-hover-menu .dropdown-menu {
+	padding: 0px 0;
+	margin: 0 0 0;
+	border: 0px solid transparent !important;
+	border: 0px solid rgba(0,0,0,.15);
+	border-radius: 0px;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+/*first level*/
+.skui-hover-menu .collapse ul > li:hover > a{background: #f5f5f5;}
+.skui-hover-menu .collapse ul ul > li:hover > a, .navbar .show .dropdown-menu > li > a:focus, .navbar .show .dropdown-menu > li > a:hover{background: #fff;}
+/*second level*/
+.skui-hover-menu .collapse ul ul ul > li:hover > a{background: #fff;}
+
+/*third level*/
+.skui-hover-menu .collapse ul ul, .skui-hover-menu .collapse ul ul.dropdown-menu{background:#f5f5f5;}
+.skui-hover-menu .collapse ul ul ul, .skui-hover-menu .collapse ul ul ul.dropdown-menu{background:#f5f5f5}
+.skui-hover-menu .collapse ul ul ul ul, .skui-hover-menu .collapse ul ul ul ul.dropdown-menu{background:#f5f5f5}
+
+/*Drop-down menu work on hover*/
+.skui-hover-menu{background: none;margin: 0;padding: 0;min-height:20px}
+
+@media only screen and (max-width: 991px) {
+	.skui-hover-menu .show > .dropdown-toggle::after{
+		transform: rotate(-90deg);
+	}
+}
+@media only screen and (min-width: 991px) {
+
+	.skui-hover-menu .collapse ul li{position:relative;}
+	.skui-hover-menu .collapse ul li:hover> ul{display:block}
+	.skui-hover-menu .collapse ul ul{position:absolute;top:100%;left:0;min-width:250px;display:none}
+	/*******/
+	.skui-hover-menu .collapse ul ul li{position:relative}
+	.skui-hover-menu .collapse ul ul li:hover> ul{display:block}
+	.skui-hover-menu .collapse ul ul ul{position:absolute;top:0;left:100%;min-width:250px;display:none}
+	/*******/
+	.skui-hover-menu .collapse ul ul ul li{position:relative}
+	.skui-hover-menu .collapse ul ul ul li:hover ul{display:block}
+	.skui-hover-menu .collapse ul ul ul ul{position:absolute;top:0;left:-100%;min-width:250px;display:none;z-index:1}
+
+}
+

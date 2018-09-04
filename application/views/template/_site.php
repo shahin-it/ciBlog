@@ -66,24 +66,24 @@
     <body>
 	<div class="container">
 		<header class="blog-header">
-			<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-				<a class="navbar-brand" href="<?php echo base_url()?>"><img class="logo" height="32" width="32" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
+			<!--<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+				<a class="navbar-brand" href="<?php /*echo base_url()*/?>"><img class="logo" height="32" width="32" src="<?php /*echo base_url("asset/image/default/logo.png")*/?>"/> Batayon</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav-bar" aria-controls="main-nav-bar" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="main-nav-bar">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item <?php echo @$home?>">
-							<a class="nav-link" href="<?php echo base_url()?>">Home <span class="sr-only">(current)</span></a>
+						<li class="nav-item <?php /*echo @$home*/?>">
+							<a class="nav-link" href="<?php /*echo base_url()*/?>">Home <span class="sr-only">(current)</span></a>
 						</li>
-						<li class="nav-item <?php echo @$featured?>">
-							<a class="nav-link" href="<?php echo base_url("category/featured")?>">Featured</a>
+						<li class="nav-item <?php /*echo @$featured*/?>">
+							<a class="nav-link" href="<?php /*echo base_url("category/featured")*/?>">Featured</a>
 						</li>
-						<li class="nav-item <?php echo @$latest?>">
-							<a class="nav-link" href="<?php echo base_url("category/latest")?>">Latest</a>
+						<li class="nav-item <?php /*echo @$latest*/?>">
+							<a class="nav-link" href="<?php /*echo base_url("category/latest")*/?>">Latest</a>
 						</li>
-						<li class="nav-item <?php echo @$popular?>">
-							<a class="nav-link" href="<?php echo base_url("category/popular")?>">Popular</a>
+						<li class="nav-item <?php /*echo @$popular*/?>">
+							<a class="nav-link" href="<?php /*echo base_url("category/popular")*/?>">Popular</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -97,6 +97,77 @@
 					<form class="form-inline my-2 my-md-0">
 						<input class="form-control" type="text" placeholder="Search">
 					</form>
+				</div>
+			</nav>-->
+
+			<nav class="navbar navbar-expand-md navbar-light bg-light skui-hover-menu">
+				<a class="navbar-brand" href="<?php echo base_url()?>"><img class="logo" height="28" width="28" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<li class="nav-item <?php echo @$home?>">
+							<a class="nav-link" href="<?php echo base_url()?>">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item <?php echo @$featured?>">
+							<a class="nav-link" href="<?php echo base_url("category/featured")?>">Featured</a>
+						</li>
+						<li class="nav-item <?php echo @$latest?>">
+							<a class="nav-link" href="<?php echo base_url("category/latest")?>">Latest</a>
+						</li>
+						<li class="nav-item <?php echo @$popular?>">
+							<a class="nav-link" href="<?php echo base_url("category/popular")?>">Popular</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="https://bootstrapthemes.co" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Dropdown link
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li>
+									<a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Submenu action</a></li>
+										<li><a class="dropdown-item" href="#">Another submenu action</a></li>
+										<li><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#">Subsubmenu action aa</a></li>
+												<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+											</ul>
+										</li>
+										<li><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#">Subsubmenu action bb</a></li>
+												<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li><a class="dropdown-item dropdown-toggle" href="#">Submenu 2</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="#">Submenu action 2</a></li>
+										<li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
+										<li>
+											<a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
+												<li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
+											<ul class="dropdown-menu">
+												<li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
+												<li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 			</nav>
 		</header>
