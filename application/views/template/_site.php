@@ -138,7 +138,7 @@
 				</div>
 			</nav>
 		</header>
-		<?php echo @$heading; ?>
+		<?php echo @$afterHeader; ?>
 		<main role="main" id="body">
 			<div class="row">
 				<aside class="col-md-4 col-lg-3 blog-sidebar">
@@ -176,11 +176,13 @@
 					</div>
 
 					<div class="p-3">
-						<h4 class="font-italic">Elsewhere</h4>
+						<h4 class="font-italic">Contact</h4>
 						<ol class="list-unstyled">
-							<li><a href="#">GitHub</a></li>
-							<li><a href="#">Twitter</a></li>
-							<li><a href="#">Facebook</a></li>
+							<li><a href="https://github.com/shahin-it" target="_blank">GitHub</a></li>
+							<li><a href="https://twitter.com/shahin_it" target="_blank">Twitter</a></li>
+							<li><a href="https://facebook.com/shahin31" target="_blank">Facebook</a></li>
+							<li><a href="tel: +8801722567008">+8801722567008</a></li>
+							<li><a href="mailto: mbstu.shahin@live.com">mbstu.shahin@live.com</a></li>
 						</ol>
 					</div>
 				</aside><!-- /.blog-sidebar -->
@@ -195,7 +197,7 @@
 
 	<footer class="blog-footer">
 		<p>© 2018 <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</p>
-		<p><a href="#">Back to top</a></p>
+		<p><span class="link text-primary" id="back-to-top">Back to top</span></p>
 	</footer>
     </body>
 </html>

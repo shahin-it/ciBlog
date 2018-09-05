@@ -4,14 +4,14 @@ if($items) {
 ?>
 <div class="post-listing skui-paginated-page" data-url="category/<?php echo $uri ?>">
 	<div class="list-header">
-		<h3 class="pb-3 mb-4 font-italic border-bottom">From the <?php echo $items[0]["_category"]?></h3>
+		<h3 class="pb-3 mb-4 font-italic border-bottom"><?php echo(@$title ? $title : "From the ".$items[0]["_category"])?></h3>
 	</div>
 	<div class="list-items">
 		<?php foreach ($items as $post) {?>
 			<div class="list-item post-summary">
 				<div class="post-title">
 					<div class="post-info">
-						<div class="category font-weight-bold"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
+						<span class="category font-weight-bold"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
 					</div>
 					<h2 class=""><?php echo $post["name"]?></h2>
 					<div class="post-meta text-muted">

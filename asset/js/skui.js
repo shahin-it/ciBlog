@@ -649,6 +649,14 @@ if (window.jQuery) {
 
 			return false;
 		});
+
+		delegate.find("#back-to-top").click(function () {
+			window.scroll({
+				top: 0,
+				left: 0,
+				behavior: 'smooth'
+			});
+		})
     }
 
     $(function () {
