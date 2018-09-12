@@ -36,7 +36,7 @@ class BlogPost extends MY_Model {
 	}
 
 	public function getPostByMonth() {
-    	return $this->db->query("SELECT MONTH(updated) month, YEAR(updated) AS year, count(*) as total from blog_post group by Month(updated)")->result_array();
+    	return $this->db->query("SELECT MONTH(updated) month, YEAR(updated) AS year, count(*) as count from blog_post where is_active='Y' group by Month(updated)")->result_array();
 	}
 
 }

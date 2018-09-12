@@ -38,10 +38,22 @@ class Post extends MY_Controller {
 				$where["blog_post.category"] = $uri;
 				break;
 		}
-		$this->data["uri"] = $uri;
+		$this->data["uri"] = "category/".$uri;
 		$this->data[$uri] = "active";
 		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
 		$this->load->view("blog/".$view, $this->data);
     }
+
+    public function archive($year, $month) {
+		$this->params["orderBy"] = "updated";
+		$this->data["uri"] = "archive/".$year;
+		$where = ["blog_post.is_active"=> "Y", "YEAR(blog_post.updated)"=>$year];
+		if($month) {
+			$this->data["uri"] = $this->data["uri"]."/".$month;
+			$where["MONTH(blog_post.updated)"] = $month;
+		}
+		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
+		$this->load->view("blog/postListing", $this->data);
+	}
 
 }
