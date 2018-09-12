@@ -39,4 +39,8 @@ class BlogPost extends MY_Model {
     	return $this->db->query("SELECT MONTH(updated) month, YEAR(updated) AS year, count(*) as count from blog_post where is_active='Y' group by Month(updated)")->result_array();
 	}
 
+	public function incrementView($id) {
+		return $this->db->where("id", $id)->set("views", "views+1", false)->update($this->tableName);
+	}
+
 }

@@ -100,7 +100,15 @@ class MY_Model extends CI_Model {
         return $data;
     }
 
-	public function save($params, $table = null) {
+    public function update($id, $params, $where = [], $table = null) {
+		if(!$table) {
+			$table = $this->tableName;
+		}
+		$where["id"] = $id;
+    	return $this->save($params, $table, $where);
+	}
+
+	public function save($params, $table = null, $where = []) {
         if(!$table) {
             $table = $this->tableName;
         }
@@ -111,11 +119,13 @@ class MY_Model extends CI_Model {
 				$params[$k] = null;
 			}
 		}
-        if ($params["id"]) {
-        	if($this->db->field_exists('updated', $table)) {
+		$where = array_merge(array("id" => @$params["id"]), $where);
+		if (@$where["id"]) {
+			unset($params["id"]);
+			if($this->db->field_exists('updated', $table)) {
 				$params["updated"] = AppUtil::now();
 			}
-            $result = $this->db->update($table, $params, array("id" => $params["id"]));
+            $result = $this->db->update($table, $params, $where);
         } else {
 			if($this->db->field_exists('created', $table)) {
 				$params["created"] = AppUtil::now();

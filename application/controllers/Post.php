@@ -12,6 +12,7 @@ class Post extends MY_Controller {
     public function details($id) {
 		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$id, "is_active"=> "Y"]);
 		if($this->data["post"]) {
+			$this->blogPost->incrementView($id);
 			$this->load->view('blog/postDetails', $this->data);
 		} else {
 			$this->data["heading"] = "Error 404";
@@ -33,6 +34,10 @@ class Post extends MY_Controller {
 			case "featured":
 				$where["is_featured"] = "Y";
 				$view = "featuredPost";
+				break;
+			case "popular":
+				$this->params["orderBy"] = "views";
+				$this->params["dir"] = "desc";
 				break;
 			default:
 				$where["blog_post.category"] = $uri;
