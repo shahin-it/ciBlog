@@ -5,8 +5,8 @@
 	$headingHtml = $this->load->view("blog/featuredPost", $headingData, true);
 
 	//latest post
-	$data = $this->blogPost->getPostTableData(["orderBy"=>"updated", "dir"=>"desc", "max"=>"5"]);
-	$data["uri"] = "latest";
+	$data = $this->blogPost->getPostTableData(["orderBy"=>"updated", "dir"=>"desc", "max"=>"10"]);
+	$data["uri"] = "category/latest";
 	$data["afterHeader"] = $headingHtml;
 	$data["title"] = "Latest Article";
 

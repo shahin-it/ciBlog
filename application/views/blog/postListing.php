@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 if($items) {
+	$uri = $uri ?: "category/latest"
 ?>
 <div class="post-listing skui-paginated-page" data-url="<?php echo $uri ?>">
 	<div class="list-header">
