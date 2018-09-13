@@ -12,11 +12,11 @@ if($items) {
 			<div class="list-item post-summary">
 				<div class="post-title">
 					<div class="post-info">
-						<span class="category font-weight-bold"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
+						<span class="category font-weight-bold"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
 					</div>
 					<h2 class=""><?php echo $post["name"]?></h2>
 					<div class="post-meta text-muted">
-						<i class="fas fa-calendar-alt"></i><span> <?php echo "By ".$post["_user"]." at ".$post["created"] ?></span>
+						<i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "By <b>".$post["_user"]."</b> at ".$post["created"] ?></span>
 					</div>
 				</div>
 				<div class="post-details">
