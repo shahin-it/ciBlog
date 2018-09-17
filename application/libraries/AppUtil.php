@@ -8,6 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 class AppUtil {
+	const BLOG_IMAGE_DIR = "asset/image/blog/";
+	const NO_IMAGE_THUMB = "asset/image/default/no-image.jpg";
+
 	private static $instance;
 
 	function __construct() {
@@ -116,6 +119,16 @@ class AppUtil {
 			}
 		}
 		return $return;*/
+	}
+
+	public static function uploadFile($srcLocation, $deistLocation, $fileName = null) {
+		if (!file_exists($deistLocation)) {
+			mkdir($deistLocation, 0777);
+		}
+		if($fileName) {
+			$deistLocation = $deistLocation . "/" . $fileName;
+		}
+		return move_uploaded_file($srcLocation, $deistLocation);
 	}
 
 }

@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<form class="create-edit-form" action="<?php echo base_url() ?>blogAdmin/save" method="post">
+<form class="create-edit-form" action="<?php echo base_url() ?>postAdmin/save" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo @$item["id"];?>">
-    <input type="hidden" name="_model" value="blogPost">
     <span class="form-title">Create/Edit Blog Post</span>
 	<div class="form-row">
 		<div class="form-group col-sm">
@@ -29,9 +28,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php echo form_dropdown('is_featured', ["N"=>"NO", "Y"=>"YES"], @$item["is_featured"], 'class="form-control"'); ?>
 		</div>
     </div>
-	<div class="form-group">
-		<label for="">Summary (TEXT/HTML)</label>
-		<textarea name="summary" class="form-control" required maxlength="500"><?php echo @$item["summary"];?></textarea>
+	<div class="form-row">
+		<div class="form-group skui-image-chooser col-sm-6">
+			<label for="">Image</label>
+			<div class="form-control">
+				<input type="file" name="image" value="<?php echo $item["image"];?>">
+				<img src="<?php echo base_url(@$item["image"])?>" alt="" class="skui-image-preview">
+			</div>
+		</div>
+		<div class="form-group col-sm-6">
+			<label for="">Summary (TEXT/HTML)</label>
+			<textarea name="summary" class="form-control" required maxlength="500"><?php echo @$item["summary"];?></textarea>
+		</div>
 	</div>
     <div class="form-group">
         <label for="">Description (TEXT/HTML)</label>

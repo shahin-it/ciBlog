@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if($post) {
 ?>
 <div class="post-single">
-	<div class="post-thumbnail"><img src="" class="img-fluid"></div>
 	<div class="post-title">
 		<div class="post-info">
 			<div class="category font-weight-bold"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
@@ -13,7 +12,12 @@ if($post) {
 			<i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "By <b>".$post["_user"]."</b> at ".$post["created"] ?></span>
 		</div>
 	</div>
-	<div class="post-details"><?php echo $post["description"]?></div>
+	<div class="post-body">
+		<div class="post-thumbnail float-left"><img src="<?php echo(base_url($post["image"] ? $post["image"]: AppUtil::NO_IMAGE_THUMB))?>" class="img-fluid"></div>
+		<div class="post-details">
+			<?php echo $post["description"]?>
+		</div>
+	</div>
 	<div class="post-footer">
 		<span class="info-text text-muted"><i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "Last Updated at ".$post["updated"] ?></span>
 	</div>

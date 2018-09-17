@@ -24,7 +24,6 @@ CREATE TABLE `user` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=3
 ;
 
 
@@ -46,7 +45,6 @@ CREATE TABLE `blog_category` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=15
 ;
 
 
@@ -64,8 +62,9 @@ CREATE TABLE `blog_post` (
 	`created_by` INT(11) NULL DEFAULT NULL,
 	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
 	`is_featured` ENUM('Y','N') NULL DEFAULT 'N',
+	`summary` VARCHAR(1000) NOT NULL,
 	`views` INT(11) NULL DEFAULT '0',
-	`summary` VARCHAR(500) NOT NULL,
+	`image` VARCHAR(250) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),
 	INDEX `FK_blog_post_blog_category` (`category`),
@@ -75,7 +74,6 @@ CREATE TABLE `blog_post` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=5
 ;
 
 
@@ -97,7 +95,6 @@ CREATE TABLE `blog_comment` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=4
 ;
 
 

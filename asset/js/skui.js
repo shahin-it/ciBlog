@@ -514,8 +514,8 @@ if (window.jQuery) {
                     return
                 }
                 var reader = new FileReader()
-                reader.onload = function (frEvent) {
-                    imgPrev.attr("src", frEvent.target.result)
+                reader.onload = function (evt) {
+                    imgPrev.attr("src", evt.target.result)
                 }
                 reader.readAsDataURL(files[0])
             })

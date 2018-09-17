@@ -200,6 +200,13 @@ button {
 	height: 1px;
 	opacity: 0;
 }
+.skui-image-chooser input[type=file] {
+	width: 70%;
+}
+.skui-image-preview {
+	height: 50px;
+	width: 50px;
+}
 .mark-prime {
 	border-left: 5px solid #5bc0de;
 	border-radius: .25rem;
