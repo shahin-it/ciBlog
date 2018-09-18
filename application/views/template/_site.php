@@ -200,7 +200,7 @@
 	</div>
 
 	<footer class="blog-footer">
-		<p>© 2018 <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</p>
+		<p>&copy; 2017-<?php echo date("Y"); ?> <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</p>
 		<p><span class="link text-primary" id="back-to-top">Back to top</span></p>
 	</footer>
     </body>
