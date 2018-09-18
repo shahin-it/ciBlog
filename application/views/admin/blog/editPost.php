@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<label for="">Image</label>
 			<div class="form-control">
 				<input type="file" name="image" value="<?php echo $item["image"];?>">
-				<img src="<?php echo base_url(@$item["image"])?>" alt="" class="skui-image-preview">
+				<img src="<?php echo base_url(@$item["thumb"])?>" alt="[No Image]" class="skui-image-preview">
 			</div>
 		</div>
 		<div class="form-group col-sm-6">

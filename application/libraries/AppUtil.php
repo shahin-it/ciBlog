@@ -122,13 +122,35 @@ class AppUtil {
 	}
 
 	public static function uploadFile($srcLocation, $deistLocation, $fileName = null) {
-		if (!file_exists($deistLocation)) {
-			mkdir($deistLocation, 0777);
-		}
 		if($fileName) {
 			$deistLocation = $deistLocation . "/" . $fileName;
 		}
+		$dir = dirname($deistLocation);
+		if (!file_exists($dir)) {
+			mkdir($dir, 0777);
+		}
 		return move_uploaded_file($srcLocation, $deistLocation);
+	}
+
+	public static function resizeImage($CI_INST, $source, $width, $height = 0)
+	{
+		$path = dirname($source);
+		$file = basename($source);
+
+		$config['image_library'] = 'gd2';
+		$config['source_image'] = $source;
+		$config["new_image"] = $path."/thumb_".$file;
+		$config['create_thumb'] = FALSE;
+		$config['maintain_ratio'] = TRUE;
+		$config["x_axis"] = $width;
+		$config["y_axis"] = $height;
+		$config['width'] = $width;
+		$config['height'] = $height;
+
+		$CI_INST->load->library('image_lib', $config);
+		$CI_INST->image_lib->resize();
+
+		return $config["new_image"];
 	}
 
 }

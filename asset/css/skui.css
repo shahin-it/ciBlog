@@ -205,7 +205,7 @@ button {
 }
 .skui-image-preview {
 	height: 50px;
-	width: 50px;
+	max-width: 100px;
 }
 .mark-prime {
 	border-left: 5px solid #5bc0de;

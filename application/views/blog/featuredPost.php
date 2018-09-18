@@ -31,9 +31,10 @@ $slideItems = array_splice($items, 0, 3);
 foreach($items as $i=>$post) {
 ?>
 	<div class="col-lg-6">
-		<div class="card flex-md-row mb-4 shadow-sm h-md-250">
+		<div class="card flex-md-row mb-4 shadow-sm h-md-200">
+
 			<div class="card-body d-flex flex-column align-items-start">
-				<strong class="d-inline-block mb-2 text-primary"><a href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></strong>
+				<strong class="d-inline-block mb-2 text-primary"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></strong>
 				<h4 class="mb-0">
 					<a class="text-dark" href="<?php echo base_url("post/".$post["id"])?>"><?php echo $post["name"]?></a>
 				</h4>
@@ -41,7 +42,7 @@ foreach($items as $i=>$post) {
 				<p class="card-text overflow-hide mb-auto"><?php echo $post["summary"]?></p>
 				<a href="<?php echo base_url("post/".$post["id"])?>">Continue reading...</a>
 			</div>
-			<img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Thumbnail [200x250]" src="<?php echo(base_url($post["image"] ? $post["image"]: AppUtil::NO_IMAGE_THUMB))?>" data-holder-rendered="true" style="width: 200px; height: 250px;">
+			<img class="card-img-right flex-auto d-none d-lg-block" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>" style="max-width: 200px; max-height: 200px">
 		</div>
 	</div>
 <?php } ?>

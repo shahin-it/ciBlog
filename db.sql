@@ -65,6 +65,7 @@ CREATE TABLE `blog_post` (
 	`summary` VARCHAR(1000) NOT NULL,
 	`views` INT(11) NULL DEFAULT '0',
 	`image` VARCHAR(250) NULL DEFAULT NULL,
+	`thumb` VARCHAR(250) NULL DEFAULT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `name` (`name`),
 	INDEX `FK_blog_post_blog_category` (`category`),
