@@ -142,8 +142,6 @@ class AppUtil {
 		$config["new_image"] = $path."/thumb_".$file;
 		$config['create_thumb'] = FALSE;
 		$config['maintain_ratio'] = TRUE;
-		$config["x_axis"] = $width;
-		$config["y_axis"] = $height;
 		$config['width'] = $width;
 		$config['height'] = $height;
 

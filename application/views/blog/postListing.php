@@ -20,6 +20,7 @@ if($items) {
 					</div>
 				</div>
 				<div class="post-details">
+					<img class="float-left pr-2 pb-2" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>" style="max-width: 200px; max-height: 200px">
 					<div class="post-summary"><?php echo $post["summary"]?></div>
 					<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$post["id"]); ?>" role="button">View details »</a></div>
 				</div>
