@@ -12,11 +12,11 @@ class BlogCategory extends MY_Model {
 
     public $id;
     public $name;
-    public $parent;
-    public $description;
+    public $parent = null;
+    public $description = null;
     public $created;
 	public $updated;
-    public $sort_index;
+    public $sort_index = 0;
 
     function __construct() {
         $this->tableName = "blog_category";

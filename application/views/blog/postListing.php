@@ -19,12 +19,17 @@ if($items) {
 						<i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "By <b>".$post["_user"]."</b> at ".$post["created"] ?></span>
 					</div>
 				</div>
-				<div class="post-details">
-					<img class="float-left pr-2 pb-2" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>" style="max-width: 200px; max-height: 200px">
-					<div class="post-summary"><?php echo $post["summary"]?></div>
+				<div class="post-details clearfix">
+					<div class="overflow-hide mr-2 mb-2 float-left" style="max-width: 200px; max-height: 200px">
+						<a href="<?php echo base_url("post/".$post["id"]); ?>">
+							<img src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>">
+						</a>
+					</div>
+					<div class="post-summary">
+						<?php echo $post["summary"]?>
+					</div>
 					<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$post["id"]); ?>" role="button">View details »</a></div>
 				</div>
-			</div>
 		<?php }?>
 	</div>
 	<div class="list-footer clearfix">

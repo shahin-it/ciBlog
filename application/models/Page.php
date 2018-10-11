@@ -8,21 +8,20 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends MY_Model {
+class Page extends MY_Model {
 
 	public $id;
-	public $name;
-	public $email;
-	public $profession;
-	public $hobby;
-	public $bio;
-	public $role;
-	public $is_active;
+	public $title;
+	public $heading = null;
+	public $tag = null;
+	public $url;
+	public $post = null;
 	public $created;
 	public $updated;
+	public $sort_index = 0;
 
     function __construct() {
-        $this->tableName = "user";
+        $this->tableName = "page";
         parent::__construct();
     }
 

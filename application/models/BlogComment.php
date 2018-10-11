@@ -14,8 +14,10 @@ class BlogComment extends MY_Model {
     public $user;
     public $post;
     public $description;
+    public $created_by = null;
     public $created;
     public $updated;
+    public $is_active = "N";
 
     function __construct() {
         $this->tableName = "blog_comment";

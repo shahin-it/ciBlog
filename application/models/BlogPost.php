@@ -12,11 +12,18 @@ class BlogPost extends MY_Model {
 
     public $id;
     public $name;
-    public $category;
-    public $description;
-    public $created;
+	public $sort_index = 0;
+	public $category = null;
+	public $summary;
+	public $description;
+	public $created_by = null;
+	public $is_active = "N";
+	public $is_featured = "N";
+	public $views = 0;
+	public $image = null;
+	public $thumb = null;
+	public $created;
 	public $updated;
-    public $sort_index;
 
     function __construct() {
         $this->tableName = "blog_post";
