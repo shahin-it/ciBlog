@@ -8,7 +8,7 @@
 -- --------------------------------------------------------
 
 
--- Dumping structure for table ciblog.user
+
 CREATE TABLE `user` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(200) NOT NULL,
@@ -25,13 +25,12 @@ CREATE TABLE `user` (
 	UNIQUE INDEX `email` (`email`)
 )
 COLLATE='utf8_general_ci'
-ENGINE=InnoDB
-;
+ENGINE=InnoDB;
 
 
 
 
--- Dumping structure for table ciblog.blog_category
+
 CREATE TABLE `blog_category` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(200) NOT NULL,
@@ -52,7 +51,7 @@ ENGINE=InnoDB
 
 
 
--- Dumping structure for table ciblog.blog_post
+
 CREATE TABLE `blog_post` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`name` VARCHAR(250) NOT NULL,
@@ -82,7 +81,7 @@ ENGINE=InnoDB
 
 
 
--- Dumping structure for table ciblog.blog_comment
+
 CREATE TABLE `blog_comment` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`description` VARCHAR(5000) NOT NULL,
@@ -95,6 +94,29 @@ CREATE TABLE `blog_comment` (
 	INDEX `FK_blog_comment_blog_post` (`post`),
 	INDEX `FK_blog_comment_user` (`created_by`),
 	CONSTRAINT `FK_blog_comment_user` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
+
+
+CREATE TABLE `page` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`title` VARCHAR(150) NOT NULL,
+	`heading` VARCHAR(250) NULL DEFAULT NULL,
+	`tag` VARCHAR(150) NULL DEFAULT NULL,
+	`url` VARCHAR(250) NOT NULL DEFAULT '0',
+	`post` INT(11) NULL DEFAULT NULL,
+	`created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`sort_index` INT(11) NOT NULL DEFAULT '0',
+	`is_active` ENUM('Y','N') NOT NULL DEFAULT 'N',
+	`created_by` INT(11) NULL DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	INDEX `FK_page_blog_post` (`post`),
+	INDEX `FK_page_user` (`created_by`),
+	CONSTRAINT `FK_page_blog_post` FOREIGN KEY (`post`) REFERENCES `blog_post` (`id`) ON UPDATE CASCADE ON DELETE SET NULL,
+	CONSTRAINT `FK_page_user` FOREIGN KEY (`created_by`) REFERENCES `user` (`id`) ON UPDATE CASCADE ON DELETE SET NULL
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB

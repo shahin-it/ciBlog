@@ -16,7 +16,7 @@ class User extends MY_Model {
 	public $profession;
 	public $hobby;
 	public $bio;
-	public $role;
+	public $role; //A,M,U
 	public $is_active;
 	public $created;
 	public $updated;

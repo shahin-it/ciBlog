@@ -30,6 +30,7 @@ if($items) {
 					</div>
 					<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$post["id"]); ?>" role="button">View details »</a></div>
 				</div>
+			</div>
 		<?php }?>
 	</div>
 	<div class="list-footer clearfix">
