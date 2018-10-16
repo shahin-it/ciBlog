@@ -13,7 +13,9 @@ if($post) {
 		</div>
 	</div>
 	<div class="post-body">
-		<div class="post-thumbnail float-left"><img src="<?php echo(base_url($post["image"] ? $post["image"]: AppUtil::NO_IMAGE_THUMB))?>" class="img-fluid"></div>
+		<?php if($post["image"]) {?>
+			<div class="post-thumbnail float-left"><img src="<?php echo(base_url($post["image"]))?>" class="img-fluid"></div>
+		<?php }?>
 		<div class="post-details">
 			<?php echo $post["description"]?>
 		</div>
