@@ -74,9 +74,10 @@
 	margin: 50px 10px;
 	word-wrap: break-word;
 }
-.post-thumbnail {
+.post-image {
 	padding: 5px 10px;
-	max-width: 50%;
+	max-width: 800px;
+	max-height: 600px;
 }
 .post-meta {
 

@@ -14,13 +14,13 @@ if($post) {
 	</div>
 	<div class="post-body">
 		<?php if($post["image"]) {?>
-			<div class="post-thumbnail float-left"><img src="<?php echo(base_url($post["image"]))?>" class="img-fluid"></div>
+			<div class="post-image float-left"><img src="<?php echo(base_url($post["image"]))?>" class="img-fluid"></div>
 		<?php }?>
 		<div class="post-details">
 			<?php echo $post["description"]?>
 		</div>
 	</div>
-	<div class="post-footer">
+	<div class="post-footer float-left">
 		<span class="info-text text-muted"><i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "Last Updated at ".$post["updated"] ?></span>
 	</div>
 </div>
