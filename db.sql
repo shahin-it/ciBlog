@@ -126,5 +126,6 @@ ENGINE=InnoDB
 
 
 -- initial data
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `role`, `is_active`) VALUES (1, 'Administrator', 'admin@ciblog.com', '21232f297a57a5a743894a0e4a801fc3', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A', 1);
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `role`, `is_active`) VALUES (2, 'User', 'user@ciblog.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'U', 1);
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `role`, `is_active`) VALUES
+(1, 'Administrator', 'admin@ciblog.com', '21232f297a57a5a743894a0e4a801fc3', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A', 1),
+(2, 'User', 'user@ciblog.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'U', 1);
