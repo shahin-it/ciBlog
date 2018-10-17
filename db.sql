@@ -123,8 +123,6 @@ ENGINE=InnoDB
 ;
 
 
-
-
 -- initial data
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `role`, `is_active`) VALUES
 (1, 'Administrator', 'admin@ciblog.com', '21232f297a57a5a743894a0e4a801fc3', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A', 1),

@@ -94,9 +94,9 @@ $db['default'] = array(
 
 $db["production"] = array_merge($db["default"], [
 	'hostname' => 'localhost',
-	'username' => 'id6645557_root',
+	'username' => 'id6946449_root',
 	'password' => '01920489953',
-	'database' => 'id6645557_tiger',
+	'database' => 'id6946449_batayon',
 ]);
 
 if(ENVIRONMENT == 'development') {
