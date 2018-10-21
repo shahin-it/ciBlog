@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="">Blog Post</label>
-			<?php echo form_dropdown('post', $blogPost, @$item["post"], 'class="form-control" required'); ?>
+			<?php echo form_dropdown('post', [""=>"---Select Post---"] + $blogPost, @$item["post"], 'class="form-control" required'); ?>
 		</div>
     </div>
 	<div class="form-group">

@@ -61,16 +61,16 @@ class BlogAdmin extends MY_Controller {
 		$this->data = $this->page->getTableData($this->params,
 			[["blog_post.name as _post", "blog_post", "page.post = blog_post.id", "LEFT"], ["user.email as _created_by", "user", "page.created_by = user.id", "LEFT"]]);
 		$this->data["page"] = "active";
-		$this->load->view('admin/blog/page', $this->data);
+		$this->load->view('admin/page', $this->data);
 	}
 
 	public function editPage() {
-		$this->data["item"] = $this->page->getBy(["user.email as _created_by", "user", "blog_comment.created_by = user.id", "LEFT"], ["blog_comment.id"=>@$this->params["id"]]);
+		$this->data["item"] = $this->page->getBy(["user.email as _created_by", "user", "page.created_by = user.id", "LEFT"], ["page.id"=>@$this->params["id"]]);
 		if(@!$this->data["item"]["id"]) {
 			$this->data["item"]["_created_by"] = $this->session->userdata("loggedUser")["email"];
 		}
 		$this->data["blogPost"] = $this->blogPost->getKeyValue("id, name", false);
-		$this->load->view('admin/blog/editComment', $this->data);
+		$this->load->view('admin/editPage', $this->data);
 	}
 
 }

@@ -112,7 +112,7 @@
 			<a href="#!">Terms of Service</a> | <a href="#!">Privacy</a>
 		</div>
 		<div class="col-sm-6 text-sm-right">
-			<span>© 2013 Company Name. All rights reserved</span>
+			<span>© 2018 Shahin Khaled. All rights reserved</span>
 		</div>
 	</div>
 </footer>

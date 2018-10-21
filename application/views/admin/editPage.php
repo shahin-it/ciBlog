@@ -1,0 +1,39 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<form class="create-edit-form" action="<?php echo base_url() ?>blogAdmin/save" method="post">
+    <input type="hidden" name="id" value="<?php echo @$item["id"];?>">
+    <input type="hidden" name="_model" value="page">
+    <span class="form-title">Create/Edit Page</span>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<label for="">Title</label>
+			<input type="text" class="form-control" name="title" value="<?php echo @$item["title"]?>" required minlength="2" maxlength="150">
+		</div>
+		<div class="form-group col-sm-6">
+			<label for="">Heading</label>
+			<input type="text" class="form-control" name="heading" value="<?php echo @$item["heading"]?>" minlength="2" maxlength="250">
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-sm-6">
+			<label for="">Tag/Menu Item</label>
+			<input type="text" class="form-control" name="tag" value="<?php echo @$item["tag"]?>" minlength="2" maxlength="150">
+		</div>
+		<div class="form-group col-sm-6">
+			<label for="">URI (eg.. page/career)</label>
+			<input type="text" class="form-control" name="url" value="<?php echo @$item["url"]?>" required minlength="2" maxlength="500">
+		</div>
+	</div>
+    <div class="form-row">
+		<div class="form-group col-sm-6">
+			<label for="">Blog Post</label>
+			<?php echo form_dropdown('post', ([""=>"---Select Post---"] + $blogPost), @$item["post"], 'class="form-control" required'); ?>
+		</div>
+		<div class="form-group col-sm-6">
+			<label for="">Published</label>
+			<?php echo form_dropdown('is_active', ["N"=>"NO", "Y"=>"YES"], @$item["is_active"], 'class="form-control"'); ?>
+		</div>
+    </div>
+    <button class="btn btn-md btn-primary form-submit">Submit</button>
+</form>

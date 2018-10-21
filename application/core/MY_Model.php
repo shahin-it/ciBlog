@@ -85,7 +85,7 @@ class MY_Model extends CI_Model {
 	public function getKeyValue($select, $fillNone = true, $excludes = []) {
         $data = [];
         if($fillNone) {
-        	$data[""] = "None";
+        	$data[""] = "---None---";
 		}
         $this->db->select($select)
 			->from($this->tableName);

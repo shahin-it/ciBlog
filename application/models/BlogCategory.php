@@ -24,7 +24,7 @@ class BlogCategory extends MY_Model {
     }
 
 	function getParentKeyValue($exclude = null) {
-		$data = [""=>"None"];
+		$data = [""=>"---None---"];
 		$this->db->select("id, name, parent")
 			->from($this->tableName);
 		if($exclude) {

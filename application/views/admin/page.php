@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<div class="card skui-data-table" data-url="blogAdmin/post">
+<div class="card skui-data-table" data-url="blogAdmin/page">
     <div class="card-header clearfix">
         <div class="card-title float-left">Blog Page List</div>
         <div class="card-option float-right">
@@ -13,12 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <thead>
             <th>ID</th>
             <th width="20%">Title</th>
-            <th>Tag</th>
+            <th>Tag/Menu</th>
             <th>Created By</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Post</th>
-            <th>Sort Index</th>
             <th>Active</th>
             <th width="12%">Actions</th>
             </thead>
@@ -32,11 +31,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td data-label="Created"><?php echo $item["created"]; ?></td>
                     <td data-label="Updated"><?php echo $item["updated"]; ?></td>
                     <td data-label="Post"><?php echo $item["_post"]; ?></td>
-                    <td data-label="Sort Index"><?php echo $item["sort_index"]; ?></td>
                     <td data-label="Active"><?php echo $item["is_active"]; ?></td>
-                    <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["name"];?>" data-_model="blogPost">
-                        <button class="btn btn-primary btn-sm" data-action="edit" data-url="blogAdmin/editPost" title="Edit"><i class="fas fa-edit"></i></button>
-                        <a class="btn btn-success btn-sm" data-action="view" title="View in site" target="_blank" href="<?php echo base_url("post/".$item["id"])?>"><i class="fas fa-eye"></i></a>
+                    <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["title"];?>" data-_model="page">
+                        <button class="btn btn-primary btn-sm" data-action="edit" data-url="blogAdmin/editPage" title="Edit"><i class="fas fa-edit"></i></button>
+                        <a class="btn btn-success btn-sm" data-action="view" title="View in site" target="_blank" href="<?php echo base_url("page/".$item["url"])?>"><i class="fas fa-eye"></i></a>
                         <button class="btn btn-danger btn-sm" data-action="delete" data-url="blogAdmin/delete" title="Delete"><i class="fas fa-trash"></i></button>
                     </td>
                 </tr>
