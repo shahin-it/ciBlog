@@ -16,7 +16,7 @@ class PostAdmin extends MY_Controller {
 				$id = $this->params["id"] ?: $this->db->insert_id();
 				$url = AppUtil::BLOG_IMAGE_DIR.$id.".jpg";
 				if(AppUtil::uploadFile($image["tmp_name"], $url)) {
-					$thumb = AppUtil::resizeImage($this, $url,250, 250);
+					$thumb = AppUtil::resizeImage($this, $url,300, 180);// ratio w:h = 5:3
 					$this->blogPost->update($id, ["image"=>$url, "thumb"=>$thumb]);
 				}
 			}

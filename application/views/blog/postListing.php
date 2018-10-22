@@ -25,10 +25,10 @@ if($items) {
 							<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>">
 						</a>
 					</div>
-					<div class="post-summary">
+					<div class="post-summary d-inline">
 						<?php echo $post["summary"]?>
 					</div>
-					<div><a class="btn btn-sm btn-secondary" href="<?php echo base_url("post/".$post["id"]); ?>" role="button">View details »</a></div>
+					<div class="link"><a class="link" href="<?php echo base_url("post/".$post["id"]); ?>" role="button"><i class="fas fa-link pr-1"></i>Visit</a></div>
 				</div>
 			</div>
 		<?php }?>
