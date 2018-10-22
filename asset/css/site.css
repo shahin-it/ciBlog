@@ -66,9 +66,16 @@
 .post-info {
 	text-transform: uppercase;
 }
+.post-listing, .post-single {
+	font-family: "Noto Serif",Georgia,"Times New Roman",Times,serif;
+}
 .post-summary {
 	margin: 20px auto;
-	padding-bottom: 20px;
+	font-size: 16px;
+	line-height: 1.6;
+	font-weight: 100;
+	word-break: break-word;
+	position: relative;
 }
 .post-details {
 	margin: 30px 10px;

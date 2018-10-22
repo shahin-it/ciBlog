@@ -7,9 +7,9 @@ if($items) {
 	<div class="list-header">
 		<h3 class="pb-3 mb-4 font-italic border-bottom"><?php echo(@$title ? $title : "From the ".$items[0]["_category"])?></h3>
 	</div>
-	<div class="list-items">
+	<div class="list-items post-listing">
 		<?php foreach ($items as $post) {?>
-			<div class="list-item post-summary">
+			<div class="list-item">
 				<div class="post-title">
 					<div class="post-info">
 						<span class="category font-weight-bold"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
@@ -28,7 +28,7 @@ if($items) {
 					<div class="post-summary d-inline">
 						<?php echo $post["summary"]?>
 					</div>
-					<div class="link"><a class="link" href="<?php echo base_url("post/".$post["id"]); ?>" role="button"><i class="fas fa-link pr-1"></i>Visit</a></div>
+					<div><a href="<?php echo base_url("post/".$post["id"]); ?>"><i class="fas fa-link pr-1"></i> Visit</a></div>
 				</div>
 			</div>
 		<?php }?>

@@ -135,6 +135,7 @@ CREATE TABLE `navigation` (
 	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`created_by` INT(11) NULL DEFAULT NULL,
 	`sort_index` INT(11) NULL DEFAULT '0',
+	`target` ENUM('_SELF','_TOP', '_BLANK', '_PARENT') NULL DEFAULT '_SELF',
 	PRIMARY KEY (`id`),
 	INDEX `FK_navigation_navigation` (`parent`),
 	INDEX `FK_navigation_user` (`created_by`),
@@ -143,7 +144,7 @@ CREATE TABLE `navigation` (
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
-AUTO_INCREMENT=2
+AUTO_INCREMENT=5
 ;
 
 

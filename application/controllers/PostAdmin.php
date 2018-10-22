@@ -10,6 +10,9 @@ class PostAdmin extends MY_Controller {
 
     public function save() {
     	$image = @$_FILES["image"];
+    	if(!$image) {
+    		unset($this->params["image"]);
+		}
     	$save = $this->blogPost->save($this->params);
 		if($save) {
 			if($image) {
