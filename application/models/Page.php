@@ -13,9 +13,8 @@ class Page extends MY_Model {
 	public $id;
 	public $title;
 	public $heading = null;
-	public $tag = null;
 	public $url;
-	public $post_id = null;
+	public $post = null;
 	public $created;
 	public $updated;
 	public $sort_index = 0;

@@ -73,4 +73,23 @@ class BlogAdmin extends MY_Controller {
 		$this->load->view('admin/editPage', $this->data);
 	}
 
+	public function navigation() {
+		$this->output->set_template('_admin');
+		$this->data = $this->navigation->getTableData($this->params,
+			[["blog_post.name as _post", "blog_post", "navigation.uri = blog_post.id", "LEFT"], ["page.title as _page", "page", "navigation.uri = page.id", "LEFT"], ["user.email as _created_by", "user", "page.created_by = user.id", "LEFT"]]);
+		$this->data["navigation"] = "active";
+		$this->load->view('admin/navigation', $this->data);
+	}
+
+	public function editNavigation() {
+		$this->data["item"] = $this->navigation->getBy(["user.email as _created_by", "user", "navigation.created_by = user.id", "LEFT"], ["navigation.id"=>@$this->params["id"]]);
+		if(@!$this->data["item"]["id"]) {
+			$this->data["item"]["_created_by"] = $this->session->userdata("loggedUser")["email"];
+		}
+		$this->data["item"]["parents"] = $this->navigation->getParentKeyValue(@$this->params["id"], "type IS NOT NULL");
+		$this->data["item"]["_page"] = $this->page->getKeyValue("id, title", true, [@$this->data["item"]["uri"]]);
+		$this->data["item"]["_post"] = $this->blogPost->getKeyValue("id, name", true, [@$this->data["item"]["uri"]]);
+		$this->load->view('admin/editNavigation', $this->data);
+	}
+
 }

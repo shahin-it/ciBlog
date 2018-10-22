@@ -74,6 +74,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<ul class="navbar-nav mr-auto">
+				<li class="nav-item <?php echo @$navigation?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/navigation');?>">Navigation</a></li>
 				<li class="nav-item <?php echo @$page?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/page');?>">Page</a></li>
 				<li class="nav-item <?php echo @$category?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/category');?>">Category</a></li>
 				<li class="nav-item <?php echo @$post?>"><a class="nav-link" href="<?php echo base_url('blogAdmin/post'); ?>">Post</a></li>

@@ -15,15 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<input type="text" class="form-control" name="heading" value="<?php echo @$item["heading"]?>" minlength="2" maxlength="250">
 		</div>
 	</div>
-	<div class="form-row">
-		<div class="form-group col-sm-6">
-			<label for="">Tag/Menu Item</label>
-			<input type="text" class="form-control" name="tag" value="<?php echo @$item["tag"]?>" minlength="2" maxlength="150">
-		</div>
-		<div class="form-group col-sm-6">
-			<label for="">URI (eg.. page/career)</label>
-			<input type="text" class="form-control" name="uri" value="<?php echo @$item["uri"]?>" required minlength="2" maxlength="500">
-		</div>
+	<div class="form-group">
+		<label for="">URI (eg.. page/career)</label>
+		<input type="text" class="form-control" name="uri" value="<?php echo @$item["uri"]?>" required minlength="2" maxlength="500">
 	</div>
     <div class="form-row">
 		<div class="form-group col-sm-6">

@@ -8,24 +8,26 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BlogCategory extends MY_Model {
+class Navigation extends MY_Model {
 
     public $id;
     public $name;
+    public $type;//PO, PA
     public $parent = null;
-    public $description = null;
+    public $uri = null;
+    public $is_active = false;
     public $created;
 	public $updated;
-    public $sort_index = 0;
+    public $created_by = 0;
 
     function __construct() {
-        $this->tableName = "blog_category";
+        $this->tableName = "navigation";
         parent::__construct();
     }
 
-	function getCategoryTree($rootId = null, $where = []) {
-    	$cats = $this->getAllBy([], $where);
-		return AppUtil::buildTree($cats, $rootId);
+	function getNavigationTree($rootId = null, $where = []) {
+    	$navs = $this->getAllBy([], $where);
+		return AppUtil::buildTree($navs, $rootId);
 	}
 
 }

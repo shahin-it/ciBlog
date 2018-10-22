@@ -56,7 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 //custom route
 $route['admin'] = 'welcome/admin';
 $route['user/(:any)'] = 'userController/$1';
-$route['page/(:any)'] = 'blogPost/$1';
+$route['page/(:any)'] = 'blogPage/index/$1';
 $route['post/(:num)'] = 'post/details/$1';
 $route['category/(:any)'] = 'post/category/$1';
 $route['archive/(:any)/(:any)'] = 'post/archive/$1/$2';
