@@ -14,9 +14,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th>ID</th>
             <th width="20%">Title</th>
             <th>Tag/Menu</th>
-            <th>Created By</th>
-            <th>Created</th>
-            <th>Updated</th>
+			<th>URI</th>
+			<th>Created By</th>
+			<th>Created</th>
             <th>Post</th>
             <th>Active</th>
             <th width="12%">Actions</th>
@@ -27,9 +27,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <td data-label="ID"><?php echo $item["id"];?></td>
                     <td data-label="Title"><span class="trim-text"><?php echo htmlentities($item["title"]); ?></span></td>
                     <td data-label="Tag"><?php echo $item["tag"] ?></td>
-                    <td data-label="Created By"><?php echo $item["_created_by"]; ?></td>
-                    <td data-label="Created"><?php echo $item["created"]; ?></td>
-                    <td data-label="Updated"><?php echo $item["updated"]; ?></td>
+					<td data-label="URI"><?php echo $item["uri"]; ?></td>
+					<td data-label="Created By"><?php echo $item["_created_by"]; ?></td>
+					<td data-label="Created"><?php echo $item["created"]; ?></td>
                     <td data-label="Post"><?php echo $item["_post"]; ?></td>
                     <td data-label="Active"><?php echo $item["is_active"]; ?></td>
                     <td data-label="Actions" class="action-navigator" data-id="<?php echo $item["id"];?>" data-name="<?php echo $item["title"];?>" data-_model="page">

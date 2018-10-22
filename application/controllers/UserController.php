@@ -26,7 +26,7 @@ class UserController extends MY_Controller {
     	$email = $this->params["email"];
     	$pass = md5($this->params["pass"]);
     	$user = $this->user->getBy([], ["email"=>$email, "password"=>$pass]);
-    	if($user) {
+    	if($user && $user["is_active"] == "Y") {
 			$this->session->set_userdata("user", $user["id"]);
 			$this->session->set_userdata("role", $user["role"]);
 			$this->session->set_userdata("loggedUser", $user);

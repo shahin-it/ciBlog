@@ -105,7 +105,7 @@ CREATE TABLE `page` (
 	`title` VARCHAR(150) NOT NULL,
 	`heading` VARCHAR(250) NULL DEFAULT NULL,
 	`tag` VARCHAR(150) NULL DEFAULT NULL,
-	`url` VARCHAR(500) NOT NULL DEFAULT '0',
+	`uri` VARCHAR(500) NOT NULL DEFAULT '0',
 	`post` INT(11) NULL DEFAULT NULL,
 	`created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -144,5 +144,5 @@ ENGINE=InnoDB
 
 -- initial data
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `profession`, `hobby`, `bio`, `role`, `is_active`) VALUES
-(1, 'Administrator', 'admin@ciblog.com', '21232f297a57a5a743894a0e4a801fc3', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A', 1),
-(2, 'User', 'user@ciblog.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'U', 1);
+(1, 'Administrator', 'admin@ciblog.com', '21232f297a57a5a743894a0e4a801fc3', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'A', 'Y'),
+(2, 'User', 'user@ciblog.com', 'ee11cbb19052e40b07aac0ca060c23ee', 'Student', 'Programming;cooking;playing;listaning song', 'I am a simple one', 'U', 'Y');

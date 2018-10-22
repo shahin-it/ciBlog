@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="">URI (eg.. page/career)</label>
-			<input type="text" class="form-control" name="url" value="<?php echo @$item["url"]?>" required minlength="2" maxlength="500">
+			<input type="text" class="form-control" name="uri" value="<?php echo @$item["uri"]?>" required minlength="2" maxlength="500">
 		</div>
 	</div>
     <div class="form-row">
