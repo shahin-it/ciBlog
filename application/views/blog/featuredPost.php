@@ -5,7 +5,6 @@ $slideItems = array_splice($items, 0, 3);
 
 if($slideItems) {
 ?>
-
 <div id="carouselExampleIndicators" class="carousel pb-3 skui-carousel slide carousel-fade" data-ride="carousel">
 	<div class="carousel-inner" style="height: 400px;">
 		<?php foreach ($slideItems as $i=>$post) {?>
