@@ -25,7 +25,6 @@ if($slideItems) {
 		<span class="sr-only">Next</span>
 	</a>
 </div>
-<?php }?>
 
 <div class="flex-body d-lg-flex flex-lg-wrap justify-content-between">
 <?php
@@ -50,3 +49,7 @@ foreach($items as $i=>$post) {
 	</div>
 <?php } ?>
 </div>
+<?php } else {
+	echo '<p>No post found!</p>';
+}
+?>
