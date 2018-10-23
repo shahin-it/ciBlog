@@ -22,7 +22,7 @@ if($items) {
 				<div class="post-details clearfix">
 					<div class="overflow-hide mr-2 mb-2 float-left" style="max-width: 200px; max-height: 200px">
 						<a href="<?php echo base_url("post/".$post["id"]); ?>">
-							<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>">
+							<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: Constant::NO_IMAGE_THUMB))?>">
 						</a>
 					</div>
 					<div class="post-summary d-inline">

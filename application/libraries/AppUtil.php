@@ -8,8 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 class AppUtil {
-	const BLOG_IMAGE_DIR = "asset/image/blog/";
-	const NO_IMAGE_THUMB = "asset/image/default/no-image.jpg";
 
 	private static $instance;
 

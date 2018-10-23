@@ -41,7 +41,7 @@ foreach($items as $i=>$post) {
 				<a href="<?php echo base_url("post/".$post["id"])?>">Continue reading...</a>
 			</div>
 			<div class="card-img-right flex-auto d-none d-lg-block overflow-hide" style="max-height: 200px; max-width: 200px;">
-				<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: AppUtil::NO_IMAGE_THUMB))?>">
+				<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: Constant::NO_IMAGE_THUMB))?>">
 			</div>
 		</div>
 	</div>
