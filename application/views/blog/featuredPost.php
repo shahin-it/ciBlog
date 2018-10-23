@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 $count = count($items);
 $slideItems = array_splice($items, 0, 3);
+
+if($slideItems) {
 ?>
 
 <div id="carouselExampleIndicators" class="carousel pb-3 skui-carousel slide carousel-fade" data-ride="carousel">
@@ -23,6 +25,7 @@ $slideItems = array_splice($items, 0, 3);
 		<span class="sr-only">Next</span>
 	</a>
 </div>
+<?php }?>
 
 <div class="flex-body d-lg-flex flex-lg-wrap justify-content-between">
 <?php
