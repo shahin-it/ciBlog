@@ -13,6 +13,7 @@ class Post extends MY_Controller {
 		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$id, "is_active"=> "Y"]);
 		if($this->data["post"]) {
 			$this->blogPost->incrementView($id);
+			$this->output->append_title($this->data["post"]["name"]);
 			$this->load->view('blog/postDetails', $this->data);
 		} else {
 			$this->data["heading"] = "Error 404";
@@ -46,6 +47,7 @@ class Post extends MY_Controller {
 		$this->data["uri"] = "category/".$uri;
 		$this->data[$uri] = "active";
 		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
+		$this->output->append_title(ucfirst($uri)." Post");
 		$this->load->view("blog/".$view, $this->data);
     }
 
@@ -58,6 +60,7 @@ class Post extends MY_Controller {
 			$where["MONTH(blog_post.updated)"] = $month;
 		}
 		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
+		$this->output->append_title("Post from ".date("F", strtotime($year))." ".$year);
 		$this->load->view("blog/postListing", $this->data);
 	}
 

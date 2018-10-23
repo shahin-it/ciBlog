@@ -1,3 +1,6 @@
+<?php
+	defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -59,8 +62,8 @@
         /** -- to here -- */
 
 
-		$categories = $this->blogCategory->getCategoryTree();
-		$navigations = $this->navigation->getNavigationTree();
+		$categories = $this->blogCategory->getCategoryTree(null);
+		$navigations = $this->navigation->getNavigationTree(null, ["is_active"=>"Y"]);
 		$postByMonth = $this->blogPost->getPostByMonth();
         ?>
 

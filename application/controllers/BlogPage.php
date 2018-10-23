@@ -14,7 +14,10 @@ class BlogPage extends MY_Controller {
     	$page = $this->page->getBy([], ["uri"=>$uri]);
     	$postId = $page["post"];
 		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$postId, "is_active"=> "Y"]);
-		$this->data["title"] = @$page["title"];
+		if($page["heading"]) {
+			$this->data["post"]["name"] = $page["heading"];
+		}
+		$this->output->append_title($page["title"]);
 		if($this->data["post"]) {
 			$this->blogPost->incrementView($postId);
 			$this->load->view('blog/postDetails', $this->data);

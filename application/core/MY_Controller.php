@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+		$this->output->set_title("Batayon");
         $this->params = array_merge($this->input->get_post(NULL, TRUE), $this->input->post_get(NULL, TRUE));
 		$this->data["params"] = &$this->params;
         $this->_before();
@@ -32,7 +33,6 @@ class MY_Controller extends CI_Controller {
 				redirect("user/login");
 			}
 		}
-
 	}
 
 	public function save() {
