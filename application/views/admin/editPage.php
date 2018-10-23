@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="">Published</label>
-			<?php echo form_dropdown('is_active', ["N"=>"NO", "Y"=>"YES"], @$item["is_active"], 'class="form-control"'); ?>
+			<?php echo form_dropdown('is_active', Constant::$YES_NO, @$item["is_active"], 'class="form-control"'); ?>
 		</div>
     </div>
     <button class="btn btn-md btn-primary form-submit">Submit</button>

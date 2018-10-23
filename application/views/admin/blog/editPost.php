@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class="form-group col-sm">
 			<label for="">Publish</label>
-			<?php echo form_dropdown('is_active', ["Y"=>"YES", "N"=>"NO"], @$item["is_active"], 'class="form-control"'); ?>
+			<?php echo form_dropdown('is_active', Constant::$YES_NO, @$item["is_active"], 'class="form-control"'); ?>
 		</div>
 	</div>
     <div class="form-row">
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
 		<div class="form-group col-sm-3">
 			<label for="">Is Featured</label>
-			<?php echo form_dropdown('is_featured', ["N"=>"NO", "Y"=>"YES"], @$item["is_featured"], 'class="form-control"'); ?>
+			<?php echo form_dropdown('is_featured', Constant::$YES_NO, @$item["is_featured"], 'class="form-control"'); ?>
 		</div>
     </div>
 	<div class="form-row">

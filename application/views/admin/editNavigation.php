@@ -16,23 +16,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 	<div class="form-row">
-		<div class="form-group col-sm-6">
+		<div class="form-group col-sm-4">
 			<label for="">Parent</label>
 			<?php echo form_dropdown('parent', @$item["parents"], @$item["parent"], 'class="form-control"'); ?>
 		</div>
-		<div class="form-group col-sm-6">
+		<div class="form-group col-sm-4">
 			<label for="">Target</label>
-			<?php echo form_dropdown('target', ["_self"=>"_self","_blank"=>"_blank","_parent"=>"_parent","_top"=>"_top"], @$item["target"], 'class="form-control"'); ?>
+			<?php echo form_dropdown('target', Constant::$ANCHOR_TARGET, @$item["target"], 'class="form-control"'); ?>
+		</div>
+		<div class="form-group col-sm-4">
+			<label for="">Active</label>
+			<?php echo form_dropdown('is_active', Constant::$YES_NO, @$item["is_active"], 'class="form-control"'); ?>
 		</div>
 	</div>
 	<div class="form-row">
 		<div class="form-group col-sm-6">
 			<label for="">Type</label>
-			<?php echo form_dropdown('type', [""=>"Root","PAGE"=>"PAGE","POST"=>"POST"], @$item["type"], 'class="form-control" data-toggle-target="navigation-type"'); ?>
+			<?php echo form_dropdown('type', Constant::$NAV_TYPE, @$item["type"], 'class="form-control" data-toggle-target="navigation-type"'); ?>
 		</div>
 		<div class="form-group col-sm-6 navigation-type-">
 			<label for="">URI</label>
-			<input type="text" class="form-control" name="uri" maxlength="500" required value="<?php echo @$item["uri"] ?>">
+			<input type="text" class="form-control" name="uri" maxlength="500" value="<?php echo @$item["uri"] ?>">
 		</div>
 		<div class="form-group col-sm-6 navigation-type-PAGE">
 			<label for="">Page</label>

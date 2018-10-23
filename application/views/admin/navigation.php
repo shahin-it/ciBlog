@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr class="<?php echo ($item["is_active"] == "Y" ? "mark-prime":"")?>">
                     <td data-label="ID"><?php echo $item["id"];?></td>
                     <td data-label="Name"><span class="trim-text"><?php echo htmlentities($item["name"]); ?></span></td>
-                    <td data-label="Parent"><?php echo $item["parent"]; ?></td>
+                    <td data-label="Parent"><?php echo $item["parent"] ?: '<b class="text-primary">ROOT</b>'; ?></td>
                     <td data-label="Active"><?php echo $item["is_active"]; ?></td>
                     <td data-label="Created"><?php echo $item["created"]; ?></td>
                     <td data-label="URI"><span class="trim-text"><?php echo $item["uri"]; ?></span></td>
