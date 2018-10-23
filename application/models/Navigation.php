@@ -27,6 +27,13 @@ class Navigation extends MY_Model {
 
 	function getNavigationTree($rootId = null, $where = []) {
     	$navs = $this->getAllBy([], $where);
+    	foreach ($navs as &$nav) {
+    		if($nav["type"] == "POST") {
+    			$nav["uri"] = "post/".$nav["uri"];
+			} else if($nav["type"] == "PAGE") {
+				$nav["uri"] = "page/".$nav["uri"];
+			}
+		}
 		return AppUtil::buildTree($navs, $rootId);
 	}
 

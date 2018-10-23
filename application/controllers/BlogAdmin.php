@@ -86,7 +86,7 @@ class BlogAdmin extends MY_Controller {
 		if(@!$this->data["item"]["id"]) {
 			$this->data["item"]["_created_by"] = $this->session->userdata("loggedUser")["email"];
 		}
-		$this->data["item"]["parents"] = $this->navigation->getParentKeyValue(@$this->params["id"], "type IS NOT NULL");
+		$this->data["item"]["parents"] = $this->navigation->getParentKeyValue(@$this->params["id"], "type IS NULL");
 		$this->data["item"]["_page"] = $this->page->getKeyValue("uri, title", true);
 		$this->data["item"]["_post"] = $this->blogPost->getKeyValue("id, name", true);
 		$this->load->view('admin/editNavigation', $this->data);
