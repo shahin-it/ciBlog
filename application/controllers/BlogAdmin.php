@@ -14,7 +14,7 @@ class BlogAdmin extends MY_Controller {
 
     public function category() {
 		$this->output->set_template('_admin');
-        $this->data = $this->blogCategory->getTableData($this->params);
+        $this->data = $this->blogCategory->getTableData($this->params, ["blog_category1.name as _parent", "blog_category blog_category1", "blog_category.parent = blog_category1.id", "LEFT"]);
 		$this->data["category"] = "active";
         $this->load->view('admin/blog/category', $this->data);
     }

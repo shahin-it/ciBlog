@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <tr>
                     <td data-label="ID"><?php echo $item["id"];?></td>
                     <td data-label="Name"><span class="trim-text"><?php echo htmlentities($item["name"]); ?></span></td>
-                    <td data-label="Parent"><?php echo $item["parent"]; ?></td>
+                    <td data-label="Parent"><?php echo "[".$item["parent"]."] ".$item["_parent"] ; ?></td>
                     <td data-label="Description"><span class="trim-text"><?php echo htmlentities($item["description"]); ?></span></td>
                     <td data-label="Created"><?php echo $item["created"]; ?></td>
                     <td data-label="Sort Index"><?php echo $item["sort_index"]; ?></td>
