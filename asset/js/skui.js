@@ -538,13 +538,13 @@ if (window.jQuery) {
 			}
 			panel.expand(panel.find(".skui-accordion-label:first"));
 			panel.on("click", ".skui-accordion-label", function(evt) {
-				var label = this.jq;
+				/*var label = this.jq;
 				if(label.is(".expanded")) {
 					label.removeClass("expanded");
 					label.next(".skui-accordion-item").removeClass("expanded").hide();
-				} else {
+				} else {*/
 					panel.expand(this.jq);
-				}
+				//}
 			})
 			return panel;
 		},
