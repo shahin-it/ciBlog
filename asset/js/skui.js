@@ -513,6 +513,12 @@ if (window.jQuery) {
                 if (!files.length) {
                     return
                 }
+                var maxSize = fileInput.data("maxSize");
+				if(maxSize && files[0].size > maxSize){
+					alert("Max allowed size is "+maxSize+"!");
+					this.value = "";
+					return;
+				};
                 var reader = new FileReader()
                 reader.onload = function (evt) {
                     imgPrev.attr("src", evt.target.result)

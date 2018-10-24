@@ -14,7 +14,7 @@ if($post) {
 	</div>
 	<div class="post-body">
 		<?php if($post["image"]) {?>
-			<div class="post-image float-left"><img src="<?php echo(base_url($post["image"]))?>" class="img-fluid"></div>
+			<div class="post-image float-left overflow-hide mb-2"><img src="<?php echo(base_url($post["image"]))?>" class="img-fluid"></div>
 		<?php }?>
 		<div class="post-details">
 			<?php echo $post["description"]?>
