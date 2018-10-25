@@ -20,8 +20,8 @@
 	<script src="<?php echo base_url(); ?>asset/vendor/jquery.form.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/vendor/bootstrap.min.js"></script>
 	<script src="<?php echo base_url(); ?>asset/vendor/jquery.twbsPagination.min.js"></script>
-<!--	<script src="--><?php //echo base_url(); ?><!--asset/vendor/tinymce/tinymce.min.js"></script>-->
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=wt3uzmqklhngrq7rtggyqdizn4k1cgkaod5o63m9q1jvjdsa"></script>
+	<script src="<?php echo base_url(); ?>asset/vendor/tinymce/tinymce.min.js"></script>
+<!--	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=wt3uzmqklhngrq7rtggyqdizn4k1cgkaod5o63m9q1jvjdsa"></script>-->
 	<script src="<?php echo base_url(); ?>asset/js/skui.js"></script>
 	<script src="<?php echo base_url(); ?>asset/js/admin.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>asset/vendor/bootstrap.min.css"/>
