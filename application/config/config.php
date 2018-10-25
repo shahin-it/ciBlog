@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '/';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -223,7 +223,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 1;
+$config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------
@@ -248,7 +248,7 @@ $config['log_path'] = '';
 | Note: Leaving it blank will default to 'php'.
 |
 */
-$config['log_file_extension'] = 'txt';
+$config['log_file_extension'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -529,3 +529,6 @@ if (ENVIRONMENT == "development") {
 }
 $config['index_page'] = '';
 $config['csrf_protection'] = FALSE;
+$config['log_threshold'] = 1;
+$config['log_file_extension'] = 'txt';
+$config['cache_query_string'] = TRUE;
