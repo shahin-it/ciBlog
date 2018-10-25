@@ -204,11 +204,16 @@ button {
 	width: 70%;
 }
 .skui-image-preview {
-	height: 50px;
+	max-height: 50px;
 	max-width: 100px;
+	overflow: hidden;
 }
-.mark-prime {
+.mark-active {
 	border-left: 5px solid #5bc0de;
+	border-radius: .25rem;
+}
+.mark-inactive {
+	border-left: 5px solid #de103c;
 	border-radius: .25rem;
 }
 .overflow-hide {

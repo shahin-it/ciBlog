@@ -5,7 +5,7 @@ if($post) {
 <div class="post-single">
 	<div class="post-title">
 		<div class="post-info">
-			<div class="category font-weight-bold"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
+			<div class="category font-weight-bold"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
 		</div>
 		<h1 class=""><?php echo $post["name"]?></h1>
 		<div class="post-meta text-muted">

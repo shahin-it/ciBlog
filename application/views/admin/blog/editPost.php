@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 	<div class="form-row">
 		<div class="form-group skui-image-chooser col-sm-6">
-			<label for="">Image</label>
+			<label for="">Image (1200 X 800)</label>
 			<div class="form-control">
 				<!--max size 2 MB-->
 				<input type="file" name="image" data-max-size="2097152" accept="image/*" value="<?php echo @$item["image"];?>">

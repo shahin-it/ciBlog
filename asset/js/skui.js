@@ -340,9 +340,10 @@ if (window.jQuery) {
         },
         notify: function (message, type) {
             type = type || "info"
-            type = type == "error" ? "danger" : type;
+            type == "error" ? "danger" : type;
+			var sign = {danger: "exclamation-triangle", info: "info-circle", success: "check-circle"};
             var alert = $('<div class="skui-alert alert alert-'+type+' alert-dismissible fade show" role="alert">\
-			  <strong style="text-transform:capitalize;">' + type + '! </strong>' + message + '.\
+			  <strong class="pr-2 fas fa-'+sign[type]+'"></strong>' + message + '.\
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>\
 			</div>');
             $("body").prepend(alert);

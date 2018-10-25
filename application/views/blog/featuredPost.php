@@ -32,7 +32,7 @@ foreach($items as $i=>$post) {
 	<div class="col-lg-6">
 		<div class="card flex-md-row mb-4 shadow-sm h-md-200">
 			<div class="card-body d-flex flex-column align-items-start">
-				<strong class="d-inline-block mb-2 text-primary"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></strong>
+				<strong class="d-inline-block mb-2 text-primary"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></strong>
 				<h4 class="mb-0">
 					<a class="text-dark" href="<?php echo base_url("post/".$post["id"])?>"><?php echo $post["name"]?></a>
 				</h4>

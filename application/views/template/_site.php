@@ -60,168 +60,29 @@
         } echo "\n\t";
 
         /** -- to here -- */
-
-
-		$categories = $this->blogCategory->getCategoryTree(null);
-		$navigations = $this->navigation->getNavigationTree(null, ["is_active"=>"Y"]);
-		$postByMonth = $this->blogPost->getPostByMonth();
         ?>
 
     </head>
     <body>
 	<div class="container">
 		<header class="blog-header">
-			<nav class="navbar navbar-expand-md navbar-light bg-light skui-hover-menu">
-				<a class="navbar-brand" href="<?php echo base_url()?>"><img class="logo" height="28" width="28" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavDropdown">
-					<ul class="navbar-nav">
-						<?php
-						foreach ($navigations as $nav) {
-							if (!$nav["child"]) {
-								echo '<li class="nav-item $home">' .
-									'<a class="nav-link" target="'.$nav["target"].'" href="'.base_url($nav["uri"]).'">'.$nav["name"].'</a>' .
-									'</li>';
-							} else {
-								echo '<li class="nav-item dropdown">'.
-									'<a class="nav-link dropdown-toggle link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$nav["name"].'</a>'.
-									'<ul class="dropdown-menu">';
-									foreach ($nav["child"] as $_nav) {
-										if(!$_nav["child"]) {
-											echo '<li><a class="dropdown-item" target="'.$_nav["target"].'" href="'.base_url($_nav["uri"]).'">'.$_nav["name"].'</a></li>';
-										} else {
-											echo '<li>' .
-												'<a class="dropdown-item dropdown-toggle" target="'.$_nav["target"].'" href="#">'.$_nav["name"].'</a>' .
-												'<ul class="dropdown-menu">';
-											foreach ($_nav["child"] as $__nav) {
-												echo '<li><a class="dropdown-item" target="'.$__nav["target"].'" href="'.base_url($__nav["uri"]).'">'.$__nav["name"].'</a></li>';
-											}
-											echo '</ul>' .
-												'</li>';
-										}
-									}
-								echo '</ul>'.
-									'</li>';
-							}
-						}
-						?>
-
-						<!--<li class="nav-item <?php /*echo @$home*/?>">
-							<a class="nav-link" href="<?php /*echo base_url()*/?>">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item <?php /*echo @$featured*/?>">
-							<a class="nav-link" href="<?php /*echo base_url("category/featured")*/?>">Featured</a>
-						</li>
-						<li class="nav-item <?php /*echo @$latest*/?>">
-							<a class="nav-link" href="<?php /*echo base_url("category/latest")*/?>">Latest</a>
-						</li>
-						<li class="nav-item <?php /*echo @$popular*/?>">
-							<a class="nav-link" href="<?php /*echo base_url("category/popular")*/?>">Most Popular</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								Others
-							</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li>
-									<a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Submenu action</a></li>
-										<li><a class="dropdown-item" href="#">Another submenu action</a></li>
-										<li><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-											<ul class="dropdown-menu">
-												<li><a class="dropdown-item" href="#">Subsubmenu action aa</a></li>
-												<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-											</ul>
-										</li>
-										<li><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
-											<ul class="dropdown-menu">
-												<li><a class="dropdown-item" href="#">Subsubmenu action bb</a></li>
-												<li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li><a class="dropdown-item dropdown-toggle" href="#">Submenu 2</a>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Submenu action 2</a></li>
-										<li><a class="dropdown-item" href="#">Another submenu action 2</a></li>
-										<li>
-											<a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
-											<ul class="dropdown-menu">
-												<li><a class="dropdown-item" href="#">Subsubmenu action 1 3</a></li>
-												<li><a class="dropdown-item" href="#">Another subsubmenu action 2 3</a></li>
-											</ul>
-										</li>
-										<li>
-											<a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu 3</a>
-											<ul class="dropdown-menu">
-												<li><a class="dropdown-item" href="#">Subsubmenu action 3 </a></li>
-												<li><a class="dropdown-item" href="#">Another subsubmenu action 3</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>-->
-					</ul>
-				</div>
-			</nav>
+			<?php $this->load->view("widget/navigationWidget"); ?>
 		</header>
 		<?php echo @$afterHeader; ?>
 		<main role="main" id="body">
 			<div class="row">
 				<aside class="col-md-4 col-lg-3 blog-sidebar">
 					<div class="p-3 mb-3 bg-light rounded">
-						<h4 class="font-italic">About</h4>
-						<p class="mb-0">
-							It's a web space for sharing knowledge about different Web technology e.g. Java, Groovy, Grails,
-							Spring Boot, JavaScript, Jquery, Web Development, SQL etc and Interesting android hacks.
-						</p>
+						<?php $this->load->view("widget/aboutWidget"); ?>
 					</div>
-
 					<div class="p-3">
-						<h4 class="font-italic">Categories</h4>
-						<ol class="side-bar-nav list-unstyled mb-0 skui-accordion-panel">
-							<?php foreach ($categories as $category) {?>
-							<li class="nav-item clearfix">
-								<a href="<?php echo base_url("category/".$category['id'])?>"><?php echo($category['name']);?></a>
-								<?php if($category["child"]) { ?>
-									<span class="skui-accordion-label float-right btn btn-link"><h6 class="fas fa-arrow-circle-down"></h6></span>
-									<ul class="skui-accordion-item">
-										<?php foreach ($category["child"] as $cat) {?>
-											<li class="nav-item"><a href="<?php echo base_url("category/".$cat['id'])?>" class="skui-accordion-label"><?php echo($cat['name']);?></a></li>
-										<?php } ?>
-									</ul>
-								<?php } ?>
-							</li>
-							<?php } ?>
-						</ol>
+						<?php $this->load->view("widget/categoryWidget"); ?>
 					</div>
-
 					<div class="p-3">
-						<h4 class="font-italic">Archives</h4>
-						<ol class="list-unstyled mb-0">
-							<?php foreach ($postByMonth as $dateTime) {?>
-							<li><a href="<?php echo base_url("archive/".$dateTime["year"]."/".$dateTime["month"])?>"><?php echo (date("F",
-											strtotime($dateTime["year"]."-".$dateTime["month"]))." ".$dateTime["year"]." [".$dateTime["count"]."]")?></a></li>
-							<?php }?>
-						</ol>
+						<?php $this->load->view("widget/archiveWidget"); ?>
 					</div>
-
 					<div class="p-3">
-						<h4 class="font-italic">Contact</h4>
-						<ol class="list-unstyled">
-							<li><a href="https://github.com/shahin-it" target="_blank">GitHub</a></li>
-							<li><a href="https://twitter.com/shahin_it" target="_blank">Twitter</a></li>
-							<li><a href="https://facebook.com/shahin31" target="_blank">Facebook</a></li>
-							<li><a href="tel: +8801722567008">+8801722567008</a></li>
-							<li><a href="mailto: mbstu.shahin@live.com">mbstu.shahin@live.com</a></li>
-						</ol>
+						<?php $this->load->view("widget/addressWidget"); ?>
 					</div>
 				</aside><!-- /.blog-sidebar -->
 				<div class="col-md-8 col-lg-9 blog-main">

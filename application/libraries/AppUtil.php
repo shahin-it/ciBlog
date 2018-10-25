@@ -144,6 +144,9 @@ class AppUtil {
 
 	public static function resizeImage($CI_INST, $source, $deist = null, $width, $height = 0)
 	{
+		$imgInfo = getimagesize($source);
+		$imgInfo[0] < $width && $width = $imgInfo[0];
+		$imgInfo[1] < $height && $height = $imgInfo[1];
 		$newFile = $source;
 		if($deist) {
 			$newFile = $deist;

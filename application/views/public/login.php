@@ -1,3 +1,6 @@
+<?php
+	defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <div class="card mx-auto skui-h-center">
 	<div class="card-header">
 		<h3>User Login</h3>

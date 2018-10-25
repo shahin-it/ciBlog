@@ -13,6 +13,9 @@ class PostAdmin extends MY_Controller {
     	if(!$image) {
     		unset($this->params["image"]);
 		}
+		if($this->params["description"]) {
+			$this->params["description"] = $_REQUEST["description"];
+		}
     	$save = $this->blogPost->save($this->params);
 		if($save) {
 			if($image) {

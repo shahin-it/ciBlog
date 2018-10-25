@@ -12,7 +12,7 @@ if($items) {
 			<div class="list-item">
 				<div class="post-title">
 					<div class="post-info">
-						<span class="category font-weight-bold"><a class="random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
+						<span class="category font-weight-bold"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
 					</div>
 					<a class="link" href="<?php echo base_url("post/".$post["id"]); ?>"><h2><?php echo $post["name"]?></h2></a>
 					<div class="post-meta text-muted">
