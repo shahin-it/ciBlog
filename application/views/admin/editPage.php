@@ -22,12 +22,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="form-row">
 		<div class="form-group col-sm-6">
 			<label for="">Blog Post</label>
-			<?php echo form_dropdown('post', ([""=>"---Select Post---"] + $blogPost), @$item["post"], 'class="form-control" required'); ?>
+			<?php echo form_dropdown('post', ([""=>"---Select Post---"] + $blogPost), @$item["post"], 'class="form-control" data-toggle-target="page-content"'); ?>
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="">Published</label>
 			<?php echo form_dropdown('is_active', Constant::$YES_NO, @$item["is_active"], 'class="form-control"'); ?>
 		</div>
+    </div>
+    <div class="form-group page-content-">
+        <label for="">Content (TEXT/HTML)</label>
+        <textarea name="content" class="skui-text-editor" required><?php echo @$item["content"];?></textarea>
     </div>
     <button class="btn btn-md btn-primary form-submit">Submit</button>
 </form>

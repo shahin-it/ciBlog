@@ -12,13 +12,17 @@ class BlogPage extends MY_Controller {
     public function index($uri) {
     	$this->data[$uri] = "active";
     	$page = $this->page->getBy([], ["uri"=>$uri]);
-    	$postId = $page["post"];
-		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$postId, "is_active"=> "Y"]);
-		if($page["heading"]) {
-			$this->data["post"]["name"] = $page["heading"];
-		}
-		$this->output->append_title($page["title"]);
-		if($this->data["post"]) {
+        $this->output->append_title(@$page["title"]);
+
+        if (@$page["content"]) {
+            $this->data["page"] = $page;
+            $this->load->view('public/pageView', $this->data);
+        } elseif (@$page["post"]) {
+            $postId = $page["post"];
+            $this->data["post"] = $this->blogPost->getPostDetails(["id"=>$postId, "is_active"=> "Y"]);
+            if($page["heading"]) {
+                $this->data["post"]["name"] = $page["heading"];
+            }
 			$this->blogPost->incrementView($postId);
 			$this->load->view('blog/postDetails', $this->data);
 		} else {

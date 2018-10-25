@@ -526,9 +526,9 @@ if (ENVIRONMENT == "development") {
 	$config['base_url'] = '/ciblog/';
 } else {
 	$config['base_url'] = '/';
+    $config['log_threshold'] = 1;
 }
 $config['index_page'] = '';
 $config['csrf_protection'] = FALSE;
-$config['log_threshold'] = 1;
 $config['log_file_extension'] = 'txt';
 $config['cache_query_string'] = TRUE;
