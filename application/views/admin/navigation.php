@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="card skui-data-table" data-url="blogAdmin/navigation">
     <div class="card-header clearfix">
-        <div class="card-title float-left">Main Navigation List</div>
+        <div class="card-title float-left"><i class="fas fa-crosshairs"></i> Main Navigation List (<?php echo $count;?>)</div>
         <div class="card-option float-right">
             <button type="button" data-url="blogAdmin/editNavigation" class="btn btn-sm btn-primary add-new">+ ADD</button>
         </div>
