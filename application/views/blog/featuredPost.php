@@ -48,6 +48,6 @@ foreach($items as $i=>$post) {
 <?php } ?>
 </div>
 <?php } else {
-	echo '<p>No post found!</p>';
+	//echo '<p>No post found!</p>';
 }
 ?>
