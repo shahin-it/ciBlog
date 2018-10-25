@@ -73,6 +73,8 @@ class BlogAdmin extends MY_Controller {
 		$this->load->view('admin/editPage', $this->data);
 	}
 
+
+
 	public function navigation() {
 		$this->output->set_template('_admin');
 		$this->data = $this->navigation->getTableData($this->params,

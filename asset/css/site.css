@@ -83,6 +83,7 @@
 .post-details {
 	margin: 30px 10px;
 	word-wrap: break-word;
+	overflow-x: hidden;
 }
 .post-image {
 	padding: 5px 10px;

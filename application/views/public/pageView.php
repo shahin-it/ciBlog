@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="post-body">
-        <div class="post-details">
+        <div class="post-details img-fluid">
             <?php echo $page["content"]?>
         </div>
     </div>

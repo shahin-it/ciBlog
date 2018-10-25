@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<form class="create-edit-form" action="<?php echo base_url() ?>blogAdmin/save" method="post">
+<form class="create-edit-form" action="<?php echo base_url() ?>adminBase/savePage" method="post">
     <input type="hidden" name="id" value="<?php echo @$item["id"];?>">
-    <input type="hidden" name="_model" value="page">
     <span class="form-title">Create/Edit Page</span>
 	<div class="form-row">
 		<div class="form-group col-sm-6">
