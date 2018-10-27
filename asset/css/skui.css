@@ -21,7 +21,7 @@ body.body {
 	min-height: 100%;
 }
 header {
-	margin-bottom: 15px;
+	margin-bottom: 30px;
 }
 header a:hover, footer a:hover {
 	text-decoration: none;
