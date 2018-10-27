@@ -75,6 +75,7 @@ button {
 	flex-direction: row;
 	color: #555;
 	border-radius: 3px;
+	z-index: 9999;
 }
 
 .overlay .l-text {

@@ -425,7 +425,7 @@ if (window.jQuery) {
                         type: "POST",
                         dataType: "json",
                         beforeSubmit: function (arr, $form, options) {
-                            form.loader();
+                            body.loader();
                             if (config.preSubmit) {
                                 return config.preSubmit.apply(this, arguments);
                             }
@@ -440,7 +440,7 @@ if (window.jQuery) {
                             popup.modal("hide");
                         },
                         response: function () {
-                            form.loader(false);
+                            body.loader(false);
                             if (config.response) {
                                 config.response.apply(this);
                             }
