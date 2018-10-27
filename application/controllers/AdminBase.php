@@ -30,4 +30,8 @@ class AdminBase extends MY_Controller {
         }
     }
 
+    public function assetInfo() {
+        $this->output->rest(["filesystem.rootpath"=> base_url("asset/upload")]);
+    }
+
 }

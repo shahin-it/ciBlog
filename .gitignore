@@ -8,6 +8,8 @@ application/logs/*
 
 !application/*/.htaccess
 asset/image/blog/*
+asset/assetlib/*
+asset/thumbs/*
 
 composer.lock
 

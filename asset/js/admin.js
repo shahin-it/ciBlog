@@ -11,10 +11,9 @@ $(document).on("update-ui-done", function (evt, container) {
 					editor.save();
 				});
 			},
-            images_upload_url: app.baseUrl + "adminBase/uploadAsset",
 			theme: 'modern',
-			plugins: 'uploadimage print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
-			toolbar1: 'uploadimage formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+			plugins: 'responsivefilemanager print preview searchreplace autolink directionality visualblocks visualchars fullscreen image link media template code codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+			toolbar1: 'responsivefilemanager formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat fullscreen',
 			image_advtab: true,
 			templates: [
 				{ title: 'Test template 1', content: 'Test 1' },
@@ -22,7 +21,10 @@ $(document).on("update-ui-done", function (evt, container) {
 			],
 			content_css: [
 				'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-			]
+			],
+            external_filemanager_path: app.baseUrl + "filemanager/",
+            filemanager_title: "Responsive Filemanager" ,
+            // external_plugins: { "filemanager" : "/filemanager/plugin.min.js"}
 		})
 	}
 
