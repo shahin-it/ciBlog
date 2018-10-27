@@ -19,8 +19,8 @@ if($items) {
 						<i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "By <b>".$post["_user"]."</b> at ".$post["created"] ?></span>
 					</div>
 				</div>
-				<div class="post-details clearfix">
-					<div class="overflow-hide mr-2 mb-2 float-left" style="max-width: 200px; max-height: 200px">
+				<div class="post-card clearfix pt-3">
+					<div class="overflow-hide mr-2 my-2 float-left" style="max-width: 200px; max-height: 200px">
 						<a href="<?php echo base_url("post/".$post["id"]); ?>">
 							<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: Constant::NO_IMAGE_THUMB))?>">
 						</a>
