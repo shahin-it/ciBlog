@@ -80,9 +80,13 @@
 	word-break: break-word;
 	position: relative;
 }
+.post-body {
+    overflow-x: hidden;
+}
 .post-details {
 	margin: 30px 10px;
 	word-wrap: break-word;
+    display: contents;
 }
 .post-image {
 	padding: 5px 10px;
