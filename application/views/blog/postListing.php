@@ -9,7 +9,7 @@ if($items) {
 	</div>
 	<div class="list-items post-listing">
 		<?php foreach ($items as $post) {?>
-			<div class="list-item">
+			<div class="list-item py-5">
 				<div class="post-title">
 					<div class="post-info">
 						<span class="category font-weight-bold"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
