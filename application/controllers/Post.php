@@ -11,10 +11,12 @@ class Post extends MY_Controller {
 
     public function details($id) {
 		$this->data["post"] = $this->blogPost->getPostDetails(["id"=>$id, "is_active"=> "Y"]);
-		if($this->data["post"]) {
+		$post = $this->data["post"];
+		if($post) {
 			$this->blogPost->incrementView($id);
-			$this->output->append_title($this->data["post"]["name"]);
-			$this->load->view('blog/postDetails', $this->data);
+			$this->output->append_title($post["name"]);
+            $this->output->set_common_meta($post["name"], $post["summary"], @$post["meta"]);
+            $this->load->view('blog/postDetails', $this->data);
 		} else {
 			$this->data["heading"] = "Error 404";
 			$this->data["message"] = "Post not found!";
@@ -24,6 +26,7 @@ class Post extends MY_Controller {
     }
 
     public function category($uri) {
+        $category = false;
     	$where = ["blog_post.is_active"=> "Y"];
     	$view = "postListing";
     	$this->params["orderBy"] = "sort_index";
@@ -42,13 +45,20 @@ class Post extends MY_Controller {
 				break;
 			default:
 				$where["blog_post.category"] = $uri;
+				$category = true;
 				break;
 		}
 		$this->data["uri"] = "category/".$uri;
 		$this->data[$uri] = "active";
 		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
 		$this->output->append_title(ucfirst($uri)." Post");
-		$this->load->view("blog/".$view, $this->data);
+		if($category) {
+		    $category = $this->category->get($uri);
+		    if($category) {
+                $this->output->set_common_meta($category["name"], $category["description"], @$category["meta"]);
+            }
+        }
+        $this->load->view("blog/".$view, $this->data);
     }
 
     public function archive($year, $month) {

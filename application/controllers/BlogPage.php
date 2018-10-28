@@ -16,15 +16,17 @@ class BlogPage extends MY_Controller {
 
         if (@$page["content"]) {
             $this->data["page"] = $page;
+            $this->output->set_common_meta($page["title"], $page["heading"], @$page["meta"]);
             $this->load->view('public/pageView', $this->data);
         } elseif (@$page["post"]) {
             $postId = $page["post"];
-            $this->data["post"] = $this->blogPost->getPostDetails(["id"=>$postId, "is_active"=> "Y"]);
+            $post = $this->data["post"] = $this->blogPost->getPostDetails(["id"=>$postId, "is_active"=> "Y"]);
             if($page["heading"]) {
                 $this->data["post"]["name"] = $page["heading"];
             }
 			$this->blogPost->incrementView($postId);
-			$this->load->view('blog/postDetails', $this->data);
+            $this->output->set_common_meta($post["name"], $post["summary"], @$post["meta"]);
+            $this->load->view('blog/postDetails', $this->data);
 		} else {
 			$this->data["heading"] = "Error 404";
 			$this->data["message"] = "Post not found!";

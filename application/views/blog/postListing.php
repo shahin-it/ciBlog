@@ -22,7 +22,7 @@ if($items) {
 				<div class="post-card clearfix pt-3">
 					<div class="overflow-hide mr-2 my-2 float-left" style="max-width: 200px; max-height: 200px">
 						<a href="<?php echo base_url("post/".$post["id"]); ?>">
-							<img class="img-fluid" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: Constant::NO_IMAGE_THUMB))?>">
+							<img class="img-fluid" alt="<?php echo $post["name"]?>" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: Constant::NO_IMAGE_THUMB))?>">
 						</a>
 					</div>
 					<div class="post-summary d-inline">

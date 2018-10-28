@@ -15,3 +15,6 @@ footer {
         display: block !important;
     }
 }
+label {
+    font-weight: bold;
+}

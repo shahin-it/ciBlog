@@ -7,14 +7,14 @@ if($post) {
 		<div class="post-info">
 			<div class="category font-weight-bold"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></div>
 		</div>
-		<h1 class=""><?php echo $post["name"]?></h1>
+		<h1><?php echo $post["name"]?></h1>
 		<div class="post-meta text-muted">
 			<i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "By <b>".$post["_user"]."</b> at ".$post["created"] ?></span>
 		</div>
 	</div>
-	<div class="post-body">
+	<div class="post-body py-4">
 		<?php if($post["image"]) {?>
-			<div class="post-image float-left overflow-hide mb-2"><img src="<?php echo(base_url($post["image"]))?>" class="img-fluid"></div>
+			<div class="post-image float-left overflow-hide mb-2"><img class="img-fluid" alt="<?php echo $post["name"]?>" src="<?php echo(base_url($post["image"]))?>"></div>
 		<?php }?>
 		<div class="post-details mt-1">
 			<?php echo $post["description"]?>
