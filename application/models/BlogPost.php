@@ -16,6 +16,7 @@ class BlogPost extends MY_Model {
 	public $category = null;
 	public $summary;
 	public $description;
+    public $meta = null;
 	public $created_by = null;
 	public $is_active = "N";
 	public $is_featured = "N";

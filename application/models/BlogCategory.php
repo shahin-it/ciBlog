@@ -14,6 +14,7 @@ class BlogCategory extends MY_Model {
     public $name;
     public $parent = null;
     public $description = null;
+    public $meta = null;
     public $created;
 	public $updated;
     public $sort_index = 0;

@@ -53,7 +53,7 @@ class Post extends MY_Controller {
 		$this->data = array_merge($this->data, $this->blogPost->getPostTableData($this->params, $where));
 		$this->output->append_title(ucfirst($uri)." Post");
 		if($category) {
-		    $category = $this->category->get($uri);
+		    $category = $this->blogCategory->get($uri);
 		    if($category) {
                 $this->output->set_common_meta($category["name"], $category["description"], @$category["meta"]);
             }

@@ -16,6 +16,7 @@ class Page extends MY_Model {
 	public $url;
 	public $post = null;
 	public $content = null;
+    public $meta = null;
 	public $created;
 	public $updated;
 	public $sort_index = 0;
