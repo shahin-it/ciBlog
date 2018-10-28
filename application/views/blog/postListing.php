@@ -12,14 +12,14 @@ if($items) {
 			<div class="list-item py-5">
 				<div class="post-title">
 					<div class="post-info">
-						<span class="category font-weight-bold"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"><?php echo $post["_category"]?></a></span>
+						<span class="category font-weight-bold"><a class="fas fa-tags random-color" href="<?php echo base_url("category/".$post["category"])?>"> <?php echo $post["_category"]?></a></span>
 					</div>
 					<a class="link" href="<?php echo base_url("post/".$post["id"]); ?>"><h2><?php echo $post["name"]?></h2></a>
 					<div class="post-meta text-muted">
 						<i class="fas fa-calendar-alt text-warning"></i><span> <?php echo "By <b>".$post["_user"]."</b> at ".$post["created"] ?></span>
 					</div>
 				</div>
-				<div class="post-card clearfix pt-3">
+				<div class="post-card clearfix pt-3 border-top">
 					<div class="overflow-hide mr-2 my-2 float-left" style="max-width: 200px; max-height: 200px">
 						<a href="<?php echo base_url("post/".$post["id"]); ?>">
 							<img class="img-fluid" alt="<?php echo $post["name"]?>" src="<?php echo(base_url($post["thumb"] ? $post["thumb"]: Constant::NO_IMAGE_THUMB))?>">
