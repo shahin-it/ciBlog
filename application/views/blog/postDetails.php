@@ -14,7 +14,7 @@ if($post) {
 	</div>
 	<div class="post-body py-4">
 		<?php if($post["image"]) {?>
-			<div class="post-image float-left overflow-hide mb-2"><img class="img-fluid" alt="<?php echo $post["name"]?>" src="<?php echo(base_url($post["image"]))?>"></div>
+			<div class="post-image overflow-hide mb-2"><img class="img-fluid" alt="<?php echo $post["name"]?>" src="<?php echo(base_url($post["image"]))?>"></div>
 		<?php }?>
 		<div class="post-details mt-1">
 			<?php echo $post["description"]?>
