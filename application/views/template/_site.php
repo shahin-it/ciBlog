@@ -71,7 +71,7 @@
 		<?php echo @$afterHeader; ?>
 		<main role="main" id="body">
 			<div class="row">
-				<aside class="col-md-4 col-lg-3 blog-sidebar">
+				<aside id="navbarNavDropdown" class="col-md-4 col-lg-3 blog-sidebar collapse d-md-block d-lg-block">
 					<div class="p-3 mb-3 bg-light rounded">
 						<?php $this->load->view("widget/aboutWidget"); ?>
 					</div>
