@@ -2,7 +2,7 @@
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	$navigations = $this->navigation->getNavigationTree(null, ["is_active"=>"Y"]);
 ?>
-<nav class="navbar navbar-expand-md navbar-light bg-light skui-hover-menu">
+<nav class="nav-widget navbar navbar-expand-md navbar-light bg-light skui-hover-menu">
 	<a class="navbar-brand" href="<?php echo base_url()?>"><img class="logo" height="28" width="28" src="<?php echo base_url("asset/image/default/logo.png")?>"/> Batayon</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>

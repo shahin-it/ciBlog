@@ -64,39 +64,45 @@
 
     </head>
     <body>
-	<div class="container">
-		<header class="blog-header">
-			<?php $this->load->view("widget/navigationWidget"); ?>
-		</header>
-		<?php echo @$afterHeader; ?>
-		<main role="main" id="body">
-			<div class="row">
-				<aside id="navbarNavDropdown" class="col-md-4 col-lg-3 blog-sidebar collapse d-md-block d-lg-block">
-					<div class="p-3 mb-3 bg-light rounded">
-						<?php $this->load->view("widget/aboutWidget"); ?>
-					</div>
-					<div class="p-3">
-						<?php $this->load->view("widget/categoryWidget"); ?>
-					</div>
-					<div class="p-3">
-						<?php $this->load->view("widget/archiveWidget"); ?>
-					</div>
-					<div class="p-3">
-						<?php $this->load->view("widget/addressWidget"); ?>
-					</div>
-				</aside><!-- /.blog-sidebar -->
-				<div class="col-md-8 col-lg-9 blog-main">
-					<?php echo $output; ?>
-				</div><!-- /.blog-main -->
+        <div class="container">
+            <header class="blog-header">
+                <?php $this->load->view("widget/navigationWidget"); ?>
+            </header>
+            <?php echo @$afterHeader; ?>
+            <main role="main" id="body">
+                <div class="row">
+                    <aside id="navbarNavDropdown" class="col-md-4 col-lg-3 blog-sidebar collapse d-md-block d-lg-block">
+                        <?php $this->load->view("widget/categoryWidget"); ?>
+                        <?php $this->load->view("widget/archiveWidget"); ?>
+                    </aside><!-- /.blog-sidebar -->
+                    <div class="col-md-8 col-lg-9 blog-main">
+                        <?php echo $output; ?>
+                    </div><!-- /.blog-main -->
 
-			</div><!-- /.row -->
+                </div><!-- /.row -->
 
-		</main>
-	</div>
+            </main>
+        </div>
 
-	<footer class="blog-footer">
-		<p>&copy; 2017-<?php echo date("Y"); ?> <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</p>
-		<p><span class="link text-primary" id="back-to-top">Back to top</span></p>
-	</footer>
+        <footer class="blog-footer bg-dark">
+            <div class="footer-nav row mx-auto">
+                <div class="col-sm-4">
+                    <?php /*$this->load->view("widget/addressWidget"); */?>
+                    <div class="widget">
+                        <h4 class="widget-title">Important Links</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <?php $this->load->view("widget/addressWidget"); ?>
+                </div>
+                <div class="col-sm-4">
+                    <?php $this->load->view("widget/aboutWidget"); ?>
+                </div>
+            </div>
+            <div class="footer-note">
+                <span>&copy; 2017-<?php echo date("Y"); ?> <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</span>
+                <span id="top-link" class="link float-md-right text-primary fas fa-arrow-up" title="Back to Top">Top</span>
+            </div>
+        </footer>
     </body>
 </html>

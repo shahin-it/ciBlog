@@ -178,6 +178,18 @@ h1, h2, h3, h4, h5, h6 {
 	.h-md-200 { height: 200px; }
 }
 
+.widget {
+    padding: 1rem;
+}
+.widget .widget-title {
+	font-style: italic;
+    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
+}
+.footer-nav .widget-title {
+    border-bottom: 1px solid #3F6286;
+}
+
 /*
  * Blog name and description
  */
@@ -224,12 +236,16 @@ h1, h2, h3, h4, h5, h6 {
  * Footer
  */
 .blog-footer {
-	padding: 2.5rem 0;
+	padding-top: 2.5rem;
 	color: #999;
-	text-align: center;
 	background-color: #f9f9f9;
 	border-top: .05rem solid #e5e5e5;
 }
 .blog-footer p:last-child {
 	margin-bottom: 0;
+}
+.blog-footer .footer-note {
+    background-color: #0A2540;
+    border-top: 1px solid #364C62;
+    padding: 10px 0;
 }
