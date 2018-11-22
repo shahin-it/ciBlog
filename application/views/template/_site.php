@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="footer-note">
-                <span>&copy; 2017-<?php echo date("Y"); ?> <a href="https://twitter.com/shahin_it" target="_blank">SHAHIN KHALED</a>. All rights reserved</span>
+                <span>&copy; 2017-<?php echo date("Y"); ?> <a href="https://shahinkhaled.000webhostapp.com" target="_blank">SHAHIN KHALED</a>. All rights reserved</span>
                 <span id="top-link" class="link float-md-right text-primary fas fa-arrow-up" title="Back to Top">Top</span>
             </div>
         </footer>
