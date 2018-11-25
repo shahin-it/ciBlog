@@ -581,6 +581,26 @@ if (window.jQuery) {
                 return false
             }
             return true
+        },
+        modalImage: function (images) {
+            images.on("click", function () {
+                var img = this.jq;
+                var popup = $('<div class="modal popup-image-modal">\n' +
+                    '  <span class="close">&times;</span>\n' +
+                    '  <img class="modal-content">\n' +
+                    '  <div class="caption"></div>\n' +
+                    '</div>');
+                popup.modal({
+                    backdrop: false,
+                    keyboard: true,
+                });
+                popup.find(".modal-content").attr("src", this.src);
+                this.alt && popup.find(".caption").text(this.alt);
+                popup.find(".close").click(function () {
+                    popup.modal('hide');
+                    popup.remove();
+                });
+            });
         }
     };
 
@@ -671,6 +691,7 @@ if (window.jQuery) {
 			let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
 			$(this).css({"background-color": randomColor})
 		});
+		skui.modalImage(delegate.find(".popup-image"));
     }
 
     $(function () {
